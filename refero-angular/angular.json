@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "refero": {
+    "refero-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/refero",
+            "outputPath": "dist/refero-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "refero:build"
+            "browserTarget": "refero-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "refero:build:production"
+              "browserTarget": "refero-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "refero:build"
+            "browserTarget": "refero-angular:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "refero:serve"
+            "devServerTarget": "refero-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "refero:serve:production"
+              "devServerTarget": "refero-angular:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "refero"
+  "defaultProject": "refero-angular"
 }
