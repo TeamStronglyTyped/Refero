@@ -1,6 +1,6 @@
 export class Lists {
-  listId: number;
-  listName: string;
-  groupId: number;
-  userId: number;
+  listId : number;
+  listName : string;
+  groupId : number;
+  owner : string;
 }
