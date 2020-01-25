@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { GroupsComponent } from './groups/groups.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { ListComponent } from './list/list.component';
@@ -12,7 +14,10 @@ import { ListComponent } from './list/list.component';
     AppComponent,
     GroupsComponent,
     ListItemComponent,
-    ListComponent
+    ListComponent,
+    LoginComponent,
+    RegistrationComponent,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,
