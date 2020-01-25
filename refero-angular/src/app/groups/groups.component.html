@@ -1,5 +1,21 @@
-<div class="row">
-  <div class="col-8">
-    
+<div class="container"> 
+  <div class="row">
+    <div class="col-9">
+      <div *ngFor="let group of groups">
+        <div id="groups-info-panel" class="row py-3 justify-center">
+          <h4 id="group-name" class="col-6 text-center">
+            Group Name :
+            {{ group.groupName }}
+          </h4>
+          <div id="username-col" class="col-6 text-center">
+            <div *ngFor = "let users of usersGroups">       
+              <p id="user-in-group">
+                {{ users.username }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
