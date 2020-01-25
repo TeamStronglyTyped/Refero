@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-10">
+      <div *ngFor="let group of groups">
+          <div id="groups-info-panel" class="row mx-auto">
+            <div class="col-6 text-center">
+              <h4 id="group-name" class="display-4">
+                {{ group.groupName }}
+              </h4>
+          </div>
+            <div id="username-col" class="col-5 text-center group-col px-1">
+              <div *ngFor="let users of usersGroups">
+                <p id="user-in-group">
+                  {{ users.username }}
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
