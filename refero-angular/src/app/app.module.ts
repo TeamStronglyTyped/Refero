@@ -1,4 +1,3 @@
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -10,6 +9,13 @@ import { ListsPageComponent } from './lists-page/lists-page.component';
 import { PendingGroupsComponent } from './pending-groups/pending-groups.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 import { MyGroupsComponent } from './my-groups/my-groups.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { BannedUsersComponent } from './banned-users/banned-users.component';
+import { AllListsComponent } from './all-lists/all-lists.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 
 @NgModule({
   declarations: [
