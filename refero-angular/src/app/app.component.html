@@ -1,8 +1,12 @@
-<app-groups></app-groups>
-  
-
-
-
-
-
-<router-outlet></router-outlet>
+<body>
+    <app-groups></app-groups>
+    <main class="container-fluid">
+        <header class="row">
+            <nav class="col-12 text-center">
+                <a routerLink="/my-lists">Lists</a>
+                <a routerLink="/my-groups">Groups</a>
+            </nav>
+        </header>
+    </main>
+    <router-outlet></router-outlet>
+</body>

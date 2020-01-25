@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'refero-angular';
+
+  constructor(private elementRef: ElementRef) {
+    
+  }
+
+  // ngAfterViewInit() {
+  //   this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#2D2D2D';
+  // }
 }
