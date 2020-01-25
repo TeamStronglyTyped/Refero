@@ -1,3 +1,7 @@
+body{
+    background-color: #2d2d2d;
+}
+
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
