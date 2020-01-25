@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { NavValuesService } from '../nav-values.service';
 
 @Component({
-  selector: 'app-groups',
-  templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.css']
+  selector: 'app-lists-page',
+  templateUrl: './lists-page.component.html',
+  styleUrls: ['./lists-page.component.css']
 })
-export class GroupsComponent {
+export class ListsPageComponent implements OnInit {
 
+  navOne: string;
+  navTwo: string;
 
-  
-
-  constructor( private service : NavValuesService ) { 
+  constructor(private service: NavValuesService) {
     this.service.setNavOne("Lists");
     this.service.setNavTwo("Groups");
     this.service.setNavOneUrl("/my-lists");
@@ -21,8 +19,6 @@ export class GroupsComponent {
   }
 
   ngOnInit() {
-
   }
+
 }
-
-
