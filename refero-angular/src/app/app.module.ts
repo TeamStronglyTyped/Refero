@@ -1,5 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +15,10 @@ import { MyGroupsComponent } from './my-groups/my-groups.component';
   declarations: [
     AppComponent,
     GroupsComponent,
+    AdminHomeComponent,
+    AllUsersComponent,
+    BannedUsersComponent,
+    AllListsComponent,
     ListItemComponent,
     ListComponent,
     LoginComponent,
@@ -27,11 +29,8 @@ import { MyGroupsComponent } from './my-groups/my-groups.component';
     CreateGroupComponent,
     MyGroupsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
