@@ -1,0 +1,28 @@
+#user-in-group {
+  color : #ffe855;
+  background-color: #2d2d2d;
+  margin-top: .75vh;
+}
+
+#group-name {
+  color : #ffe855;
+  /* background-color: #535353; */
+  background-color : #2d2d2d;
+  justify-content : center;
+  align-items : center;
+}
+
+#username-col {
+  color : #ffe855;
+  /* background-color: #535353; */
+}
+
+.container-fluid {
+  background-color : #2d2d2d;
+}
+
+#groups-info-panel {
+  background-color: #535353;
+  margin-bottom : 1vh;
+  margin-top: 1vh;
+}

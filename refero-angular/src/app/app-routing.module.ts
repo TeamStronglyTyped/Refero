@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: "admin-home/banned-users", component: BannedUsersComponent },
   { path: "admin-home/all-users", component: AllUsersComponent },
   { path: "admin-home/all-lists", component: AllListsComponent }
+
 ];
 
 @NgModule({
