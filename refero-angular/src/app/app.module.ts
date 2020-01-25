@@ -6,13 +6,20 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { GroupsComponent } from './groups/groups.component';
+import { ListItemComponent } from './list-item/list-item.component';
+import { ListComponent } from './list/list.component';
+import { ListsPageComponent } from './lists-page/lists-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    GroupsComponent,
+    ListItemComponent,
+    ListComponent,
     LoginComponent,
     RegistrationComponent,
-    GroupsComponent
+    GroupsComponent,
+    ListsPageComponent
   ],
   imports: [
     BrowserModule,
