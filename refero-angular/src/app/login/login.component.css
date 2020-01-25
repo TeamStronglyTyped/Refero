@@ -3,7 +3,9 @@
     --input-padding-y: .75rem;
   }
   
-  
+  body {
+    background-color: #2D2D2D;
+  }
   
   .card-signin {
     border: 0;
@@ -19,7 +21,6 @@
   
   .card-signin .card-body {
     padding: 2rem;
-    background-color: #;
   }
   
   .form-signin {

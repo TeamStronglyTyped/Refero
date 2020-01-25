@@ -8,6 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { GroupsComponent } from './groups/groups.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { ListComponent } from './list/list.component';
+import { ListsPageComponent } from './lists-page/lists-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ListComponent } from './list/list.component';
     ListComponent,
     LoginComponent,
     RegistrationComponent,
-    GroupsComponent
+    GroupsComponent,
+    ListsPageComponent
   ],
   imports: [
     BrowserModule,
