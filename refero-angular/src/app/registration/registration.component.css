@@ -118,3 +118,8 @@ body{
   .btn.btn-success:not(:disabled):not(.disabled).active:focus {
     box-shadow: 0 0 0 0.2rem darkgoldenrod;
   }
+  
+  .errorText
+  {
+    color: red;
+  }
