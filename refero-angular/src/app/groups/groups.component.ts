@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { NavValuesService } from '../nav-values.service';
 
 @Component({
@@ -9,9 +7,6 @@ import { NavValuesService } from '../nav-values.service';
   styleUrls: ['./groups.component.css']
 })
 export class GroupsComponent {
-
-
-  
 
   constructor( private service : NavValuesService ) { 
     this.service.setNavOne("Lists");
