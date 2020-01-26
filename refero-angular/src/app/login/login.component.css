@@ -128,3 +128,8 @@ table{
 {
   margin-left: 2%;
 }
+
+.errorText
+{
+  color: red;
+}
