@@ -1,10 +1,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-10">
+      <div class="row mx-auto">
+        <div id="group-name-header" class="col-6 text-center">
+          Group Name :
+        </div>
+        <div id="group-members-header" class="col-5 text-center">
+          Group Members :
+        </div>
+      </div>
       <div *ngFor="let group of groups">
           <div id="groups-info-panel" class="row mx-auto">
-            <div class="col-6 text-center">
-              <h4 id="group-name" class="display-4">
+            <div  id="name-container" class="col-6 text-center">
+              <h4  id="group-name" class="display-4">
                 {{ group.groupName }}
               </h4>
           </div>

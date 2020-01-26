@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavValuesService } from '../nav-values.service';
 
 @Component({
   selector: 'app-pending-groups',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PendingGroupsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : NavValuesService ) { 
+    this.service.setNavOne("Lists");
+    this.service.setNavTwo("Groups");
+    this.service.setNavOneUrl("/my-lists");
+    this.service.setNavTwoUrl("/my-groups");
+  }
 
   ngOnInit() {
   }

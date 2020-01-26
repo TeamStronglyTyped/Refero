@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavValuesService } from '../nav-values.service';
 
 @Component({
   selector: 'app-create-group',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateGroupComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : NavValuesService ) {
+    this.service.setNavOne("Lists");
+    this.service.setNavTwo("Groups");
+    this.service.setNavOneUrl("/my-lists");
+    this.service.setNavTwoUrl("/my-groups");
+   }
 
   ngOnInit() {
   }
