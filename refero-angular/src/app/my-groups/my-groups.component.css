@@ -37,3 +37,14 @@
   align-items: center;
   justify-content : center;
 }
+
+.container-fluid {
+  padding-right:0;
+  padding-left:0;
+  margin-right:0;
+  margin-left:0;
+}
+
+#my-groups-container {
+  padding-left: 4vw;
+}

@@ -15,6 +15,7 @@ import { BannedUsersComponent } from './banned-users/banned-users.component';
 import { AllListsComponent } from './all-lists/all-lists.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { GroupSideNavComponent } from './group-side-nav/group-side-nav.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     ListsPageComponent,
     PendingGroupsComponent,
     CreateGroupComponent,
-    MyGroupsComponent
+    MyGroupsComponent,
+    GroupSideNavComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
