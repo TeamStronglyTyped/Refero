@@ -38,6 +38,14 @@ public class Users implements Serializable{
 	@JoinTable(name = "USERS_GROUPS", joinColumns = { @JoinColumn(name = "USERNAME") }, inverseJoinColumns = { @JoinColumn(name = "GROUPID") })
 	private List<Groups> listGroups=new ArrayList<>();
 
+	public Users()
+	{
+		this.userName="";
+		this.passWord="";
+		this.email="";
+		this.banned="";
+	}
+	
 	public Users(String userName, String passWord, String email, String banned) {
 		super();
 		this.userName = userName;
