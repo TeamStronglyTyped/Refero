@@ -20,8 +20,8 @@ public class ListItems implements Serializable{
 	private int itemId;
 	
 	@ManyToOne
-	@JoinColumn(name = "listId", nullable = false)
-	private Integer listId;
+	@JoinColumn(name = "list", nullable = false)
+	private Lists list;
 	
 	@Column(length=100)
 	private String listItem;
@@ -38,7 +38,7 @@ public class ListItems implements Serializable{
 	
 	public ListItems(Lists list, String listItem, String status, int orderId, Users creator, int priority) {
 		super();
-		this.listId = list.getListId();
+		this.list= list;
 		this.listItem = listItem;
 		this.status = status;
 		this.orderId = orderId;
@@ -54,12 +54,12 @@ public class ListItems implements Serializable{
 		this.itemId = itemId;
 	}
 
-	public Integer getList() {
-		return listId;
+	public Lists getList() {
+		return list;
 	}
 
-	public void setList(Integer list) {
-		this.listId = list;
+	public void setList(Lists list) {
+		this.list = list;
 	}
 
 	public String getListItem() {
@@ -104,7 +104,7 @@ public class ListItems implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ListItems [itemId=" + itemId + ", listId=" + listId + ", listItem=" + listItem + ", status=" + status
+		return "ListItems [itemId=" + itemId + ", list=" + list + ", listItem=" + listItem + ", status=" + status
 				+ ", orderId=" + orderId + ", creator=" + creator + ", priority=" + priority + "]";
 	}
 

@@ -12,25 +12,33 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class ListController {
 
     @Autowired
-    private ListsService listService;
+    private ListsService listsService;
 
     @Autowired
     private ListItemsService listItemsService;
 
-    @GetMapping("/get-my-lists")
+    @GetMapping("/get-all-lists")
     public List<Lists> getAllLists() {
-        return listService.getAllLists(); 
+        return listsService.getAllLists(); 
     }
 
     @GetMapping("/get-list-items/{list}")
     public List<ListItems> getListItems(@PathVariable int listId) {
         return listItemsService.getListItems(listId);
+    }
+
+    @PostMapping(value="/post-new-list")
+    public void postNewList(@RequestBody Lists list) {
+        listsService.postNewList(list);
     }
 
 }

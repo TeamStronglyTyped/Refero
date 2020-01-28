@@ -19,4 +19,9 @@ public class ListsServiceLogic implements ListsService {
         return listRepository.findAll();
     }
 
+    @Override
+    public void postNewList(Lists list) {
+        listRepository.save(list);
+    }
+
 }

@@ -7,5 +7,6 @@ import com.referospring.model.Lists;
 public interface ListsService {
 
     public List<Lists> getAllLists();
+    public void postNewList(Lists list);
 
 }

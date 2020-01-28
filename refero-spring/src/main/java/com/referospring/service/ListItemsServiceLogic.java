@@ -16,7 +16,7 @@ public class ListItemsServiceLogic implements ListItemsService {
 
     @Override
     public List<ListItems> getListItems(int listId) {
-        return listItemRepository.findByListId(listId);
+        return listItemRepository.getListItems(listId);
     }
 
 }
