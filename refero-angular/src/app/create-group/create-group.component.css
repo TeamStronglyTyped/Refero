@@ -1,0 +1,56 @@
+#add-user-btn{
+  background-color : #ffe855;
+}
+
+.container-fluid {
+  background-color: #2d2d2d;
+}
+
+.invite-input {
+  background: #535353;
+  color : #ffe855;
+  border-color: #ffe855;
+}
+
+::-webkit-input-placeholder {
+  color : #ffe855 !important;
+}
+
+.form-control:focus {
+  border-color: darkgoldenrod;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px darkgoldenrod;
+}
+
+.form-control:focus {
+  border-color: darkgoldenrod;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px darkgoldenrod;
+}
+
+.btn:hover {
+  background-color: darkgoldenrod;
+  border-color: yellow;
+  color:black;
+}
+
+table {
+  color : #ffe855;
+}
+
+#create-group-btn{
+  background-color : #ffe855;
+}
+
+#create-group-header{
+  color : #ffe855;
+}
+
+.container-fluid {
+  padding-right:0;
+  padding-left:0;
+  margin-right:auto;
+  margin-left:auto
+}
+
+#create-group-container{
+  padding-left : 4vw;
+}

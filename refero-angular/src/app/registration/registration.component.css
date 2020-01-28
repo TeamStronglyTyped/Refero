@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 body{
     background-color: #2d2d2d;
 }
 
-=======
->>>>>>> master
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
@@ -120,4 +117,9 @@ body{
   .btn.btn-success:not(:disabled):not(.disabled):active:focus,
   .btn.btn-success:not(:disabled):not(.disabled).active:focus {
     box-shadow: 0 0 0 0.2rem darkgoldenrod;
+  }
+  
+  .errorText
+  {
+    color: red;
   }

@@ -1,20 +1,24 @@
 #user-in-group {
   color : #ffe855;
-  background-color: #2d2d2d;
+  /* background-color: #2d2d2d; */
   margin-top: .75vh;
+}
+#group-name-header{
+  color : #ffe855;
+  font-size: 1.5em;
+}
+
+#group-members-header{
+  color : #ffe855;
+  font-size : 1.5em;
 }
 
 #group-name {
-  color : #ffe855;
-  /* background-color: #535353; */
-  background-color : #2d2d2d;
-  justify-content : center;
-  align-items : center;
+  color : #ffe855; 
 }
 
 #username-col {
   color : #ffe855;
-  /* background-color: #535353; */
 }
 
 .container-fluid {
@@ -23,6 +27,24 @@
 
 #groups-info-panel {
   background-color: #535353;
-  margin-bottom : 1vh;
+  margin-bottom : 4vh;
   margin-top: 1vh;
+  border-radius: 2em;
+}
+
+#name-container {
+  display: flex;
+  align-items: center;
+  justify-content : center;
+}
+
+.container-fluid {
+  padding-right:0;
+  padding-left:0;
+  margin-right:0;
+  margin-left:0;
+}
+
+#my-groups-container {
+  padding-left: 4vw;
 }

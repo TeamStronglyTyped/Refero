@@ -125,3 +125,7 @@ table {
 .right-button {
   margin-left: 2%;
 }
+
+.errorText {
+  color: red;
+}
