@@ -17,8 +17,13 @@ public class LoginController {
 
 	@PostMapping("/login")
 	public Users validateUser(@RequestBody Users user) {
+		user=service.getUsersByUserNameAndPassWord(user.getUserName(), user.getPassWord());
+		if(user!=null) {
+			if (user.getBanned()=="N") {
+				return user;
+			}
+		}
 		return null;
-		//return service.addAnimal(animal);
 	}
 	
 	@PostMapping("/register")
