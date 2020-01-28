@@ -4,25 +4,24 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class ListItems implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int itemId;
 	
 	@ManyToOne
-	@JoinColumn(name = "list_id", nullable = false)
-	private Lists list;
+	@JoinColumn(name = "listId", nullable = false)
+	private Integer listId;
 	
 	@Column(length=100)
 	private String listItem;
@@ -39,7 +38,7 @@ public class ListItems implements Serializable{
 	
 	public ListItems(Lists list, String listItem, String status, int orderId, Users creator, int priority) {
 		super();
-		this.list = list;
+		this.listId = list.getListId();
 		this.listItem = listItem;
 		this.status = status;
 		this.orderId = orderId;
@@ -55,14 +54,12 @@ public class ListItems implements Serializable{
 		this.itemId = itemId;
 	}
 
-	
-
-	public Lists getList() {
-		return list;
+	public Integer getList() {
+		return listId;
 	}
 
-	public void setList(Lists list) {
-		this.list = list;
+	public void setList(Integer list) {
+		this.listId = list;
 	}
 
 	public String getListItem() {
@@ -89,8 +86,6 @@ public class ListItems implements Serializable{
 		this.orderId = orderId;
 	}
 
-	
-
 	public Users getCreator() {
 		return creator;
 	}
@@ -109,12 +104,8 @@ public class ListItems implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ListItems [itemId=" + itemId + ", list=" + list + ", listItem=" + listItem + ", status=" + status
+		return "ListItems [itemId=" + itemId + ", listId=" + listId + ", listItem=" + listItem + ", status=" + status
 				+ ", orderId=" + orderId + ", creator=" + creator + ", priority=" + priority + "]";
 	}
-
-	
-
-	
 
 }

@@ -17,7 +17,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Users implements Serializable{
+public class Users implements Serializable {
+
 	@Id
 	@Column(length=30, nullable=false)
 	private String userName;
@@ -35,7 +36,7 @@ public class Users implements Serializable{
 	private List<Lists> listListsOwned=new ArrayList<>();
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "USERS_GROUPS", joinColumns = { @JoinColumn(name = "USERNAME") }, inverseJoinColumns = { @JoinColumn(name = "GROUPID") })
+	@JoinTable(name = "UsersGroups", joinColumns = { @JoinColumn(name = "USERNAME") }, inverseJoinColumns = { @JoinColumn(name = "GROUPID") })
 	private List<Groups> listGroups=new ArrayList<>();
 
 	public Users(String userName, String passWord, String email, String banned) {
@@ -110,8 +111,4 @@ public class Users implements Serializable{
 				+ listGroups + "]";
 	}
 	
-	
-	
-	
-
 }

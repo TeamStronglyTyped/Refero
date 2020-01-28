@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Groups implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int groupId;
@@ -51,6 +52,5 @@ public class Groups implements Serializable{
 	public String toString() {
 		return "Groups [groupId=" + groupId + ", groupName=" + groupName + "]";
 	}
-	
 	
 }

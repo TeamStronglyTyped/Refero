@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Admins implements Serializable{
+
 	@Id
 	@Column(length=30, nullable=false)
 	private String username;
@@ -40,5 +41,4 @@ public class Admins implements Serializable{
 		return "Admins [username=" + username + ", password=" + password + "]";
 	}
 	
-
 }
