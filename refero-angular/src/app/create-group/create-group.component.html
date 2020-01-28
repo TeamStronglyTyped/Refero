@@ -1,22 +1,26 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-10">
+    <div class="col-12">
       <div class="row">
-        <div id="create-group-header" class="col-12 text-center display-4">
-          <div>
-            Create a New Group
-            <hr>
+        <app-group-side-nav></app-group-side-nav>
+        <div class="col-10" id="create-group-container" >
+          <div class="row">
+            <div id="create-group-header" class="col-12 text-center display-4">
+              <div>
+                Create a New Group
+                <hr>
+              </div>  
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 mb-3 mt-4">
-          <input type="text" class="form-control invite-input" id="inputGroup" placeholder="Group Name">
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-12 mb-3 mt-4">
+              <input type="text" class="form-control invite-input" id="inputGroup" placeholder="Group Name">
+            </div>
+          </div>
           <div class="row mb-3">
             <div class="col-10">
-              <input #username type="text" class="form-control invite-input" id="inputUser" placeholder="Invite a User" autocomplete="off">
+              <input #username type="text" class="form-control invite-input" id="inputUser" placeholder="Invite a User"
+                autocomplete="off">
             </div>
             <div class="col-2">
               <button (click)="addUser( username.value )" id="add-user-btn" class="btn btn-block">Invite User</button>
@@ -43,6 +47,7 @@
             </div>
           </div>
         </div>
-
+      </div>
+    </div>
   </div>
 </div>
