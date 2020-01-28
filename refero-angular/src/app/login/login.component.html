@@ -8,17 +8,18 @@
               <form class="form-signin">
 
                 <div class="form-label-group">                  
-                  <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus title="Input Username" autocomplete="off">                  
+                  <input type="text" [(ngModel)]="user.username" name="inputUsername" class="form-control" placeholder="Username" required autofocus title="Input Username" autocomplete="off">                  
                 </div>
   
                 <div class="form-label-group">                  
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required title="Input Password">
+                  <input type="password" [(ngModel)]="user.password" name="inputPassword" class="form-control" placeholder="Password" required title="Input Password">
                 </div>
+                <p id="errorMessage" class="text-center errorText">{{errorMessage}}</p>
   
                 
-                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" type="button" (click)="submit()">Sign in</button>
                 
-                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" type="button">Forgot Password</button>
+                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" type="button" (click)="forgotPassword()">Forgot Password</button>
               
                   
                 

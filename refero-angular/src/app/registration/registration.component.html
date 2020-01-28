@@ -8,22 +8,26 @@
               <form class="form-signin">
 
                 <div class="form-label-group">                  
-                  <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus title="Input desired Username" autocomplete="off">                  
+                  <input type="text" (input)="validateUsername()" [(ngModel)]="user.username" name="inputUsername" class="form-control" placeholder="Username" required autofocus title="Input desired Username" autocomplete="off">                  
                 </div>
+                <p id="usernameMessage" class="text-center errorText">{{usernameError}}</p>
   
                 <div class="form-label-group">                  
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required title="Input Password.  Requires 1 letter, 1 number and 1 symbol">
+                  <input type="password" (input)="validatePassword()" [(ngModel)]="user.password" name="inputPassword" class="form-control" placeholder="Password" required title="Input Password.  Requires 1 letter, 2 numbers and 1 symbol">
                 </div>
+                <p id="passwordMessage" class="text-center errorText">{{passwordError}}</p>
   
                 <div class="form-label-group">                  
-                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required title="Confirmed password must match Password">
+                    <input type="password" (input)="validatePasswordConfirm()" [(ngModel)]="passwordConfirm" name="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required title="Confirmed password must match Password">
                 </div>
+                <p id="passwordConfirmMessage" class="text-center errorText">{{passwordConfirmError}}</p>
 
                 <div class="form-label-group">                  
-                    <input type="email" id="inputEmail" class="form-control" placeholder="E-Mail Address" required title="Input E-Mail Address." autocomplete="off">
+                    <input type="email" (input)="validateEmail()" [(ngModel)]="user.email" name="inputEmail" class="form-control" placeholder="E-Mail Address" required title="Input E-Mail Address." autocomplete="off">
                 </div>
+                <p id="emailMessage" class="text-center errorText">{{emailError}}</p>
 
-                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="register()" type="button">Register</button>
                 
               </form>
             </div>
