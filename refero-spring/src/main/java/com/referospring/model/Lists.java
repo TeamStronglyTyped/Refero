@@ -27,8 +27,8 @@ public class Lists implements Serializable{
 	private String listName;
 	
 	@ManyToOne
-	@JoinColumn(name = "groupid", nullable = false)
-	private Groups group;
+	@JoinColumn(name = "groupId", nullable = false)
+	private Groups groupId;
 	
 	@ManyToOne
 	@JoinColumn(name = "owner", nullable = false)
@@ -37,11 +37,17 @@ public class Lists implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "list")
 	private List<ListItems> listOfListItems=new ArrayList<>();
 	
-	
-	public Lists(String listName, Groups group, Users owner) {
-		super();
+	public Lists() {
+		this.listId = 0;
+		this.listName = "";
+		this.groupId = null;
+		this.owner = null;
+	}
+
+	public Lists(Integer listId, String listName, Groups groupId, Users owner) {
+		this.listId = listId;
 		this.listName = listName;
-		this.group = group;
+		this.groupId = groupId;
 		this.owner = owner;
 	}
 	
@@ -71,11 +77,11 @@ public class Lists implements Serializable{
 	}
 	
 	public Groups getGroup() {
-		return group;
+		return groupId;
 	}
 
-	public void setGroup(Groups group) {
-		this.group = group;
+	public void setGroup(Groups groupId) {
+		this.groupId = groupId;
 	}
 
 	public Users getOwner() {
@@ -85,7 +91,7 @@ public class Lists implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Lists [listId=" + listId + ", listName=" + listName + ", group=" + group + ", owner=" + owner + "]";
+		return "Lists [listId=" + listId + ", listName=" + listName + ", group=" + groupId + ", owner=" + owner + "]";
 	}
 	
 }

@@ -21,6 +21,7 @@ public class ListsServiceImpl implements ListsService {
 
     @Override
     public void postNewList(Lists list) {
+        System.out.println(list.toString());
         listRepository.save(list);
     }
 
