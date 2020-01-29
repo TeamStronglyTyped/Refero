@@ -53,6 +53,13 @@ public class Users implements Serializable {
 		this.banned="";
 	}
 	
+	public Users(String userName) {
+		this.userName = userName;
+		this.passWord="";
+		this.email="";
+		this.banned="";
+	}
+
 	public Users(String userName, String passWord, String email, String banned) {
 		super();
 		this.userName = userName;

@@ -24,14 +24,20 @@ public class Groups implements Serializable{
 	@Column(length=50, nullable=false)
 	private String groupName;
 
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "group")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "groupId")
 	private List<Lists> listList=new ArrayList<>();
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "groupId" )
 	private List<Invitations> groupIdInvitationList = new ArrayList <> ();
 	
 	
-	public Groups(String groupName) {
+	public Groups() {
+		this.groupId = 0;
+		this.groupName = "";
+	}
+
+	public Groups(Integer groupId, String groupName) {
+		this.groupId = groupId;
 		this.groupName = groupName;
 	}
 
