@@ -1,6 +1,6 @@
 export class Users {
-  username : string;
-  password : string;
+  userName : string;
+  passWord : string;
   email : string;
   banned : string;
 }

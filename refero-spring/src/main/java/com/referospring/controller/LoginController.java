@@ -21,7 +21,14 @@ public class LoginController {
 	public Users validateUser(@RequestBody Users user) {
 		user=service.getUsersByUserNameAndPassWord(user.getUserName(), user.getPassWord());
 		if(user!=null) {
+			if (user.getBanned()==null) {
+				user.setBanned("T");
+			}
 			if (user.getBanned().equals("F")) {
+				// initialize session here
+				return user;
+			}else {
+				// still return user to program, but no session is created because user is banned
 				return user;
 			}
 		}

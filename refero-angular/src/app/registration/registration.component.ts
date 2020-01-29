@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavValuesService } from '../nav-values.service';
 import { Users } from '../models/users';
+import { UsersService } from '../users.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,22 +17,22 @@ export class RegistrationComponent implements OnInit {
   passwordError: string = "";
   passwordConfirmError: string = "";
   emailError: string ="";
-  passwordConfirm: string = "";
+  passWordConfirm: string = "";
   usernameValid:boolean=false;
   passwordValid:boolean=false;
   passwordConfirmValid:boolean=false;
   emailValid:boolean=false;
 
 
-  constructor(private service: NavValuesService) {
+  constructor(private service: NavValuesService, private router:Router, private usersService: UsersService) {
     this.service.setNavOne("Login");
     this.service.setNavTwo("Register");
     this.service.setNavOneUrl("/");
     this.service.setNavTwoUrl("/register");
 
     this.user = new Users();
-    this.user.username="";
-    this.user.password="";
+    this.user.userName="";
+    this.user.passWord="";
     this.user.email="";
     this.user.banned="";
   }
@@ -40,7 +42,7 @@ export class RegistrationComponent implements OnInit {
 
   validateUsername(): void{
     const usernameRegex : RegExp = new RegExp(/^[A-Za-z0-9]{6,30}$/);
-    if (usernameRegex.test(this.user.username)){
+    if (usernameRegex.test(this.user.userName)){
       this.usernameError="";
       this.usernameValid=true;
     }else{
@@ -51,7 +53,7 @@ export class RegistrationComponent implements OnInit {
 
   validatePassword(): void{
     const passwordRegex : RegExp = new RegExp(/^(?=.*[A-Za-z])(?=.*[0-9]{2,})(?=.*[~!@#$%^&*])[A-Za-z0-9~!@#$%^&*]{8,40}$/);
-    if (passwordRegex.test(this.user.password)){
+    if (passwordRegex.test(this.user.passWord)){
       this.passwordError="";
       this.passwordValid=true;
     }else{
@@ -61,7 +63,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   validatePasswordConfirm():void{
-    if (this.user.password==this.passwordConfirm){
+    if (this.user.passWord==this.passWordConfirm){
       this.passwordConfirmError="";
       this.passwordConfirmValid=true;
     }else{
@@ -88,7 +90,28 @@ export class RegistrationComponent implements OnInit {
     this.validatePasswordConfirm();
     this.validateEmail();
     if(this.usernameValid && this.passwordValid && this.passwordConfirmValid && this.emailValid){
-      alert("registration success");
+      this.user.banned="F";
+      this.usersService.registerUser(this.user).subscribe(res=>{
+        this.user=res;
+        if (this.user){
+          this.router.navigate(['/']);
+        }
+      });
     }
   }
+
+  serverValidateUsername(){
+    this.validateUsername();
+    if(this.usernameValid){
+      this.usersService.userNameIsAvailable(this.user.userName).subscribe(res=>{
+        var isAvailable: Boolean = res;
+        if(!isAvailable){
+          this.usernameValid=false;
+          this.usernameError="Sorry. This Username is not available.";
+        }
+      });      
+    }
+  }
+
+  
 }
