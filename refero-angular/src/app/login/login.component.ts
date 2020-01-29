@@ -59,7 +59,6 @@ export class LoginComponent implements OnInit {
           // user banned is false so login to application
           this.user=res;
           this.errorMessage="";
-          alert("login success");
           this.router.navigate(['/my-lists']);
         } else {
           // ban flag is any thing other than false so user must be banned.  send nasty message.
