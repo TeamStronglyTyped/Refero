@@ -19,19 +19,14 @@ li {
   background-color: #ffe855;
   margin-bottom : -1000000px;
   padding-bottom : 1000000px;
-  /* overflow-y: hidden; */
-  overflow : auto;
+  overflow-y: hidden;
+  overflow-x : hidden;
   border-right: 2px solid #535353;
+  text-align : center;
 }
 
 .side-nav-option:hover {
   background-color: darkgoldenrod;
 }
 
-/* .myRow {
-  background-color: #ffe855;
-  margin : 0;
-  display: table;
-  width: 100%;
-} */
 
