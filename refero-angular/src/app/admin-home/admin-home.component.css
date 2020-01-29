@@ -8,9 +8,12 @@ div {
 h1 {
   color: #ffe855;
 }
-a {
-  color: #ffe855;
-  display: inline;
-  margin-left: 7vh;
-  margin-right: 7vh;
+main {
+  flex-direction: row;
+  display: flex;
+  margin-top: 4vh;
+}
+app-all-users {
+  margin-left: 6vw;
+  margin-right: 6vw;
 }

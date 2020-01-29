@@ -8,5 +8,5 @@ public interface ListsService {
 
     public List<Lists> getAllLists();
     public void postNewList(Lists list);
-
+    public void deletList(int id);
 }
