@@ -17,10 +17,9 @@ li {
 
 .nav-container {
   background-color: #ffe855;
-  margin-bottom : -1000000px;
-  padding-bottom : 1000000px;
+  height: 95vh;
   overflow-y: hidden;
-  overflow-x : hidden;
+  overflow-x: hidden;
   border-right: 2px solid #535353;
   text-align : center;
 }
