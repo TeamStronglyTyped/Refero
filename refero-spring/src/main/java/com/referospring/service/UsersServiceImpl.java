@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.referospring.model.Users;
-import com.referospring.repository.UsersDAO;
+import com.referospring.repository.UsersRepository;
 
 @Service
 public class UsersServiceImpl implements UsersService {
 	@Autowired
-	UsersDAO usersDao;
+	UsersRepository usersDao;
 	
 	@Override
 	public List<Users> getAllUsers() {
