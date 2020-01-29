@@ -2,6 +2,8 @@ package com.referospring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +21,7 @@ public class LoginController {
 	public Users validateUser(@RequestBody Users user) {
 		user=service.getUsersByUserNameAndPassWord(user.getUserName(), user.getPassWord());
 		if(user!=null) {
-			if (user.getBanned()=="N") {
+			if (user.getBanned().equals("F")) {
 				return user;
 			}
 		}
@@ -28,8 +30,12 @@ public class LoginController {
 	
 	@PostMapping("/register")
 	public Users addUsers(@RequestBody Users user) {
-		System.out.println("add user");
 		return service.addUsers(user);
+	}
+	
+	@GetMapping("/register/{username}")
+	public Boolean usernameIsAvailable(@PathVariable("username") String username) {
+		return (Boolean)(service.getUsersByUserName(username)==null);
 	}
 	
 }
