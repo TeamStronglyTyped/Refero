@@ -19,6 +19,7 @@ li {
   background-color: #ffe855;
   margin-bottom : -1000000px;
   padding-bottom : 1000000px;
+  /* overflow-y: hidden; */
   overflow : auto;
   border-right: 2px solid #535353;
 }
@@ -27,9 +28,10 @@ li {
   background-color: darkgoldenrod;
 }
 
-.myRow {
+/* .myRow {
   background-color: #ffe855;
   margin : 0;
   display: table;
   width: 100%;
-}
+} */
+

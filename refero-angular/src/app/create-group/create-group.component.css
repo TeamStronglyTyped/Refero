@@ -54,3 +54,8 @@ table {
 #create-group-container{
   padding-left : 4vw;
 }
+
+
+body {
+  overflow-x : hidden;
+}
