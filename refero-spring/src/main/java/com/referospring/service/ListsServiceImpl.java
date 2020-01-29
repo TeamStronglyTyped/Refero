@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ListsServiceLogic implements ListsService {
+public class ListsServiceImpl implements ListsService {
 
     @Autowired
     private ListRepository listRepository;
