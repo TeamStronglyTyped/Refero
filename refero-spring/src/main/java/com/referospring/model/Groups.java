@@ -27,6 +27,9 @@ public class Groups implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "group")
 	private List<Lists> listList=new ArrayList<>();
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "groupId" )
+	private List<Invitations> groupIdInvitationList = new ArrayList <> ();
+	
 	
 	public Groups(String groupName) {
 		this.groupName = groupName;

@@ -35,6 +35,12 @@ public class Users implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "owner")
 	private List<Lists> listListsOwned=new ArrayList<>();
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "toUser" )
+	private List<Invitations> usernameFromInvitationList = new ArrayList <> ();
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "fromUser" )
+	private List<Invitations> usernameToInvitationList = new ArrayList <> ();
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "UsersGroups", joinColumns = { @JoinColumn(name = "USERNAME") }, inverseJoinColumns = { @JoinColumn(name = "GROUPID") })
 	private List<Groups> listGroups=new ArrayList<>();
