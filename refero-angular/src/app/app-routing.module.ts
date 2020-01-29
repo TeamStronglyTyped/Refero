@@ -13,8 +13,9 @@ import { PendingGroupsComponent } from './pending-groups/pending-groups.componen
 import { CreateGroupComponent } from './create-group/create-group.component';
 
 const routes: Routes = [
+  {path: "", redirectTo: "login", pathMatch: "full"},
+  { path: "login", component: LoginComponent },
   { path: "my-lists", component: ListsPageComponent },
-  { path: "", component: LoginComponent },
   { path: "register", component: RegistrationComponent },
   { path : "groups", component : GroupsComponent }, 
   { path: "my-groups", component: MyGroupsComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: "admin-home", component: AdminHomeComponent },
   { path: "admin-home/banned-users", component: BannedUsersComponent },
   { path: "admin-home/all-users", component: AllUsersComponent },
-  { path: "admin-home/all-lists", component: AllListsComponent }
+  { path: "admin-home/all-lists", component: AllListsComponent },
+  {path: '**', redirectTo: '/login'}
 
 ];
 
