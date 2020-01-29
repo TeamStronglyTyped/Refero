@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private service: NavValuesService, private usersService: UsersService, private router:Router) {
     this.service.setNavOne("Login");
     this.service.setNavTwo("Register");
-    this.service.setNavOneUrl("/");
+    this.service.setNavOneUrl("/login");
     this.service.setNavTwoUrl("/register");
 
     this.user = new Users();
