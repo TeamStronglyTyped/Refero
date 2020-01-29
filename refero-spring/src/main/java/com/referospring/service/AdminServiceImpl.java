@@ -21,14 +21,13 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<Users> getBannedUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		String banned = "T";
+		return adminRepository.findByBanned(banned);
 	}
 
 	@Override
 	public Users bannUser(Users user) {
-		// TODO Auto-generated method stub
-		return null;
+		return adminRepository.save(user);
 	}
 
 }
