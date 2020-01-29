@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.referospring.model.Users;
 
 @Repository
-public interface UsersDAO extends JpaRepository<Users, String>{
+public interface UsersRepository extends JpaRepository<Users, String>{
 
 	Users findByUserName(String username);
 	Users findByUserNameAndPassWord(String username, String password);

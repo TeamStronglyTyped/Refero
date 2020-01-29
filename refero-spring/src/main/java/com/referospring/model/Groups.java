@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Groups implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int groupId;
@@ -25,6 +26,9 @@ public class Groups implements Serializable{
 
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "group")
 	private List<Lists> listList=new ArrayList<>();
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "groupId" )
+	private List<Invitations> groupIdInvitationList = new ArrayList <> ();
 	
 	
 	public Groups(String groupName) {
@@ -51,6 +55,5 @@ public class Groups implements Serializable{
 	public String toString() {
 		return "Groups [groupId=" + groupId + ", groupName=" + groupName + "]";
 	}
-	
 	
 }

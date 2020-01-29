@@ -13,12 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Lists implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int listId;
@@ -87,7 +87,5 @@ public class Lists implements Serializable{
 	public String toString() {
 		return "Lists [listId=" + listId + ", listName=" + listName + ", group=" + group + ", owner=" + owner + "]";
 	}
-	
-	
 	
 }
