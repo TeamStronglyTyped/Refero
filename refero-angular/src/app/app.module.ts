@@ -13,10 +13,12 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { BannedUsersComponent } from './banned-users/banned-users.component';
 import { AllListsComponent } from './all-lists/all-lists.component';
+import { UsersService } from './users.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { GroupSideNavComponent } from './group-side-nav/group-side-nav.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -37,8 +39,8 @@ import { FormsModule } from '@angular/forms';
     MyGroupsComponent,
     GroupSideNavComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
