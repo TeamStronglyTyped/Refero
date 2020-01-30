@@ -20,6 +20,7 @@ import { GroupSideNavComponent } from './group-side-nav/group-side-nav.component
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AccountComponent } from './account/account.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AccountComponent } from './account/account.component';
     CreateGroupComponent,
     MyGroupsComponent,
     GroupSideNavComponent,
-    AccountComponent
+    AccountComponent,
+    LogoutComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UsersService],

@@ -12,6 +12,7 @@ import { AllUsersComponent } from "./all-users/all-users.component";
 import { AllListsComponent } from "./all-lists/all-lists.component";
 import { PendingGroupsComponent } from './pending-groups/pending-groups.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: "my-lists", component: ListsPageComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: "admin-home", component: AdminHomeComponent },
   { path: "admin-home/banned-users", component: BannedUsersComponent },
   { path: "admin-home/all-users", component: AllUsersComponent },
-  { path: "admin-home/all-lists", component: AllListsComponent }
+  { path: "admin-home/all-lists", component: AllListsComponent },
+  { path: "/logout", component: LogoutComponent }
 
 ];
 
