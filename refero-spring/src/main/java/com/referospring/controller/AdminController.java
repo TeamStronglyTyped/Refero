@@ -17,10 +17,7 @@ import com.referospring.service.ListsService;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class AdminController  {
-  
-	
-   
-	
+
 	@Autowired
 	private AdminService adminService;
 	
@@ -35,5 +32,9 @@ public class AdminController  {
 	@PutMapping("/bann-user")
 	public Users bannUser(@RequestBody Users user) {
 		return adminService.bannUser(user);
+	}
+	@PutMapping("/restore-user")
+	public Users restoreUser(@RequestBody Users user) {
+		return adminService.restore(user);
 	}
 }

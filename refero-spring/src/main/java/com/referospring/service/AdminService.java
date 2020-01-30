@@ -9,5 +9,6 @@ public interface AdminService {
 	public List<Users> getAllUsers();
 	public List<Users> getBannedUsers();
 	public Users bannUser(Users user);
+	public Users restore(Users user);
 
 }
