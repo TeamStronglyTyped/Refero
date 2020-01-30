@@ -45,4 +45,9 @@ public class LoginController {
 		return (Boolean)(service.getUsersByUserName(username)==null);
 	}
 	
+	@GetMapping("/reject")
+	public void rejectThis() {
+		System.out.println("this should have been rejected!!!");
+	}
+	
 }
