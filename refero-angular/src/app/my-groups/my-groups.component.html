@@ -5,10 +5,10 @@
         <app-group-side-nav></app-group-side-nav>
         <div class="col-10" align="center" id="my-groups-container" >
           <div class="row">
-            <div id="group-name-header" class="col-6 text-center">
+            <div id="group-name-header" class="col-6 text-center pt-2">
               Group Name :
             </div>
-            <div id="group-members-header" class="col-5 text-center">
+            <div id="group-members-header" class="col-5 text-center pt-2">
               Group Members :
             </div>
           </div>
@@ -22,7 +22,7 @@
               <div id="username-col" class="col-5 text-center group-col px-1">
                 <div *ngFor="let users of usersGroups">
                   <p id="user-in-group">
-                    {{ users.username }}
+                    {{ users.userName }}
                   </p>
                 </div>
               </div>

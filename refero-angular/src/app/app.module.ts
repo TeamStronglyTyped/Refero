@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AccountComponent } from './account/account.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ListSideNavComponent } from './list-side-nav/list-side-nav.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LogoutComponent } from './logout/logout.component';
     MyGroupsComponent,
     GroupSideNavComponent,
     AccountComponent,
-    LogoutComponent
+    LogoutComponent,
+    ListSideNavComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UsersService],
