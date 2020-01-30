@@ -2,10 +2,8 @@ package com.referospring.controller;
 
 import java.util.List;
 
-import com.referospring.model.Groups;
 import com.referospring.model.ListItems;
 import com.referospring.model.Lists;
-import com.referospring.service.GroupsService;
 import com.referospring.service.ListItemsService;
 import com.referospring.service.ListsService;
 
@@ -26,9 +24,6 @@ public class ListController {
     private ListsService listsService;
 
     @Autowired
-    private GroupsService groupsService;
-
-    @Autowired
     private ListItemsService listItemsService;
 
     @GetMapping("/get-all-lists")
@@ -41,14 +36,9 @@ public class ListController {
         return listItemsService.getListItems(listId);
     }
 
-    @PostMapping(value="/post-new-list/{groupId}")
-    public void postNewList(@RequestBody Lists list, @PathVariable("groupId") Integer groupId) {
-        System.out.println("list="+list);
-        Groups tempGroup = new Groups();
-        tempGroup = groupsService.getGroupsById(groupId);
-        System.out.println("groups = "+tempGroup.toString());
+    @PostMapping(value="/post-new-list")
+    public void postNewList(@RequestBody Lists list) {
         listsService.postNewList(list);
-        
     }
     
     @DeleteMapping("delete-list/{id}")
