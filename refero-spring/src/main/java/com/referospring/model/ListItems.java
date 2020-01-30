@@ -4,24 +4,23 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class ListItems implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int itemId;
 	
 	@ManyToOne
-	@JoinColumn(name = "list_id", nullable = false)
+	@JoinColumn(name = "list", nullable = false)
 	private Lists list;
 	
 	@Column(length=100)
@@ -39,7 +38,7 @@ public class ListItems implements Serializable{
 	
 	public ListItems(Lists list, String listItem, String status, int orderId, Users creator, int priority) {
 		super();
-		this.list = list;
+		this.list= list;
 		this.listItem = listItem;
 		this.status = status;
 		this.orderId = orderId;
@@ -54,8 +53,6 @@ public class ListItems implements Serializable{
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
-
-	
 
 	public Lists getList() {
 		return list;
@@ -89,8 +86,6 @@ public class ListItems implements Serializable{
 		this.orderId = orderId;
 	}
 
-	
-
 	public Users getCreator() {
 		return creator;
 	}
@@ -112,9 +107,5 @@ public class ListItems implements Serializable{
 		return "ListItems [itemId=" + itemId + ", list=" + list + ", listItem=" + listItem + ", status=" + status
 				+ ", orderId=" + orderId + ", creator=" + creator + ", priority=" + priority + "]";
 	}
-
-	
-
-	
 
 }

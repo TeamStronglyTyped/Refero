@@ -15,6 +15,7 @@ import { CreateGroupComponent } from './create-group/create-group.component';
 import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
+  {path: "", redirectTo: "login", pathMatch: "full"},
   { path: "my-lists", component: ListsPageComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegistrationComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: "admin-home/banned-users", component: BannedUsersComponent },
   { path: "admin-home/all-users", component: AllUsersComponent },
   { path: "admin-home/all-lists", component: AllListsComponent },
-  { path: "/logout", component: LogoutComponent }
+  { path: "/logout", component: LogoutComponent },
+  {path: '**', redirectTo: '/login'}
 
 ];
 

@@ -1,10 +1,10 @@
-body{
+body {
   background-color: #2d2d2d;
 }
 
 :root {
   --input-padding-x: 1.5rem;
-  --input-padding-y: .75rem;
+  --input-padding-y: 0.75rem;
 }
 
 .card-signin {
@@ -32,7 +32,7 @@ body{
 .form-signin .btn {
   font-size: 80%;
   border-radius: 5rem;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
@@ -47,16 +47,15 @@ body{
   height: auto;
   border-radius: 2rem;
   background-color: #2d2d2d;
-  color:#ffe855;
+  color: #ffe855;
   border-color: #ffe855;
-  
 }
 
-.form-label-group ::-webkit-input-placeholder{
+.form-label-group ::-webkit-input-placeholder {
   color: darkgoldenrod;
 }
 
-.form-label-group>label {
+.form-label-group > label {
   position: absolute;
   top: 0;
   left: 0;
@@ -65,15 +64,13 @@ body{
   margin-bottom: 0;
   /* Override default `<label>` margin */
   line-height: 1.5;
-  color: #495057;    
+  color: #495057;
   border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
+  border-radius: 0.25rem;
+  transition: all 0.1s ease-in-out;
 }
 
-
-
-table{
+table {
   margin-top: 5px;
 }
 
@@ -85,31 +82,33 @@ table{
 .btn.btn-success {
   background-color: #ffe855;
   border-color: darkgoldenrod;
-  color:black;
+  color: black;
 }
 .btn.btn-success:hover {
   background-color: darkgoldenrod;
   border-color: yellow;
-  color:black;
+  color: black;
 }
-.btn.btn-success:focus, .btn.btn-success.focus {
+.btn.btn-success:focus,
+.btn.btn-success.focus {
   box-shadow: 0 0 0 0.2rem darkgoldenrod;
 }
-.btn.btn-success.disabled, .btn.btn-success:disabled {
+.btn.btn-success.disabled,
+.btn.btn-success:disabled {
   background-color: #ffe855;
   border-color: darkgoldenrod;
-  color:black;
+  color: black;
 }
 .btn.btn-success:not(:disabled):not(.disabled):active,
 .btn.btn-success:not(:disabled):not(.disabled).active {
   background-color: #fff29d;
   border-color: darkgoldenrod;
-  color:orangered;
+  color: orangered;
 }
 .show > .btn.btn-success.dropdown-toggle {
   background-color: #ffe855;
   border-color: darkgoldenrod;
-  color:black;
+  color: black;
 }
 .show > .btn.btn-success.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem darkgoldenrod;
@@ -119,17 +118,14 @@ table{
   box-shadow: 0 0 0 0.2rem darkgoldenrod;
 }
 
-.left-button
-{
+.left-button {
   margin-right: 2%;
 }
 
-.right-button
-{
+.right-button {
   margin-left: 2%;
 }
 
-.errorText
-{
+.errorText {
   color: red;
 }
