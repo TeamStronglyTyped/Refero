@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private service: NavValuesService, private usersService: UsersService, private router:Router) {
     this.service.setNavOne("Login");
     this.service.setNavTwo("Register");
-    this.service.setNavOneUrl("/");
+    this.service.setNavOneUrl("/login");
     this.service.setNavTwoUrl("/register");
 
     this.user = new Users();
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
     this.user.passWord="";
     this.user.email="";
     this.user.banned="";
+    this.usersService.setUser(this.user);
   }
 
   ngOnInit(){
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
           // user banned is false so login to application
           this.user=res;
           this.errorMessage="";
-          alert("login success");
+          this.usersService.setUser(this.user);
           this.router.navigate(['/my-lists']);
         } else {
           // ban flag is any thing other than false so user must be banned.  send nasty message.

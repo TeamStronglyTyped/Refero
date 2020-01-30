@@ -19,6 +19,7 @@ import { NgModule } from '@angular/core';
 import { GroupSideNavComponent } from './group-side-nav/group-side-nav.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HttpClientModule } from "@angular/common/http";
     PendingGroupsComponent,
     CreateGroupComponent,
     MyGroupsComponent,
-    GroupSideNavComponent
+    GroupSideNavComponent,
+    AccountComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UsersService],
