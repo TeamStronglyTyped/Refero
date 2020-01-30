@@ -24,6 +24,9 @@ public class GroupsServiceImpl implements GroupsService {
         groupsRepository.save(group);
     }
 
-
+    @Override
+    public Groups getGroupsById(Integer groupId){
+        return groupsRepository.findByGroupId(groupId);
+    }
 
 }

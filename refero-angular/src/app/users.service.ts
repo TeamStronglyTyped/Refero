@@ -7,11 +7,16 @@ import { Users } from "./models/users";
   providedIn: "root"
 })
 export class UsersService {
-  private url: string;
 
-  constructor(private http: HttpClient) {
-    this.url = "http://localhost:5050";
+  private url:string;
+  private user:Users;
+
+  constructor(private http:HttpClient) { 
+    this.url="http://localhost:5050";
+    this.user=new Users;
   }
+
+  
 
   public validateUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.url + "/login", user);
@@ -35,5 +40,13 @@ export class UsersService {
   }
   public restoreUser(user: Users){
     return this.http.put<Users>(this.url + "/restore-user", user);
+  }
+
+  public setUser(user: Users){
+    this.user=user;
+  }
+
+  public getUser(): Users{
+    return this.user;
   }
 }
