@@ -8,5 +8,6 @@ public interface GroupsService {
     
     public List<Groups> getAllGroups();
     public void postNewGroup(Groups group);
+    public Groups getGroupsById(Integer groupId);
 
 }

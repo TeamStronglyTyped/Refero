@@ -1,0 +1,31 @@
+a{
+    color : #2d2d2d;
+  }
+  
+  ul {
+    background-color : #2d2d2d;
+  }
+  
+  li {
+    border-bottom : 1px solid #535353;
+    width : 12vw;
+  }
+  
+  .side-nav-option {
+   background-color : #ffe855;
+  }
+  
+  .nav-container {
+    background-color: #ffe855;
+    height: 95vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-right: 2px solid #535353;
+    text-align : center;
+  }
+  
+  .side-nav-option:hover {
+    background-color: darkgoldenrod;
+  }
+  
+  

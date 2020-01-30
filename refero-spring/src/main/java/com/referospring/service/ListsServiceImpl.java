@@ -3,7 +3,6 @@ package com.referospring.service;
 import java.util.List;
 
 import com.referospring.model.Lists;
-import com.referospring.repository.AdminRepository;
 import com.referospring.repository.ListRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ public class ListsServiceImpl implements ListsService {
 
     @Autowired
     private ListRepository listRepository;
-    private AdminRepository admin;
 
     @Override
     public List<Lists> getAllLists() {
@@ -23,7 +21,6 @@ public class ListsServiceImpl implements ListsService {
 
     @Override
     public void postNewList(Lists list) {
-        System.out.println(list.toString());
         listRepository.save(list);
     }
 

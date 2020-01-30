@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GroupsRepository extends JpaRepository<Groups, Integer> {
+    Groups findByGroupId(Integer groupId);
 }

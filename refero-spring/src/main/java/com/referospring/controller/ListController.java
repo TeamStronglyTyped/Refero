@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class ListController {
@@ -29,7 +28,7 @@ public class ListController {
 
     @GetMapping("/get-all-lists")
     public List<Lists> getAllLists() {
-        return listsService.getAllLists(); 
+        return listsService.getAllLists();
     }
 
     @GetMapping("/get-list-items/{list}")

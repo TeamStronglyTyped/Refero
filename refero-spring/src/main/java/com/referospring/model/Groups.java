@@ -24,7 +24,7 @@ public class Groups implements Serializable{
 	@Column(length=50, nullable=false)
 	private String groupName;
 
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "groupId")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "inGroup")
 	private List<Lists> listList=new ArrayList<>();
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "groupId" )
@@ -39,6 +39,11 @@ public class Groups implements Serializable{
 	public Groups(Integer groupId, String groupName) {
 		this.groupId = groupId;
 		this.groupName = groupName;
+	}
+
+	public Groups(Integer groupId){
+		this.groupId=groupId;
+		this.groupName="";		
 	}
 
 	public int getGroupId() {
