@@ -33,4 +33,7 @@ export class UsersService {
   public bannUser(user: Users) {
     return this.http.put<Users>(this.url + "/bann-user", user);
   }
+  public restoreUser(user: Users){
+    return this.http.put<Users>(this.url + "/restore-user", user);
+  }
 }
