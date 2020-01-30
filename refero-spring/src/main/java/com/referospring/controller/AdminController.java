@@ -31,4 +31,8 @@ public class AdminController  {
 	public Users bannUser(@RequestBody Users user) {
 		return adminService.bannUser(user);
 	}
+	@PutMapping("/restore-user")
+	public Users restoreUser(@RequestBody Users user) {
+		return adminService.restore(user);
+	}
 }
