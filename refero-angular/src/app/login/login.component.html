@@ -5,14 +5,14 @@
           <div class="card card-signin my-5">
             <div class="card-body">
               <h5 class="card-title text-center">Refero Sign In</h5>
-              <form class="form-signin">
+              <form class="form-signin" (keydown.enter)="submit()">
 
                 <div class="form-label-group">                  
                   <input type="text" [(ngModel)]="user.userName" name="inputUsername" class="form-control" placeholder="Username" required autofocus title="Input Username" autocomplete="off">                  
                 </div>
   
                 <div class="form-label-group">                  
-                  <input type="password" [(ngModel)]="user.passWord" name="inputPassword" class="form-control" placeholder="Password" required title="Input Password">
+                  <input type="password" [(ngModel)]="user.passWord" name="inputPassword" class="form-control" placeholder="Password" required title="Input Password" >
                 </div>
                 <p id="errorMessage" class="text-center errorText">{{errorMessage}}</p>
   

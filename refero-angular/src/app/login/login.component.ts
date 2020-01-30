@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
     this.user.passWord="";
     this.user.email="";
     this.user.banned="";
+    this.usersService.setUser(this.user);
   }
 
   ngOnInit(){
@@ -59,6 +60,7 @@ export class LoginComponent implements OnInit {
           // user banned is false so login to application
           this.user=res;
           this.errorMessage="";
+          this.usersService.setUser(this.user);
           this.router.navigate(['/my-lists']);
         } else {
           // ban flag is any thing other than false so user must be banned.  send nasty message.

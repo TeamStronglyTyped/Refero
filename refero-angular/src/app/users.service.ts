@@ -8,10 +8,14 @@ import { Users } from './models/users';
 })
 export class UsersService {
   private url:string;
+  private user:Users;
 
   constructor(private http:HttpClient) { 
     this.url="http://localhost:5050";
+    this.user=new Users;
   }
+
+  
 
   public validateUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.url+"/login", user);
@@ -23,5 +27,13 @@ export class UsersService {
 
   public registerUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.url+"/register",user);
+  }
+
+  public setUser(user: Users){
+    this.user=user;
+  }
+
+  public getUser(): Users{
+    return this.user;
   }
 }

@@ -85,7 +85,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   register():void{
-    this.validateUsername();
+    this.serverValidateUsername();
     this.validatePassword();
     this.validatePasswordConfirm();
     this.validateEmail();
