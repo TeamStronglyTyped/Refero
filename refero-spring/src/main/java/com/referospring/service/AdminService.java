@@ -2,7 +2,6 @@ package com.referospring.service;
 
 import java.util.List;
 
-import com.referospring.model.Lists;
 import com.referospring.model.Users;
 
 public interface AdminService {
