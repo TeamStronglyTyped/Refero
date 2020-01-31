@@ -22,6 +22,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AccountComponent } from './account/account.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ListSideNavComponent } from './list-side-nav/list-side-nav.component';
+import { NavValuesService } from './nav-values.service';
 
 @NgModule({
   declarations: [
@@ -45,8 +46,16 @@ import { ListSideNavComponent } from './list-side-nav/list-side-nav.component';
     LogoutComponent,
     ListSideNavComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [UsersService],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    FormsModule, 
+    HttpClientModule
+  ],
+  providers: [
+    UsersService, 
+    NavValuesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

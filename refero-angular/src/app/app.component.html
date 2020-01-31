@@ -1,11 +1,14 @@
 <body>
     <main class="container-fluid">
         <header class="row">
-            <nav class="col-12 text-center">
-                <a routerLink="{{navOneUrl}}">{{navOne}}</a>
-                <a routerLink="{{navTwoUrl}}">{{navTwo}}</a>
+            <nav class="col-12 text-center" >
+                <span *ngFor="let ng of navGroup">
+                    <a routerLink="{{ng.navUrl}}">{{ng.nav}}</a>
+                </span>
+                
             </nav>
         </header>
     </main>
     <router-outlet></router-outlet>
+  </div>
 </body>

@@ -1,17 +1,9 @@
 <div>
   <h1>All Refero Users</h1>
   <ul>
-    <li>
-      User 1
-      <button>Ban</button>
-    </li>
-    <li>
-      User 2
-      <button>Ban</button>
-    </li>
-    <li>
-      User 3
-      <button>Ban</button>
+    <li *ngFor="let user of users">
+      Username: {{ user.userName }} Email: {{ user.email }} Banned:
+      {{ user.banned }} <button>Ban User</button>
     </li>
   </ul>
 </div>
