@@ -35,7 +35,20 @@ public class Invitations implements Serializable{
 	private Groups groupId;
 	
 	public Invitations() {
-		
+		this.invitationId = 0;
+		this.fromUser = null;
+		this.toUser = null;
+		this.status = "";
+		this.groupId = null;
+	}
+
+	public Invitations(int invitationId, Users fromUser, Users toUser, String status, Groups groupId) {
+		super();
+		this.invitationId = invitationId;
+		this.fromUser = fromUser;
+		this.toUser = toUser;
+		this.status = status;
+		this.groupId = groupId;
 	}
 
 	public int getInvitationId() {

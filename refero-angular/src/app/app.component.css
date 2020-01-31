@@ -1,14 +1,24 @@
 nav {
-    width: 100vw;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    background-color: #222222;
-    font-size: 1.5rem;
+  width: 100vw;
+  /*  */
+  background-color: black;
+  font-size: 1.5rem;
+  position: absolute;
 }
 
 a {
-    color: #ffe855;
-    display: inline;
-    margin-left: 7vh;
-    margin-right: 7vh;
+  color: #ffe855;
+  display: inline;
+  margin-left: 7vw;
+  margin-right: 7vw;
+}
+
+main {
+  background-color: black;
+}
+body {
+  background-color: black;
+}
+.content {
+  margin-top: 3vh;
 }

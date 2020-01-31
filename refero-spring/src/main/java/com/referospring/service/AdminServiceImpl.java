@@ -30,4 +30,9 @@ public class AdminServiceImpl implements AdminService {
 		return adminRepository.save(user);
 	}
 
+	@Override
+	public Users restore(Users user) {
+		return adminRepository.save(user);
+	}
+
 }
