@@ -4,6 +4,7 @@ import { Groups } from './models/groups';
 import { Invitations } from './models/invitations';
 import { GROUPS } from './mock-groups';
 import { Observable } from 'rxjs';
+import { UsersGroups } from './models/usersGroups';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class GroupsService {
 
   private url : string;
 
-  constructor(private http:HttpClient) { 
+  constructor( private http:HttpClient ) { 
     this.url="http://localhost:5050";
   }
 
@@ -26,6 +27,10 @@ export class GroupsService {
 
   public postInvitations( invitation : Invitations ) : Observable < Invitations > {
     return this.http.post < Invitations > ( this.url + "/post-new-invitation", invitation );
+  }
+
+  public addUserToGroup ( userGroup : UsersGroups ) : Observable < UsersGroups > {
+    return this.http.get < UsersGroups > ( this.url + '/add-user-to-group/' + userGroup.username + '/' + userGroup.groupId );
   }
 
 
