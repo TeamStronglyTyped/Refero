@@ -29,6 +29,12 @@ public class GroupsServiceImpl implements GroupsService {
         return groupsRepository.findByGroupId(groupId);
     }
 
+	@Override
+	public void addUserToGroup(String username, Integer groupId) {
+		groupsRepository.addUserToGroup( username, groupId );
+		
+	}
+
 //	@Override
 //	public List<Groups> getAllGroupsByUsername(String username) {
 //		

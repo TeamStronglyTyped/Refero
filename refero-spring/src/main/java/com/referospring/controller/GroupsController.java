@@ -52,5 +52,10 @@ public class GroupsController {
     {
         return groupsService.getGroupsById(groupId);
     }
+    
+    @GetMapping("/add-user-to-group/{username}/{groupId}")
+    public void addUserToGroup( @PathVariable("username")String username, @PathVariable("groupId") Integer groupId ) {
+    	groupsService.addUserToGroup( username, groupId );
+    }
 
 }
