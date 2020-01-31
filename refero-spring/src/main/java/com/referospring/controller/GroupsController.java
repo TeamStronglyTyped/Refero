@@ -1,4 +1,4 @@
-package com.referospring.controller;
+	package com.referospring.controller;
 
 import java.util.List;
 
@@ -33,8 +33,8 @@ public class GroupsController {
     }
 
     @PostMapping(value="/post-new-group")
-    public void postNewGroup(@RequestBody Groups group) {
-        groupsService.postNewGroup(group);
+    public Groups postNewGroup(@RequestBody Groups group) {
+        return groupsService.postNewGroup(group);
     }
     
     @PostMapping(value="/post-new-invitation")

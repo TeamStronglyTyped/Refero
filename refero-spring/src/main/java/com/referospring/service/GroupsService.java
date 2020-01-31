@@ -7,7 +7,8 @@ import com.referospring.model.Groups;;
 public interface GroupsService {
     
     public List<Groups> getAllGroups();
-    public void postNewGroup(Groups group);
+    public Groups postNewGroup(Groups group);
     public Groups getGroupsById(Integer groupId);
+//    public List<Groups> getAllGroupsByUsername( String username );
 
 }
