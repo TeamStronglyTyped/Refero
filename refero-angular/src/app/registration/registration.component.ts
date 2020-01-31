@@ -25,10 +25,10 @@ export class RegistrationComponent implements OnInit {
 
 
   constructor(private service: NavValuesService, private router:Router, private usersService: UsersService) {
-    this.service.setNavOne("Login");
-    this.service.setNavTwo("Register");
-    this.service.setNavOneUrl("/login");
-    this.service.setNavTwoUrl("/register");
+    this.service.purgeNav();
+    this.service.addNav("/login","Login");
+    this.service.addNav("/register","Register");
+    this.service.publish();
 
     this.user = new Users();
     this.user.userName="";

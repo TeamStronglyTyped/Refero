@@ -11,11 +11,13 @@ export class ListsPageComponent implements OnInit {
   navOne: string;
   navTwo: string;
 
-  constructor(private service: NavValuesService) {
-    this.service.setNavOne("Lists");
-    this.service.setNavTwo("Groups");
-    this.service.setNavOneUrl("/my-lists");
-    this.service.setNavTwoUrl("/my-groups");
+  constructor(private service: NavValuesService) {  
+    this.service.purgeNav();
+    this.service.addNav("/my-lists","Lists");
+    this.service.addNav("/groups","Groups");
+    this.service.addNav("/account","Account");
+    this.service.addNav("/logout","Logout");
+    this.service.publish();
   }
 
   ngOnInit() {

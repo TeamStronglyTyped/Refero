@@ -1,38 +1,67 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable, EventEmitter } from '@angular/core';
+import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavValuesService {
+  
+  navGroup : NavGroup[]=new Array<NavGroup>();
+  numLinks: number=0;
 
-  private navOneUrlChange = new BehaviorSubject('');
-  navOneUrl: Observable<string> = this.navOneUrlChange.asObservable();
+  invokeUpdate = new EventEmitter();
+  subscriptionVar: Subscription;
 
-  private navTwoUrlChange = new BehaviorSubject('');
-  navTwoUrl: Observable<string> = this.navTwoUrlChange.asObservable();
+  constructor() { 
+    
+  }
 
-  private navOneChange = new BehaviorSubject('');
-  navOne: Observable<string> = this.navOneChange.asObservable();
+  addNav(url:string, nav:string){
+    this.navGroup.push(new NavGroup());
+    this.navGroup[this.numLinks].navUrlChange = new BehaviorSubject('');
+    this.navGroup[this.numLinks].navChange = new BehaviorSubject('');
+    this.navGroup[this.numLinks].navUrl = this.navGroup[this.numLinks].navUrlChange.asObservable();
+    this.navGroup[this.numLinks].nav = this.navGroup[this.numLinks].navChange.asObservable();
+    this.navGroup[this.numLinks].navUrlChange.next(url);
+    this.navGroup[this.numLinks].navChange.next(nav);
+    
+    this.numLinks++;
+  }
 
-  private navTwoChange = new BehaviorSubject('');
-  navTwo: Observable<string> = this.navTwoChange.asObservable();
+  purgeNav(){
+    if(this.navGroup.length>0){
+      this.navGroup=new Array<NavGroup>();
+      this.numLinks=0;
+    }
+  }
 
-  constructor() { }
-
+  publish(){
+    this.invokeUpdate.emit();
+  }
+  /********************************
+  DELETE next 4 functions after all components are up to date with new nav bar update method
+  *********************************/
   setNavOne(navOne: string) {
-    this.navOneChange.next(navOne);
+    return;
   }
-
   setNavTwo(navTwo: string) {
-    this.navTwoChange.next(navTwo);
+    return;
   }
-
   setNavOneUrl(navOneUrl: string) {
-    this.navOneUrlChange.next(navOneUrl);
+    return;
   }
-
   setNavTwoUrl(navTwoUrl: string) {
-    this.navTwoUrlChange.next(navTwoUrl);
+    return;
+  }
+}
+
+class NavGroup  {
+  navUrlChange: BehaviorSubject<string>;
+  navUrl: Observable<string>;
+  navChange: BehaviorSubject<string>;
+  nav: Observable<string>;
+
+  NavGroup(){
+    
   }
 }
