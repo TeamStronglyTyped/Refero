@@ -1,11 +1,13 @@
 <body>
-    <main class="container-fluid">
-        <header class="row">
-            <nav class="col-12 text-center">
-                <a routerLink="{{navOneUrl}}">{{navOne}}</a>
-                <a routerLink="{{navTwoUrl}}">{{navTwo}}</a>
-            </nav>
-        </header>
-    </main>
+  <main class="container-fluid">
+    <header class="row">
+      <nav class="col-12 text-center">
+        <a routerLink="{{ navOneUrl }}">{{ navOne }}</a>
+        <a routerLink="{{ navTwoUrl }}">{{ navTwo }}</a>
+      </nav>
+    </header>
+  </main>
+  <div class="content">
     <router-outlet></router-outlet>
+  </div>
 </body>

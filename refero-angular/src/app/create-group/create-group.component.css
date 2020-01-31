@@ -1,5 +1,5 @@
-#add-user-btn{
-  background-color : #ffe855;
+#add-user-btn {
+  background-color: #ffe855;
 }
 
 .container-fluid {
@@ -8,12 +8,12 @@
 
 .invite-input {
   background: #535353;
-  color : #ffe855;
+  color: #ffe855;
   border-color: #ffe855;
 }
 
 ::-webkit-input-placeholder {
-  color : #ffe855 !important;
+  color: #ffe855 !important;
 }
 
 .form-control:focus {
@@ -29,33 +29,33 @@
 .btn:hover {
   background-color: darkgoldenrod;
   border-color: yellow;
-  color:black;
+  color: black;
 }
 
 table {
-  color : #ffe855;
+  color: #ffe855;
 }
 
-#create-group-btn{
-  background-color : #ffe855;
+#create-group-btn {
+  background-color: #ffe855;
 }
 
-#create-group-header{
-  color : #ffe855;
+#create-group-header {
+  color: #ffe855;
 }
 
 .container-fluid {
-  padding-right:0;
-  padding-left:0;
-  margin-right:0;
-  margin-left:0
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
 
-#create-group-container{
-  padding-left : 4vw;
+#create-group-container {
+  padding-left: 4vw;
+  margin-left: 11vw;
 }
-
 
 body {
-  overflow-x : hidden;
+  overflow-x: hidden;
 }
