@@ -29,6 +29,10 @@ export class UsersService {
     return this.http.post<Users>(this.url+"/register",user);
   }
 
+  public logout() {
+    return this.http.delete(this.url+"/logout");
+  }
+
   public setUser(user: Users){
     this.user=user;
   }

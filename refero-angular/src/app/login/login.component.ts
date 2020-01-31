@@ -15,10 +15,6 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
 
   constructor(private service: NavValuesService, private usersService: UsersService, private router:Router) {
-    /*this.service.setNavOne("Login");
-    this.service.setNavTwo("Register");
-    this.service.setNavOneUrl("/login");
-    this.service.setNavTwoUrl("/register");*/
     this.service.purgeNav();
     this.service.addNav("/login","Login");
     this.service.addNav("/register","Register");
