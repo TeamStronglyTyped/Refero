@@ -1,7 +1,12 @@
 package com.referospring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +23,7 @@ public class LoginController {
 	UsersService service;
 
 	@PostMapping("/login")
-	public Users validateUser(@RequestBody Users user) {
+	public Users validateUser(@RequestBody Users user, HttpServletRequest request,  HttpServletResponse response) {
 		user=service.getUsersByUserNameAndPassWord(user.getUserName(), user.getPassWord());
 		if(user!=null) {
 			if (user.getBanned()==null) {
@@ -26,6 +31,8 @@ public class LoginController {
 			}
 			if (user.getBanned().equals("F")) {
 				// initialize session here
+				HttpSession session=request.getSession();  
+				session.setAttribute("userName",user.getUserName());  
 				return user;
 			}else {
 				// still return user to program, but no session is created because user is banned
@@ -33,6 +40,12 @@ public class LoginController {
 			}
 		}
 		return null;
+	}
+	
+	@DeleteMapping("/login")
+	public void logout(HttpServletRequest request,  HttpServletResponse response) {
+		 HttpSession session=request.getSession(false);  
+		 session.invalidate();
 	}
 	
 	@PostMapping("/register")
