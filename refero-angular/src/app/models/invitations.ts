@@ -1,7 +1,7 @@
 export class Invitations {
   invitationId : number;
-  usernameFrom : string;
-  usernameTo : string;
+  toUser : string;
+  fromUser : string;
   status : string;
   groupId : number;
   

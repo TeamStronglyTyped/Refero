@@ -20,13 +20,19 @@ public class GroupsServiceImpl implements GroupsService {
     }
 
     @Override
-    public void postNewGroup(Groups group) {
-        groupsRepository.save(group);
+    public Groups postNewGroup(Groups group) {
+        return groupsRepository.save(group);
     }
 
     @Override
     public Groups getGroupsById(Integer groupId){
         return groupsRepository.findByGroupId(groupId);
     }
+
+//	@Override
+//	public List<Groups> getAllGroupsByUsername(String username) {
+//		
+//		return groupsRepository.getAllGroupsByUsername( username );
+//	}
 
 }
