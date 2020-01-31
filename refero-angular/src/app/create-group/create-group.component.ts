@@ -19,10 +19,12 @@ export class CreateGroupComponent implements OnInit {
   groupId: number;
   currentUser: string;
   constructor(private service: NavValuesService, private groupService: GroupsService, private userService: UsersService) {
-    this.service.setNavOne("Lists");
-    this.service.setNavTwo("Groups");
-    this.service.setNavOneUrl("/my-lists");
-    this.service.setNavTwoUrl("/my-groups");
+    this.service.purgeNav();
+    this.service.addNav("/my-lists","Lists");
+    this.service.addNav("/my-groups","Groups");
+    this.service.addNav("/account","Account");
+    this.service.addNav("/logout","Logout");
+    this.service.publish();
   }
   // * if username is not empty
   // * if username isn't creating group
