@@ -9,10 +9,12 @@ import { NavValuesService } from '../nav-values.service';
 export class PendingGroupsComponent implements OnInit {
 
   constructor( private service : NavValuesService ) { 
-    this.service.setNavOne("Lists");
-    this.service.setNavTwo("Groups");
-    this.service.setNavOneUrl("/my-lists");
-    this.service.setNavTwoUrl("/my-groups");
+    this.service.purgeNav();
+    this.service.addNav("/my-lists","Lists");
+    this.service.addNav("/my-groups","Groups");
+    this.service.addNav("/account","Account");
+    this.service.addNav("/logout","Logout");
+    this.service.publish();
   }
 
   ngOnInit() {
