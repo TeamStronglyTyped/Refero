@@ -4,6 +4,10 @@ div {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 80vh;
+  width: 30vw;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
 }
 li {
   color: #ffe855;
