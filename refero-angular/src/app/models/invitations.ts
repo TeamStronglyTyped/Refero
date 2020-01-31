@@ -4,5 +4,5 @@ export class Invitations {
   usernameTo : string;
   status : string;
   groupId : number;
-
+  
 }

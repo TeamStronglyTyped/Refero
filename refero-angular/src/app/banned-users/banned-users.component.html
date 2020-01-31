@@ -1,17 +1,9 @@
 <div>
   <h1>The Naughty List</h1>
   <ul>
-    <li>
-      User 1
-      <button>Restore</button>
-    </li>
-    <li>
-      User 2
-      <button>Restore</button>
-    </li>
-    <li>
-      User 3
-      <button>Restore</button>
+    <li *ngFor="let user of users">
+      Username: {{ user.userName }} Email: {{ user.email }} Banned:
+      {{ user.banned }} <button>Restore User</button>
     </li>
   </ul>
 </div>

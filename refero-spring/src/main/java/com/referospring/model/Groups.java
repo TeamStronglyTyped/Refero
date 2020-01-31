@@ -30,6 +30,9 @@ public class Groups implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "groupId" )
 	private List<Invitations> groupIdInvitationList = new ArrayList <> ();
 	
+	public Groups ( Integer groupId ) {
+		this.groupId = groupId;
+	}
 	
 	public Groups() {
 		this.groupId = 0;
@@ -39,11 +42,6 @@ public class Groups implements Serializable{
 	public Groups(Integer groupId, String groupName) {
 		this.groupId = groupId;
 		this.groupName = groupName;
-	}
-
-	public Groups(Integer groupId){
-		this.groupId=groupId;
-		this.groupName="";		
 	}
 
 	public int getGroupId() {

@@ -17,6 +17,7 @@ export class ListSideNavComponent implements OnInit {
     this.router.events.subscribe((value) => {
       this.service.getAllGroupsIn(0).subscribe(data => {
         this.userGroups = data;
+        console.log(this.userGroups);
       });
     });
     this.routes = [ {route : 'my-lists',
