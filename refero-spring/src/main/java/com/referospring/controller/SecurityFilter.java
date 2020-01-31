@@ -28,9 +28,11 @@ public class SecurityFilter implements Filter {
 			return;
 		}else {
 			System.out.println("check for session for these uri");
-			HttpServletResponse httpResponse = (HttpServletResponse) response;
-			httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			httpResponse.sendRedirect("/");
+			//HttpServletResponse httpResponse = (HttpServletResponse) response;
+			//httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			//httpResponse.sendRedirect("/");
+			chain.doFilter(request, response);
+			return;
 		}
 	    
 	}
