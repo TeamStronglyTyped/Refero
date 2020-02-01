@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table
 public class Lists implements Serializable{
@@ -34,6 +36,7 @@ public class Lists implements Serializable{
 	@JoinColumn(name = "owner", nullable = false)
 	private Users owner;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "list")
 	private List<ListItems> listOfListItems=new ArrayList<>();
 	
