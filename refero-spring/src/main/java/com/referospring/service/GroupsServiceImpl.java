@@ -37,19 +37,15 @@ public class GroupsServiceImpl implements GroupsService {
 	}
 
     @Override
-    public String[] getGroupsForUser(String username) {
-        return groupsRepository.getGroupsForUser(username);
-    }
-
-    @Override
-    public List<String> getGroupsNames(List<String> groupIds) {
+    public List<String> getGroupsForUser(String username) {
+        List<String> groupIds = groupsRepository.getGroupsForUser(username);
         List<String> groupNames = new LinkedList<String>();
 
         for(String groupId : groupIds) {
             groupNames.add(groupsRepository.getGroupsName(groupId));
         }
 
-        return groupNames;
+        return groupNames;        
     }
 
 //	@Override

@@ -19,16 +19,13 @@ export class ListSideNavComponent implements OnInit {
 
   ngOnInit() {
     this.eventSubscription = this.service.getAllGroupsIn(0).subscribe(data => {
-      if (data !== undefined && data.length != 0 ) {
-        this.service.getAllGroupsNames(data).subscribe(groups => {
-          this.userGroups = groups;
-          this.userGroups.forEach(group => console.log(group));
-        });
-      }
+      this.userGroups = data;
+      let i = 1;
+      this.userGroups.forEach(group => {
+        this.routes.push({ route: group + "-" + i, name: group});
+        i = i + 1;
+      });
     });
-    // this.routes = [ {route : 'my-lists',
-    //                 name : 'My Lists'
-    //                 }];
   }
 
   ngOnDestroy() {
