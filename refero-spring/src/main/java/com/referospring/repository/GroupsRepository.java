@@ -20,6 +20,6 @@ public interface GroupsRepository extends JpaRepository<Groups, Integer> {
     @Transactional
 	void addUserToGroup(@Param("username") String username, @Param("groupid") Integer groupId);
     
-//    @Query(value="SELECT * FROM USER_GROUPS", nativeQuery = true)
-//	public List<Groups> getAllGroupsByUsername(String username);
+    
+    
 }

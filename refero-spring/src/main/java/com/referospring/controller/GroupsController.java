@@ -57,5 +57,5 @@ public class GroupsController {
     public void addUserToGroup( @PathVariable("username")String username, @PathVariable("groupId") Integer groupId ) {
     	groupsService.addUserToGroup( username, groupId );
     }
-
+    
 }

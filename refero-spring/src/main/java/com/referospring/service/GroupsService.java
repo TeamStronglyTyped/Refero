@@ -10,7 +10,5 @@ public interface GroupsService {
     public Groups postNewGroup(Groups group);
     public Groups getGroupsById(Integer groupId);
     public void addUserToGroup( String username, Integer groupId );
-//    public List<Groups> getAllGroupsByUsername( String username );
-	
 
 }

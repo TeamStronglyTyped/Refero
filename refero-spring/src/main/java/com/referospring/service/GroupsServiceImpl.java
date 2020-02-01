@@ -35,10 +35,5 @@ public class GroupsServiceImpl implements GroupsService {
 		
 	}
 
-//	@Override
-//	public List<Groups> getAllGroupsByUsername(String username) {
-//		
-//		return groupsRepository.getAllGroupsByUsername( username );
-//	}
 
 }
