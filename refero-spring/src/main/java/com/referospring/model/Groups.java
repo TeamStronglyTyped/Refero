@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table
 public class Groups implements Serializable{
@@ -24,9 +26,11 @@ public class Groups implements Serializable{
 	@Column(length=50, nullable=false)
 	private String groupName;
 
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "inGroup")
 	private List<Lists> listList=new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "groupId" )
 	private List<Invitations> groupIdInvitationList = new ArrayList <> ();
 	
