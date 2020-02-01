@@ -57,5 +57,15 @@ public class GroupsController {
     public void addUserToGroup( @PathVariable("username")String username, @PathVariable("groupId") Integer groupId ) {
     	groupsService.addUserToGroup( username, groupId );
     }
-    
+
+    @GetMapping("/get-groups-for/{user}")
+    public String[] getGroupsForUser(@PathVariable("user") String username) {
+        return groupsService.getGroupsForUser(username);
+    }
+
+    @PostMapping("/get-groups-names")
+    public List<String> getGroupsNames(@RequestBody List<String> groupIds) {
+        return groupsService.getGroupsNames(groupIds);
+    }
+
 }
