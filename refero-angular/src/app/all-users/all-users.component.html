@@ -3,7 +3,7 @@
   <ul>
     <li *ngFor="let user of users">
       Username: {{ user.userName }} Email: {{ user.email }} Banned:
-      {{ user.banned }} <button>Ban User</button>
+      {{ user.banned }} <button (click)="bannUser(user)">Ban User</button>
     </li>
   </ul>
 </div>
