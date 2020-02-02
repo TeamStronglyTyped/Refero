@@ -69,5 +69,15 @@ public class GroupsController {
     public List<String> getGroupsForUser(@PathVariable("user") String username) {
         return groupsService.getGroupsForUser(username);
     }
+    
+    @GetMapping("/get-groupIds-for/{user}")
+    public List<String> getGroupIdsForUser( @PathVariable("user") String username ) {
+    	return groupsService.getGroupIdsForUser( username );
+    }
+    
+    @GetMapping("/get-users-for-groupid/{groupId}") 
+    public List <String> getUsersForGroupId( @PathVariable("groupId") String groupId ) {
+    	return groupsService.getUsersForGroupId( groupId );
+    }
 
 }

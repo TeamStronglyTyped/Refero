@@ -48,6 +48,19 @@ public class GroupsServiceImpl implements GroupsService {
         return groupNames;        
     }
 
+	@Override
+	public List<String> getGroupIdsForUser(String username) {
+		// TODO Auto-generated method stub
+		return groupsRepository.getGroupsForUser(username);
+		
+	}
+
+	@Override
+	public List<String> getUsersForGroupId(String groupId) {
+		
+		return groupsRepository.getUsersForGroupId( groupId );
+	}
+
 //	@Override
 //	public List<Groups> getAllGroupsByUsername(String username) {
 //		
