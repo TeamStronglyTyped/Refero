@@ -64,4 +64,15 @@ public class GroupsController {
     	return invitationsService.updateInvitationStatus( invitation );
     }
     
+
+    @GetMapping("/get-groups-for/{user}")
+    public String[] getGroupsForUser(@PathVariable("user") String username) {
+        return groupsService.getGroupsForUser(username);
+    }
+
+    @PostMapping("/get-groups-names")
+    public List<String> getGroupsNames(@RequestBody List<String> groupIds) {
+        return groupsService.getGroupsNames(groupIds);
+    }
+
 }

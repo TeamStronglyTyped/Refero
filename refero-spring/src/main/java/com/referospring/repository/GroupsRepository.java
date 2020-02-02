@@ -19,7 +19,13 @@ public interface GroupsRepository extends JpaRepository<Groups, Integer> {
     @Query(value="INSERT INTO USERS_GROUPS (USERNAME, GROUPID) VALUES(:username, :groupid)", nativeQuery = true)
     @Transactional
 	void addUserToGroup(@Param("username") String username, @Param("groupid") Integer groupId);
-    
-    
-    
+
+    @Query(value = "SELECT GROUPID FROM USERS_GROUPS WHERE USERNAME = ?1", nativeQuery = true)
+    String[] getGroupsForUser(String username);
+
+    @Query(value = "SELECT GROUPNAME FROM GROUPS WHERE GROUPID = ?1", nativeQuery = true)
+    String getGroupsName(String groupIds);
+
+//    @Query(value="SELECT * FROM USER_GROUPS", nativeQuery = true)
+//	public List<Groups> getAllGroupsByUsername(String username);
 }

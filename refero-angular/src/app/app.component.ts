@@ -18,7 +18,7 @@ export class AppComponent {
   navGroup:NavGroup[] = new Array<NavGroup>();
 
   constructor(private service: NavValuesService, private router: Router) {
-  
+
   }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class AppComponent {
               n.navUrl.subscribe(value => this.navGroup[i].navUrl = value);
             }
           });
-          
+
         }
         i++;
         numItems++;
@@ -54,7 +54,7 @@ export class AppComponent {
       this.service.navTwoUrl.subscribe(value => this.navTwoUrl = value);*/
     });
   }
-  
+
 
 }
 
