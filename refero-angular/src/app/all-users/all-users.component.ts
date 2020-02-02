@@ -17,4 +17,18 @@ export class AllUsersComponent implements OnInit {
   getUsers(): void {
     this.userService.getAllUsers().subscribe(users => (this.users = users));
   }
+  bannUser(user: Users): void {
+    this.users = this.users.filter(user => user !== user);
+    this.userService
+      .bannUser(
+        (user = {
+          userName: user.userName,
+          passWord: user.passWord,
+          email: user.email,
+          banned: "T"
+        })
+      )
+      .subscribe();
+    location.reload();
+  }
 }
