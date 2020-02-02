@@ -21,9 +21,9 @@ public interface GroupsRepository extends JpaRepository<Groups, Integer> {
 	void addUserToGroup(@Param("username") String username, @Param("groupid") Integer groupId);
 
     @Query(value = "SELECT GROUPID FROM USERS_GROUPS WHERE USERNAME = ?1", nativeQuery = true)
-    String[] getGroupsForUser(String username);
+    List<String> getGroupsForUser(String username);
 
-    @Query(value = "SELECT GROUPNAME FROM GROUPS WHERE GROUPID = ?1", nativeQuery = true)
+    @Query(value = "SELECT GROUP_NAME FROM GROUPS WHERE GROUP_ID = ?1", nativeQuery = true)
     String getGroupsName(String groupIds);
 
 //    @Query(value="SELECT * FROM USER_GROUPS", nativeQuery = true)

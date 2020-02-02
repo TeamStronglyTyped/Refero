@@ -5,6 +5,7 @@ import { Invitations } from './models/invitations';
 import { GROUPS } from './mock-groups';
 import { Observable } from 'rxjs';
 import { UsersGroups } from './models/usersGroups';
+import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class GroupsService {
 
   private url : string;
 
-  constructor( private http:HttpClient ) { 
+  constructor( private http:HttpClient, private userService: UsersService) {
     this.url="http://localhost:5050";
   }
 
@@ -33,6 +34,10 @@ export class GroupsService {
     return this.http.get < UsersGroups > ( this.url + '/add-user-to-group/' + userGroup.username + '/' + userGroup.groupId );
   }
 
+  public getAllGroupsIn(): Observable<String[]> {
+    return this.http.get<String[]>(this.url + "/get-groups-for/" + this.userService.getUser().userName);
+  }
+
   public getPendingInvitations(  username : string ) : Observable < any [] > {
     return this.http.get < any [] > ( this.url + '/get-pending-invitations/' + username );
   }
@@ -40,6 +45,5 @@ export class GroupsService {
   public updateInvitationStatus ( invitation  : Invitations ) : Observable < number > {
     return this.http.put < number > ( this.url + '/update-invitation-status', invitation )
   }
-
 
 }

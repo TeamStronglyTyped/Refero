@@ -12,23 +12,18 @@ import { element } from "protractor";
 })
 export class ListSideNavComponent implements OnInit {
   private eventSubscription = Subscription.EMPTY;
+  routes: any[] = [{ name: "My Lists" }];
   userGroups: any[];
-  routes: any[] = [{ route: "my-lists", name: "My Lists" }];
 
   constructor(private service: ListSideNavService, private router: Router) {}
 
   ngOnInit() {
-    this.eventSubscription = this.service.getAllGroupsIn(0).subscribe(data => {
-      if (data !== undefined && data.length != 0 ) {
-        this.service.getAllGroupsNames(data).subscribe(groups => {
-          this.userGroups = groups;
-          this.userGroups.forEach(group => console.log(group));
-        });
-      }
+    this.eventSubscription = this.service.getAllGroupsIn().subscribe(data => {
+      this.userGroups = data;
+      this.userGroups.forEach(group => {
+        this.routes.push({ name: group });
+      });
     });
-    // this.routes = [ {route : 'my-lists',
-    //                 name : 'My Lists'
-    //                 }];
   }
 
   ngOnDestroy() {
