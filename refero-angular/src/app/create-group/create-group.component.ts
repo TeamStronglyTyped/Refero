@@ -69,14 +69,14 @@ export class CreateGroupComponent implements OnInit {
     let group = new Groups();
     group.groupName = ( <HTMLInputElement>document.getElementById( 'inputGroup' ) ).value;
     this.groupService.createGroup(group).subscribe( res => {
-
+      
       this.groupId = res.groupId;
 
       let userGroup = new UsersGroups();
       userGroup.username = this.currentUser;
       userGroup.groupId = this.groupId;
       this.addUserToGroup( userGroup );
-
+      
       this.postInvitations();
 
     } );

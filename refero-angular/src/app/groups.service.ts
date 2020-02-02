@@ -33,5 +33,13 @@ export class GroupsService {
     return this.http.get < UsersGroups > ( this.url + '/add-user-to-group/' + userGroup.username + '/' + userGroup.groupId );
   }
 
+  public getPendingInvitations(  username : string ) : Observable < any [] > {
+    return this.http.get < any [] > ( this.url + '/get-pending-invitations/' + username );
+  }
+
+  public updateInvitationStatus ( invitation  : Invitations ) : Observable < number > {
+    return this.http.put < number > ( this.url + '/update-invitation-status', invitation )
+  }
+
 
 }
