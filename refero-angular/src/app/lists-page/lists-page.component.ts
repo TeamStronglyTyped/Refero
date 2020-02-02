@@ -14,7 +14,7 @@ export class ListsPageComponent implements OnInit {
   constructor(private service: NavValuesService) {  
     this.service.purgeNav();
     this.service.addNav("/my-lists","Lists");
-    this.service.addNav("/groups","Groups");
+    this.service.addNav("/my-groups","Groups");
     this.service.addNav("/account","Account");
     this.service.addNav("/logout","Logout");
     this.service.publish();

@@ -53,7 +53,7 @@ export class AppComponent {
       this.service.navOneUrl.subscribe(value => this.navOneUrl = value);
       this.service.navTwoUrl.subscribe(value => this.navTwoUrl = value);*/
     });
-  }
+   }
   
 
 }
