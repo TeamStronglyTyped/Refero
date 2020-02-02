@@ -12,7 +12,7 @@ import com.referospring.model.Users;
 import com.referospring.service.UsersService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class LoginController {
 	@Autowired
 	UsersService service;
