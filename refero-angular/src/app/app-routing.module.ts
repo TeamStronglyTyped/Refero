@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegistrationComponent },
   { path : "groups", component : GroupsComponent },
-  { path: "account", component : AccountComponent}, 
+  { path: "account", component : AccountComponent},
   { path: "my-groups", component: MyGroupsComponent },
   { path : "pending-groups", component : PendingGroupsComponent },
   { path : 'create-group', component : CreateGroupComponent },
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: "admin-home/all-users", component: AllUsersComponent },
   { path: "admin-home/all-lists", component: AllListsComponent },
   { path: "logout", component: LogoutComponent },
-  {path: '**', redirectTo: '/login'}
+  {path: '**', redirectTo: 'login'}
 
 ];
 

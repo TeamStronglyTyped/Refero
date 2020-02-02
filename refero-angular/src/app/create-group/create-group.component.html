@@ -14,7 +14,7 @@
           </div>
           <div class="row">
             <div class="col-12 mb-3 mt-4">
-              <input type="text" class="form-control invite-input" id="inputGroup" placeholder="Group Name">
+              <input type="text" class="form-control invite-input" id="inputGroup" placeholder="Group Name" autocomplete="off">
             </div>
           </div>
           <div class="row mb-3">
@@ -27,8 +27,13 @@
             </div>
           </div>
           <div class="row">
+            <div class="col-12" id="invite-user-feedback">
+              <br>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-12 text-center">
-              <table class="table">
+              <table class="table pt-1">
                 <tbody>
                   <tr *ngFor="let user of users">
                     <td>
@@ -41,7 +46,7 @@
           </div>
           <div class="row">
             <div class="col-12 text-center">
-              <button class="btn px-5 py-2" id="create-group-btn">
+              <button class="btn px-5 py-2" id="create-group-btn" (click)="createGroup()">
                 Create Group
               </button>
             </div>

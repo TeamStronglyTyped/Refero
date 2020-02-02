@@ -1,5 +1,6 @@
 package com.referospring.service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import com.referospring.model.Groups;
@@ -20,13 +21,41 @@ public class GroupsServiceImpl implements GroupsService {
     }
 
     @Override
-    public void postNewGroup(Groups group) {
-        groupsRepository.save(group);
+    public Groups postNewGroup(Groups group) {
+        return groupsRepository.save(group);
     }
 
     @Override
     public Groups getGroupsById(Integer groupId){
         return groupsRepository.findByGroupId(groupId);
     }
+
+	@Override
+	public void addUserToGroup(String username, Integer groupId) {
+		groupsRepository.addUserToGroup( username, groupId );
+		
+	}
+
+    @Override
+    public String[] getGroupsForUser(String username) {
+        return groupsRepository.getGroupsForUser(username);
+    }
+
+    @Override
+    public List<String> getGroupsNames(List<String> groupIds) {
+        List<String> groupNames = new LinkedList<String>();
+
+        for(String groupId : groupIds) {
+            groupNames.add(groupsRepository.getGroupsName(groupId));
+        }
+
+        return groupNames;
+    }
+
+//	@Override
+//	public List<Groups> getAllGroupsByUsername(String username) {
+//		
+//		return groupsRepository.getAllGroupsByUsername( username );
+//	}
 
 }

@@ -2,10 +2,30 @@ package com.referospring.repository;
 
 import com.referospring.model.Groups;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface GroupsRepository extends JpaRepository<Groups, Integer> {
     Groups findByGroupId(Integer groupId);
+    
+    @Modifying
+    @Query(value="INSERT INTO USERS_GROUPS (USERNAME, GROUPID) VALUES(:username, :groupid)", nativeQuery = true)
+    @Transactional
+	void addUserToGroup(@Param("username") String username, @Param("groupid") Integer groupId);
+
+    @Query(value = "SELECT GROUPID FROM USERS_GROUPS WHERE USERNAME = ?1", nativeQuery = true)
+    String[] getGroupsForUser(String username);
+
+    @Query(value = "SELECT GROUPNAME FROM GROUPS WHERE GROUPID = ?1", nativeQuery = true)
+    String getGroupsName(String groupIds);
+
+//    @Query(value="SELECT * FROM USER_GROUPS", nativeQuery = true)
+//	public List<Groups> getAllGroupsByUsername(String username);
 }

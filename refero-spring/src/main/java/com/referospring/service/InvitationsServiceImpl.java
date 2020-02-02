@@ -26,4 +26,10 @@ public class InvitationsServiceImpl implements InvitationsService {
 		return invitationsRepository.getPendingInvitations( user, "pending" );
 	}
 
+	@Override
+	public Integer updateInvitationStatus( Invitations invitation ) {
+		System.out.println( invitation );
+		return invitationsRepository.updateInvitationStatus( invitation.getStatus(), invitation.getInvitationId() );
+	}
+
 }

@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table
 public class Users implements Serializable {
@@ -29,18 +31,23 @@ public class Users implements Serializable {
 	@Column(length=1)
 	private String banned;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "creator")
 	private List<ListItems> listOfListItems=new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "owner")
 	private List<Lists> listListsOwned=new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "toUser" )
 	private List<Invitations> usernameFromInvitationList = new ArrayList <> ();
 	
+	@JsonIgnore
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "fromUser" )
 	private List<Invitations> usernameToInvitationList = new ArrayList <> ();
 	
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "UsersGroups", joinColumns = { @JoinColumn(name = "USERNAME") }, inverseJoinColumns = { @JoinColumn(name = "GROUPID") })
 	private List<Groups> listGroups=new ArrayList<>();

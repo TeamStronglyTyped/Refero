@@ -1,4 +1,4 @@
-package com.referospring.controller;
+	package com.referospring.controller;
 
 import java.util.List;
 
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -33,8 +34,8 @@ public class GroupsController {
     }
 
     @PostMapping(value="/post-new-group")
-    public void postNewGroup(@RequestBody Groups group) {
-        groupsService.postNewGroup(group);
+    public Groups postNewGroup(@RequestBody Groups group) {
+        return groupsService.postNewGroup(group);
     }
     
     @PostMapping(value="/post-new-invitation")
@@ -51,6 +52,27 @@ public class GroupsController {
     public Groups getGroupsById(@PathVariable("groupId") Integer groupId)
     {
         return groupsService.getGroupsById(groupId);
+    }
+    
+    @GetMapping("/add-user-to-group/{username}/{groupId}")
+    public void addUserToGroup( @PathVariable("username")String username, @PathVariable("groupId") Integer groupId ) {
+    	groupsService.addUserToGroup( username, groupId );
+    }
+    
+    @PutMapping( "/update-invitation-status" )
+    public Integer updateInvitationStatus( @RequestBody Invitations invitation ) {
+    	return invitationsService.updateInvitationStatus( invitation );
+    }
+    
+
+    @GetMapping("/get-groups-for/{user}")
+    public String[] getGroupsForUser(@PathVariable("user") String username) {
+        return groupsService.getGroupsForUser(username);
+    }
+
+    @PostMapping("/get-groups-names")
+    public List<String> getGroupsNames(@RequestBody List<String> groupIds) {
+        return groupsService.getGroupsNames(groupIds);
     }
 
 }

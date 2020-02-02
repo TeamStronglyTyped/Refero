@@ -9,4 +9,28 @@
   background-color: #2d2d2d;
 }
 
+#pending-container {
+  padding-left: 4vw;
+  margin-left: 11vw;
+}
+
+.pending-invites-table {
+  margin-top: 7vh;
+  color : #ffe855;
+}
+
+.accept-btn {
+  background-color : #22ff00;
+  margin-right : 1vw;
+}
+
+.reject-btn {
+  background-color : #ee3333;
+}
+
+.button-feedback-row {
+  height : 5vh;
+}
+
+
 
