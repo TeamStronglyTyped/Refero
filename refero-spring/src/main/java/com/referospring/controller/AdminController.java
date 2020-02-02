@@ -13,7 +13,7 @@ import com.referospring.model.Users;
 import com.referospring.service.AdminService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class AdminController  {
   
 	@Autowired
