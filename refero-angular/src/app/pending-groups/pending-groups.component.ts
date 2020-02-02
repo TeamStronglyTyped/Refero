@@ -21,9 +21,9 @@ export class PendingGroupsComponent implements OnInit {
     this.service.addNav("/logout","Logout");
     this.service.publish();
     // *** CHANGE BACK TO THIS FOR PRODUCTION ***
-    // this.currentUser = usersService.getUser().userName;
+    this.currentUser = usersService.getUser().userName;
     // *** DELETE THIS FOR PRODUCTION ***
-    this.currentUser = 'redranges';
+    // this.currentUser = 'redranges';
     this.getPendingInvitations();
   }
   // * get pending invitations from groups service

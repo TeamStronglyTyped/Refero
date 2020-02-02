@@ -34,8 +34,21 @@ export class GroupsService {
     return this.http.get < UsersGroups > ( this.url + '/add-user-to-group/' + userGroup.username + '/' + userGroup.groupId );
   }
 
-  public getAllGroupsIn(): Observable<String[]> {
-    return this.http.get<String[]>(this.url + "/get-groups-for/" + this.userService.getUser().userName);
+  public getAllGroupsIn(): Observable<string[]> {
+    return this.http.get<string[]>(this.url + "/get-groups-for/" + this.userService.getUser().userName);
+    // return this.http.get<string[]>(this.url + "/get-groups-for/" + 'marsredsky');
+  }
+
+  public getGroupIds( username : string ) : Observable < string [] > {
+    return this.http.get < string [] > ( this.url + '/get-groupids-for/' + username );
+  }
+
+  public getGroupById ( groupId : string ) : Observable < Groups >{
+    return this.http.get < Groups > ( this.url + '/get-group/' + groupId );
+  }
+
+  public getUsersInGroup( groupId : string ) : Observable < string [] > {
+    return this.http.get < string [] > ( this.url + '/get-users-for-groupid/' + groupId );
   }
 
   public getPendingInvitations(  username : string ) : Observable < any [] > {
@@ -45,5 +58,7 @@ export class GroupsService {
   public updateInvitationStatus ( invitation  : Invitations ) : Observable < number > {
     return this.http.put < number > ( this.url + '/update-invitation-status', invitation )
   }
+
+  
 
 }
