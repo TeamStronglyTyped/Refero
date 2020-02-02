@@ -38,4 +38,12 @@ export class GroupsService {
     return this.http.get<String[]>(this.url + "/get-groups-for/" + this.userService.getUser().userName);
   }
 
+  public getPendingInvitations(  username : string ) : Observable < any [] > {
+    return this.http.get < any [] > ( this.url + '/get-pending-invitations/' + username );
+  }
+
+  public updateInvitationStatus ( invitation  : Invitations ) : Observable < number > {
+    return this.http.put < number > ( this.url + '/update-invitation-status', invitation )
+  }
+
 }

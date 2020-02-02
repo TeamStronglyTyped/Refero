@@ -5,8 +5,24 @@
         <app-group-side-nav></app-group-side-nav>
         <div id="pending-container" class="col-10">
           <div class="row">
-            <div class="col-12">
-              pending groups component goes here
+            <div class="col-12 pending-invites-table">
+              <div *ngFor="let invitation of invitations"> 
+              <table class="">
+                <tbody>
+                  <tr> 
+                    <td class="table-cell">{{invitation.fromUser}}</td>
+                    <td class="table-cell">would like to invite you to group {{invitation.groupName}}</td>
+                  </tr>
+                </tbody>
+                </table>
+                  <table>
+                  <tr id="button-row-{{invitation.invitationId}}" class="button-feedback-row">
+                    <td id="accept-cell-{{invitation.invitationId}}"><button class="btn accept-btn table-cell" (click)="updateStatus('accepted', invitation.invitationId, invitation.groupId )">Accept</button></td>
+                    <td id="reject-cell-{{invitation.invitationId}}"><button class="btn reject-btn table-cell" (click)="updateStatus('rejected', invitation.invitationId, invitation.groupId )">Reject</button></td>
+                    <td id="feedback-cell-{{invitation.invitationId}}"></td>
+                  </tr> 
+                </table>
+              </div>
             </div>
           </div>
         </div>
