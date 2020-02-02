@@ -6,6 +6,9 @@
         <div id="pending-container" class="col-10">
           <div class="row">
             <div class="col-12 pending-invites-table">
+              <div *ngIf="invitations?.length === 0"> 
+                <div class="display-4">No pending group invitations.</div>
+              </div>
               <div *ngFor="let invitation of invitations"> 
               <table class="">
                 <tbody>
