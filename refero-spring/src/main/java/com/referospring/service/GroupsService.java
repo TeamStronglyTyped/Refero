@@ -12,5 +12,7 @@ public interface GroupsService {
     public Groups getGroupsById(Integer groupId);
     public void addUserToGroup( String username, Integer groupId );
     public List<String> getGroupsForUser(String username);
+	public List<String> getGroupIdsForUser(String username);
+	public List<String> getUsersForGroupId(String groupId);
 	
 }
