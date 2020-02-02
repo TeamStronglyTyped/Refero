@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -57,6 +58,12 @@ public class GroupsController {
     public void addUserToGroup( @PathVariable("username")String username, @PathVariable("groupId") Integer groupId ) {
     	groupsService.addUserToGroup( username, groupId );
     }
+    
+    @PutMapping( "/update-invitation-status" )
+    public Integer updateInvitationStatus( @RequestBody Invitations invitation ) {
+    	return invitationsService.updateInvitationStatus( invitation );
+    }
+    
 
     @GetMapping("/get-groups-for/{user}")
     public List<String> getGroupsForUser(@PathVariable("user") String username) {

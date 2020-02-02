@@ -50,6 +50,11 @@ public class Invitations implements Serializable{
 		this.status = status;
 		this.groupId = groupId;
 	}
+	
+	public Invitations ( String status, int invitationId ) {
+		this.status = status;
+		this.invitationId = invitationId;
+	}
 
 	public int getInvitationId() {
 		return invitationId;
