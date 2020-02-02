@@ -17,4 +17,18 @@ export class BannedUsersComponent implements OnInit {
   getBannedUsers() {
     this.userService.getBannedUsers().subscribe(users => (this.users = users));
   }
+  restoreUser(user: Users): void {
+    this.users = this.users.filter(user => user !== user);
+    this.userService
+      .restoreUser(
+        (user = {
+          userName: user.userName,
+          passWord: user.passWord,
+          email: user.email,
+          banned: "F"
+        })
+      )
+      .subscribe();
+    location.reload();
+  }
 }
