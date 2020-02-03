@@ -1,3 +1,24 @@
+# Refero
+
+### Purpose
+To provide a simple and intuitive way for people to organize their lives.
+
+### Description
+Refero is an Angular/Spring web application that allows users to create and organize lists. A user can create an account, as well as create, view, edit, and delete lists. An admin can moderate users and lists, by banning users and deleting lists.
+
+### Requirements
+1. Refero functionality should reflect the below user stories.
+2. Data is stored using H2.
+3. Back end is hosted on an EC2 instance.
+4. Front end is hosted on an S3 bucket.
+5. Data access is performed through Hibernate.
+6. Server side communication using Spring MVC.
+7. Client side communication using Angular HttpClient.
+8. Version control implemented using git.
+9. Logging preformed using Srping AOP.
+10. JUnit unit tests of back end functionality.
+11. Front end testing using Jasmine.
+
 ### Modules
 - Login Module | Paul
 - Admin Module | Garret
