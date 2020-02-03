@@ -8,7 +8,7 @@ import { UsersService } from "../users.service";
   styleUrls: ["./banned-users.component.css"]
 })
 export class BannedUsersComponent implements OnInit {
-  private users: Users[];
+  public users: Users[];
   constructor(private userService: UsersService) {}
 
   ngOnInit() {
@@ -16,5 +16,19 @@ export class BannedUsersComponent implements OnInit {
   }
   getBannedUsers() {
     this.userService.getBannedUsers().subscribe(users => (this.users = users));
+  }
+  restoreUser(user: Users): void {
+    this.users = this.users.filter(user => user !== user);
+    this.userService
+      .restoreUser(
+        (user = {
+          userName: user.userName,
+          passWord: user.passWord,
+          email: user.email,
+          banned: "F"
+        })
+      )
+      .subscribe();
+    location.reload(false);
   }
 }

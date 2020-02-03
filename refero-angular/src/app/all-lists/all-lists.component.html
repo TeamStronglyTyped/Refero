@@ -1,17 +1,10 @@
 <div>
   <h1>All Refero Lists</h1>
   <ul>
-    <li>
-      List 1
-      <button>Delete</button>
-    </li>
-    <li>
-      List 2
-      <button>Delete</button>
-    </li>
-    <li>
-      List 3
-      <button>Delete</button>
+    <li *ngFor="let list of lists">
+      Name: {{ list.name }} Ownner: {{ list.owner.userName }} Group:
+      {{ list.group.ggroupName }}
+      <button (click)="deleteList(list)">Ban User</button>
     </li>
   </ul>
 </div>

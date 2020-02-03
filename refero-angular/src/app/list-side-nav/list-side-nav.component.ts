@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
-import { Groups } from "../models/groups";
 import { ListSideNavService } from "../list-side-nav.service";
 import { Subscription } from "rxjs";
-import { element } from "protractor";
 
 @Component({
   selector: "app-list-side-nav",

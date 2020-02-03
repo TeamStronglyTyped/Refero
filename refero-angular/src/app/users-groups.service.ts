@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { USERS } from './mock-users';
 import { Users } from './models/users';
 
 @Injectable({
@@ -8,9 +7,5 @@ import { Users } from './models/users';
 export class UsersGroupsService {
 
   constructor() { }
-
-  getUsers() : Users [] {
-    return USERS;
-  }
 
 }

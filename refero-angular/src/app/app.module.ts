@@ -18,11 +18,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { GroupSideNavComponent } from './group-side-nav/group-side-nav.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AccountComponent } from './account/account.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ListSideNavComponent } from './list-side-nav/list-side-nav.component';
 import { NavValuesService } from './nav-values.service';
+import { ValidationInterceptService } from './validation-intercept.service'
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { NavValuesService } from './nav-values.service';
   ],
   providers: [
     UsersService, 
-    NavValuesService
+    NavValuesService,
+    {provide: HTTP_INTERCEPTORS, useClass: ValidationInterceptService, multi: true}
+  
   ],
   bootstrap: [AppComponent]
 })

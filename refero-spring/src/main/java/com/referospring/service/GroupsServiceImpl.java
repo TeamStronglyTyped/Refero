@@ -57,7 +57,6 @@ public class GroupsServiceImpl implements GroupsService {
 
 	@Override
 	public List<String> getUsersForGroupId(String groupId) {
-		
 		return groupsRepository.getUsersForGroupId( groupId );
 	}
 

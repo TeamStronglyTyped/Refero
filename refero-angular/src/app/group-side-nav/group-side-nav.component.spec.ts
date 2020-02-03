@@ -19,7 +19,4 @@ describe('GroupSideNavComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

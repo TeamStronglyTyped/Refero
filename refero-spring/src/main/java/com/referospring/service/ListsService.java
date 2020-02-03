@@ -9,4 +9,6 @@ public interface ListsService {
     public List<Lists> getAllLists();
     public void postNewList(Lists list);
     public void deletList(int id);
+    public boolean notNullList(Lists list);
+    public boolean validList(Lists list);
 }

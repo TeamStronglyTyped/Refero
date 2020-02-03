@@ -25,13 +25,13 @@ export class CreateGroupComponent implements OnInit {
     this.service.addNav("/account","Account");
     this.service.addNav("/logout","Logout");
     this.service.publish();
+    this.currentUser = this.userService.getUser().userName;
   }
   // * if username is not empty
   // * if username isn't creating group
   // * if username exists
   // * if username hasn't already been added to invite list
   addUser( username ) {
-    this.currentUser = this.userService.getUser().userName;
     let inviteUserFeedback = ( <HTMLInputElement>document.getElementById( 'invite-user-feedback' ) );
     if (username !== "") {
       if (username === this.currentUser) {
@@ -76,8 +76,10 @@ export class CreateGroupComponent implements OnInit {
       userGroup.username = this.currentUser;
       userGroup.groupId = this.groupId;
       this.addUserToGroup( userGroup );
-      
-      this.postInvitations();
+      if ( this.users.length > 0 ) {
+        this.postInvitations();
+      }
+     
 
     } );
 
@@ -110,6 +112,8 @@ export class CreateGroupComponent implements OnInit {
     }
 
   }
+
+  
 
   ngOnInit() {
     this.users = [];

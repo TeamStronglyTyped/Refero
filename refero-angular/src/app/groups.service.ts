@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Groups } from './models/groups';
 import { Invitations } from './models/invitations';
-import { GROUPS } from './mock-groups';
 import { Observable } from 'rxjs';
 import { UsersGroups } from './models/usersGroups';
 import { UsersService } from './users.service';
@@ -18,10 +17,6 @@ export class GroupsService {
     this.url="http://localhost:5050";
   }
 
-  getGroups () : Groups [] {
-    return GROUPS;
-  }
-
   public createGroup( group : Groups ) : Observable< Groups > {
     return this.http.post< Groups >( this.url + "/post-new-group", group );
   }
@@ -34,8 +29,21 @@ export class GroupsService {
     return this.http.get < UsersGroups > ( this.url + '/add-user-to-group/' + userGroup.username + '/' + userGroup.groupId );
   }
 
-  public getAllGroupsIn(): Observable<String[]> {
-    return this.http.get<String[]>(this.url + "/get-groups-for/" + this.userService.getUser().userName);
+  public getAllGroupsIn(): Observable<string[]> {
+    return this.http.get<string[]>(this.url + "/get-groups-for/" + this.userService.getUser().userName);
+    // return this.http.get<string[]>(this.url + "/get-groups-for/" + 'marsredsky');
+  }
+
+  public getGroupIds( username : string ) : Observable < string [] > {
+    return this.http.get < string [] > ( this.url + '/get-groupids-for/' + username );
+  }
+
+  public getGroupById ( groupId : string ) : Observable < Groups >{
+    return this.http.get < Groups > ( this.url + '/get-group/' + groupId );
+  }
+
+  public getUsersInGroup( groupId : string ) : Observable < string [] > {
+    return this.http.get < string [] > ( this.url + '/get-users-for-groupid/' + groupId );
   }
 
   public getPendingInvitations(  username : string ) : Observable < any [] > {
@@ -45,5 +53,7 @@ export class GroupsService {
   public updateInvitationStatus ( invitation  : Invitations ) : Observable < number > {
     return this.http.put < number > ( this.url + '/update-invitation-status', invitation )
   }
+
+  
 
 }
