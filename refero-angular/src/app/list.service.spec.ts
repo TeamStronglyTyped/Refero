@@ -1,12 +1,57 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
+import { ListService } from "./list.service";
+import { Lists } from './models/lists';
+import { HttpClientModule } from '@angular/common/http';
 
-import { ListService } from './list.service';
+describe("ListService", () => {
+  let listService: ListService;
 
-describe('ListService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [ListService]
+    });
 
-  it('should be created', () => {
-    const service: ListService = TestBed.get(ListService);
-    expect(service).toBeTruthy();
+    listService = TestBed.get(ListService);
+  });
+
+  describe('validList', () => {
+    it('should return false because of invalid listName', () => {
+      let list: Lists = new Lists;
+      list.listName = null;
+      list.group = 5;
+      list.owner = "someUser";
+      expect(listService.validList(list)).toBe(false);
+    });
+  });
+
+  describe('validList', () => {
+    it('should return false because of invalid group', () => {
+      let list: Lists = new Lists;
+      list.listName = "someList";
+      list.group = null;
+      list.owner = "someUser";
+      expect(listService.validList(list)).toBe(false);
+    });
+  });
+
+  describe('validList', () => {
+    it('should return false because of invalid owner', () => {
+      let list: Lists = new Lists;
+      list.listName = "someList";
+      list.group = 5;
+      list.owner = null;
+      expect(listService.validList(list)).toBe(false);
+    });
+  });
+
+  describe('validList', () => {
+    it('should return true because of valid list', () => {
+      let list: Lists = new Lists;
+      list.listName = "someList";
+      list.group = 5;
+      list.owner = "someOwner";
+      expect(listService.validList(list)).toBe(true);
+    });
   });
 });
