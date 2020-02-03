@@ -15,10 +15,6 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
 
   constructor(private service: NavValuesService, private usersService: UsersService, private router:Router) {
-    /*this.service.setNavOne("Login");
-    this.service.setNavTwo("Register");
-    this.service.setNavOneUrl("/login");
-    this.service.setNavTwoUrl("/register");*/
     this.service.purgeNav();
     this.service.addNav("/login","Login");
     this.service.addNav("/register","Register");
@@ -51,20 +47,22 @@ export class LoginComponent implements OnInit {
   }
 
   tryLogin(){
+    this.usersService.setIdToken("testidtoken");
     this.usersService.validateUser(this.user).subscribe(res=>{
-      if (res==null){
+      if (res.body==null){
         this.errorMessage="Login Credentials Incorrect!";
         this.user.userName="";
         this.user.passWord="";
       }else{
-        if (res.banned == null){
-          res.banned == "T";
+        if (res.body.banned == null){
+          res.body.banned == "T";
         }
-        if (res.banned == "F"){
+        if (res.body.banned == "F"){
           // user banned is false so login to application
-          this.user=res;
+          this.user=res.body;
           this.errorMessage="";
           this.usersService.setUser(this.user);
+          this.usersService.setSecurityToken(res.headers.get('token'));
           this.router.navigate(['/my-lists']);
         } else {
           // ban flag is any thing other than false so user must be banned.  send nasty message.
