@@ -31,6 +31,9 @@ export class UsersService {
   public registerUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.url + "/register", user);
   }
+  public updateUser(user: Users): Observable<Users> {
+    return this.http.post<Users>(this.url + "/account", user);
+  }
   public getAllUsers(): Observable<Users[]> {
     return this.http.get<Users[]>(this.url + "/get-all-users");
   }

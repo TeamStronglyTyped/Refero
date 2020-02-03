@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.cors.CorsConfiguration;
@@ -49,7 +50,10 @@ public class LoginController {
 	    return new CorsFilter(source);
 	}
 	
-	
+	@GetMapping("/")
+	public void emptyRequest() {
+		
+	}
 
 	@PostMapping("/login")
 	public Users validateUser(@RequestBody Users user, HttpServletRequest request,  HttpServletResponse response) {
@@ -67,9 +71,6 @@ public class LoginController {
 				Session session=new Session(user.getUserName(), securityId, securityToken);
 				System.out.println(session);
 				sessionService.createSession(session);
-				//HttpSession session=request.getSession();  
-				//session.setAttribute("userName",user.getUserName());
-				//System.out.println("session id at login controller: "+session.getId());
 				return user;
 			}else {
 				// still return user to program, but no session is created because user is banned
@@ -86,7 +87,9 @@ public class LoginController {
 		String securityToken = request.getHeader("SecurityToken");
 		Session sess = sessionService.getSession(securityId, securityToken);
 		System.out.println(sess);
-		sessionService.deleteSession(sess);
+		if(sess!=null) {
+			sessionService.deleteSession(sess);
+		}
 	}
 	
 	@PostMapping("/register")
@@ -97,13 +100,13 @@ public class LoginController {
 	
 	@GetMapping("/register/{username}")
 	public Boolean usernameIsAvailable(@PathVariable("username") String username) {
-		System.out.println("checking username available");
 		return (Boolean)(service.getUsersByUserName(username)==null);
 	}
 	
-	@GetMapping("/reject")
-	public void rejectThis() {
-		System.out.println("this should have been rejected!!!");
+	@PostMapping("/account")
+	public Users updateUsers(@RequestBody Users user) {
+		System.out.println("update user account: "+user);
+		return service.updateUsers(user);
 	}
 	
 }
