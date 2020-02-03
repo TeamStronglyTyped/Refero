@@ -4,7 +4,7 @@
 To provide a simple and intuitive way for people to organize their lives.
 
 ### Description
-Refero is an Angular/Spring web application that allows users to create and organize lists. A user can create an account, as well as create, view, edit, and delete lists. A user can also change their password or email on an accounts page.  An admin can moderate users and lists, by banning users and deleting lists. A user can create groups and invite other users to join that group. Users can accept or reject invitations to groups. Group members can make and delete lists as well as edit all lists in a group.
+Refero is an Angular/Spring web application that allows users to create and organize lists. A user can create an account, as well as create, view, edit, and delete their own lists. A user can create groups and invite other users to join that group. Users can accept or reject invitations to groups. Group members can make and delete lists as well as edit all lists in a group. A user can also change their password or email on an accounts page. An admin can moderate users and lists, by banning users and deleting lists. Admins may also un-ban users at their discretion.
 
 ### Requirements
 1. Refero functionality should reflect the below user stories.
