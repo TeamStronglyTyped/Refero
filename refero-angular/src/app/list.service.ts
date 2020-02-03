@@ -41,5 +41,4 @@ export class ListService {
     }
     return true;
   }
-
 }

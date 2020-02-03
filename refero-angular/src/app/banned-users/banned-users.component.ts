@@ -29,6 +29,6 @@ export class BannedUsersComponent implements OnInit {
         })
       )
       .subscribe();
-    location.reload();
+    location.reload(false);
   }
 }
