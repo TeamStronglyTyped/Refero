@@ -19,7 +19,4 @@ describe('PendingGroupsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

@@ -1,12 +1,15 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
 
-import { ListService } from './list.service';
+import { ListService } from "./list.service";
 
-describe('ListService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe("ListService", () => {
+  let listService: ListService;
 
-  it('should be created', () => {
-    const service: ListService = TestBed.get(ListService);
-    expect(service).toBeTruthy();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [ListService]
+    });
+
+    listService = TestBed.get(ListService);
   });
 });
