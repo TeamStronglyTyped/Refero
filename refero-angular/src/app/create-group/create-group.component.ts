@@ -33,8 +33,8 @@ export class CreateGroupComponent implements OnInit {
   // * if username hasn't already been added to invite list
   addUser( username ) {
     let inviteUserFeedback = ( <HTMLInputElement>document.getElementById( 'invite-user-feedback' ) );
-    if (username !== "") {
-      if (username === this.currentUser) {
+    if ( !this.isInvitedUserEmpty( username ) ) {
+      if ( this.isInvitingSelf( username ) ) {
         inviteUserFeedback.innerText = '*Cannot invite yourself to a group';
         inviteUserFeedback.style.color = 'red';
       } else {
@@ -68,20 +68,24 @@ export class CreateGroupComponent implements OnInit {
   createGroup() {
     let group = new Groups();
     group.groupName = ( <HTMLInputElement>document.getElementById( 'inputGroup' ) ).value;
-    this.groupService.createGroup(group).subscribe( res => {
-      
-      this.groupId = res.groupId;
+    if ( this.isGroupNameEmpty( group.groupName ) ) {
+      // instruct user to add group name
+      console.log( 'no group name' );
+    } else {
+      this.groupService.createGroup(group).subscribe( res => {
+        
+        this.groupId = res.groupId;
 
-      let userGroup = new UsersGroups();
-      userGroup.username = this.currentUser;
-      userGroup.groupId = this.groupId;
-      this.addUserToGroup( userGroup );
-      if ( this.users.length > 0 ) {
-        this.postInvitations();
-      }
-     
-
-    } );
+        let userGroup = new UsersGroups();
+        userGroup.username = this.currentUser;
+        userGroup.groupId = this.groupId;
+        this.addUserToGroup( userGroup );
+        if ( this.users.length > 0 ) {
+          this.postInvitations();
+        }
+    
+      } );
+  }
 
   }
   // * use group service to add current user to users_groups table through spring 
@@ -111,6 +115,30 @@ export class CreateGroupComponent implements OnInit {
       }
     }
 
+  }
+
+  isInvitedUserEmpty( username ) {
+    if ( username === '' ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isInvitingSelf( username ) {
+    if ( this.currentUser === username ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isGroupNameEmpty( groupName ) {
+    if( groupName === '' ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   
