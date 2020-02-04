@@ -17,6 +17,7 @@ export class MyGroupsComponent {
   usersGroups : Users [];
   groupIds : string [];
   currentUser : string;
+  inAGroup : boolean;
 
   constructor( private service : NavValuesService, private groupsService : GroupsService, private usersService : UsersService ) { 
     this.service.purgeNav();
@@ -28,13 +29,16 @@ export class MyGroupsComponent {
     // this.currentUser = 'marsredsky';
     this.currentUser = this.usersService.getUser().userName;
     this.getGroupIds();
+    this.inAGroup = false;
   }
 
   getGroups() : void {
+
     this.groupsService.getGroupIds( this.currentUser ).subscribe( res => {
       res.forEach( groupId => {
         this.groupsService.getGroupById( groupId ).subscribe( res => {
           let users = [];
+          if ( res.groupName !== 'My Lists' ) {
           let group = { 
                       groupName : res.groupName, 
                       users : []
@@ -46,9 +50,14 @@ export class MyGroupsComponent {
               this.groups.push( group );
               
           } );
+        }
         } )
+      
       } );
   } )
+  if ( this.groups.length > 0 ) {
+    this.inAGroup = true;
+  }
 };
 
   getGroupIds() : void {

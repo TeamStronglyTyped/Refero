@@ -11,5 +11,6 @@ public interface UsersService {
 	public Users getUsersByUserNameAndPassWord(String username, String password);
 	public Users getUsersByEmail(String email);
 	public Users addUsers(Users user);
+	public Users updateUsers(Users user);
 	
 }

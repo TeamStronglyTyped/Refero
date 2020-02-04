@@ -11,9 +11,9 @@ import { UsersGroups } from '../models/usersGroups';
   styleUrls: ['./pending-groups.component.css']
 })
 export class PendingGroupsComponent implements OnInit {
-  private invitations : any [];
+  public invitations : any [];
   private currentUser : string;
-  constructor( private service : NavValuesService, private groupsService : GroupsService, private usersService : UsersService ) { 
+  constructor( private service : NavValuesService, private groupsService : GroupsService, private usersService : UsersService ) {
     this.service.purgeNav();
     this.service.addNav("/my-lists","Lists");
     this.service.addNav("/my-groups","Groups");
@@ -47,7 +47,7 @@ export class PendingGroupsComponent implements OnInit {
   // * update invitation status through group service
   // * remove buttons
   // * determine if accepted or rejected
-  // * set feedback message 
+  // * set feedback message
   // * if accepted add user to users groups through groups service
   updateStatus( status : string, invitationId : number, groupId : number ) {
 
@@ -57,7 +57,7 @@ export class PendingGroupsComponent implements OnInit {
     this.groupsService.updateInvitationStatus( invitation ).subscribe( res => {
 
     } );
- 
+
     let acceptCell = (<HTMLInputElement> document.getElementById( 'accept-cell-' +invitationId ) );
     let rejectCell = (<HTMLInputElement> document.getElementById( 'reject-cell-' +invitationId ) );
     let feedbackElement = ( <HTMLInputElement> document.getElementById( 'feedback-cell-' + invitationId ));

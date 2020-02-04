@@ -22,7 +22,10 @@ public class GroupsServiceImpl implements GroupsService {
 
     @Override
     public Groups postNewGroup(Groups group) {
+    	if ( hasGroupName( group ) ) {
         return groupsRepository.save(group);
+    	}
+    	return null;
     }
 
     @Override
@@ -57,14 +60,18 @@ public class GroupsServiceImpl implements GroupsService {
 
 	@Override
 	public List<String> getUsersForGroupId(String groupId) {
-		
 		return groupsRepository.getUsersForGroupId( groupId );
 	}
 
-//	@Override
-//	public List<Groups> getAllGroupsByUsername(String username) {
-//		
-//		return groupsRepository.getAllGroupsByUsername( username );
-//	}
+	@Override
+	public boolean hasGroupName(Groups group) {
+		if ( group.getGroupName().equals( null ) || group.getGroupName().equals( "" ) ) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	
 
 }

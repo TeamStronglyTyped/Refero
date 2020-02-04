@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { map } from 'rxjs/operators';
 import { Users } from "./models/users";
 
 @Injectable({
@@ -10,13 +11,19 @@ export class UsersService {
   private url: string;
   private user: Users;
 
-  constructor(private http: HttpClient) {
-    this.url = "http://localhost:5050";
-    this.user = new Users();
+  private url:string;
+  private user:Users;
+  private idToken:string = "";
+  private securityToken: string ="";
+
+  constructor(private http:HttpClient) { 
+    this.url="http://localhost:5050";
+    this.user=new Users;
   }
 
-  public validateUser(user: Users): Observable<Users> {
-    return this.http.post<Users>(this.url + "/login", user);
+
+  public validateUser(user: Users): Observable<HttpResponse<Users>> {
+    return this.http.post<Users>(this.url + "/login", user, {observe: 'response'});
   }
 
   public userNameIsAvailable(userName: String): Observable<Boolean> {
@@ -25,6 +32,9 @@ export class UsersService {
 
   public registerUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.url + "/register", user);
+  }
+  public updateUser(user: Users): Observable<Users> {
+    return this.http.post<Users>(this.url + "/account", user);
   }
   public getAllUsers(): Observable<Users[]> {
     return this.http.get<Users[]>(this.url + "/get-all-users");
@@ -39,8 +49,12 @@ export class UsersService {
     return this.http.put<Users>(this.url + "/restore-user", user);
   }
 
-  public setUser(user: Users) {
-    this.user = user;
+  public logout() {
+    return this.http.delete(this.url+"/logout");
+  }
+
+  public setUser(user: Users){
+    this.user=user;
   }
 
   public getUser(): Users {
@@ -55,5 +69,23 @@ export class UsersService {
     } else {
       return true;
     }
+  }
+}
+
+  public setSecurityToken(token:string){
+    this.securityToken=token;
+  }
+
+  public getSecurityToken(): string{
+    return this.securityToken;
+  }
+
+  public setIdToken(id:string)
+  {
+    this.idToken=id;
+  }
+
+  public getIdToken(): string{
+    return this.idToken;
   }
 }

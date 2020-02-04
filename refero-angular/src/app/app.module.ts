@@ -55,7 +55,11 @@ import { AdminLogInComponent } from "./admin-log-in/admin-log-in.component";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [UsersService, NavValuesService],
+  providers: [
+    UsersService, 
+    NavValuesService,
+    {provide: HTTP_INTERCEPTORS, useClass: ValidationInterceptService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

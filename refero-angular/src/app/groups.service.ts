@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Groups } from './models/groups';
 import { Invitations } from './models/invitations';
-import { GROUPS } from './mock-groups';
 import { Observable } from 'rxjs';
 import { UsersGroups } from './models/usersGroups';
 import { UsersService } from './users.service';
@@ -16,10 +15,6 @@ export class GroupsService {
 
   constructor( private http:HttpClient, private userService: UsersService) {
     this.url="http://localhost:5050";
-  }
-
-  getGroups () : Groups [] {
-    return GROUPS;
   }
 
   public createGroup( group : Groups ) : Observable< Groups > {

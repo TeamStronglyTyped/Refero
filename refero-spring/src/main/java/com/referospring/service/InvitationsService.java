@@ -11,4 +11,5 @@ public interface InvitationsService {
 	public void postNewInvitation( Invitations invitation );
 	public List < Invitations > getPendingInvitations( Users users );
 	public Integer updateInvitationStatus( Invitations invitation );
+	public boolean isValidInvitation( Invitations invitation );
 }
