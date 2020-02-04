@@ -41,6 +41,7 @@ export class PendingGroupsComponent implements OnInit {
         }
         this.invitations.push( invite );
       } );
+      console.log( this.invitations );
     } );
   }
   // * create invitation object

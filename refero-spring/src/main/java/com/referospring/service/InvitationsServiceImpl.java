@@ -29,7 +29,6 @@ public class InvitationsServiceImpl implements InvitationsService {
 
 	@Override
 	public Integer updateInvitationStatus( Invitations invitation ) {
-		System.out.println( invitation );
 		return invitationsRepository.updateInvitationStatus( invitation.getStatus(), invitation.getInvitationId() );
 	}
 

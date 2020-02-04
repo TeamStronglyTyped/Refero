@@ -29,7 +29,6 @@ export class MyGroupsComponent {
     // this.currentUser = 'marsredsky';
     this.currentUser = this.usersService.getUser().userName;
     this.getGroupIds();
-    this.inAGroup = false;
   }
 
   getGroups() : void {
@@ -48,16 +47,16 @@ export class MyGroupsComponent {
               users = res;
               group.users = res;
               this.groups.push( group );
-              
+            
           } );
         }
+
         } )
       
       } );
   } )
-  if ( this.groups.length > 0 ) {
-    this.inAGroup = true;
-  }
+
+
 };
 
   getGroupIds() : void {
