@@ -39,48 +39,59 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
   }
-
   validateUsername(): void{
+    this.usernameValid=this.validateUsernameExecute(this.user.userName);
+  }
+  validateUsernameExecute(userName: string): boolean{
     const usernameRegex : RegExp = new RegExp(/^[A-Za-z0-9]{6,30}$/);
-    if (usernameRegex.test(this.user.userName)){
+    if (usernameRegex.test(userName)){
       this.usernameError="";
-      this.usernameValid=true;
+      return true;
     }else{
       this.usernameError="Username must be from 6 to 30 letters or numbers"
-      this.usernameValid=false;
+      return false;
     }
   }
 
+ 
   validatePassword(): void{
+    this.passwordValid=this.validatePasswordExecute(this.user.passWord);
+  }
+
+  validatePasswordExecute(passWord: string): boolean{
     const passwordRegex : RegExp = new RegExp(/^(?=.*[A-Za-z])(?=.*[0-9]{2,})(?=.*[~!@#$%^&*])[A-Za-z0-9~!@#$%^&*]{8,40}$/);
-    if (passwordRegex.test(this.user.passWord)){
+    if (passwordRegex.test(passWord)){
       this.passwordError="";
-      this.passwordValid=true;
+      return true;
     }else{
       this.passwordError="Password must at least 8 characters, and have at least 1 letter, 2 numbers and 1 symbol."
-      this.passwordValid=false;
+      return false;
     }
   }
-
   validatePasswordConfirm():void{
-    if (this.user.passWord==this.passWordConfirm){
+    this.passwordConfirmValid=this.validatePasswordConfirmExecute(this.passWordConfirm, this.user.passWord);
+  }
+  validatePasswordConfirmExecute(passWordConfirm: string, passWord: string):boolean{
+    if (passWord==passWordConfirm){
       this.passwordConfirmError="";
-      this.passwordConfirmValid=true;
+      return true;
     }else{
       this.passwordConfirmError="Passwords do not match."
-      this.passwordConfirmValid=false;
+      return false;
     }
   }
-
   validateEmail():void{
+    this.emailValid=this.validateEmailExecute(this.user.email);
+  }
+
+  validateEmailExecute(email: string):boolean{
     const emailRegex : RegExp= new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    //const emailRegex : RegExp = new RegExp( '/b[A-Z0-9._%+-]+@[A-Z0-9.-]+/.[A-Z]{2,}/b');
-    if (emailRegex.test(this.user.email)){
+    if (emailRegex.test(email)){
       this.emailError="";
-      this.emailValid=true;
+      return true;
     }else{
       this.emailError="Not a valid email address."
-      this.emailValid=false;
+      return false;
     }
   }
 

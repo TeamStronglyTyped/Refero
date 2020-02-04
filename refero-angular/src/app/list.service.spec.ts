@@ -10,7 +10,7 @@ describe("ListService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      providers: [ListService]
+      providers: [ListService, HttpClientModule]
     });
 
     listService = TestBed.get(ListService);

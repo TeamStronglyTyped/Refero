@@ -68,6 +68,7 @@ public class GroupsController {
 
     @GetMapping("/get-groups-for/{user}")
     public List<String> getGroupsForUser(@PathVariable("user") String username) {
+    	System.out.println( username );
         return groupsService.getGroupsForUser(username);
     }
     

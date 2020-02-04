@@ -1,3 +1,23 @@
 <section class="container-fluid">
-  <p>list works!</p>
+  <div class="row" id="newListRow">
+    <div class="col-8">
+      <input type="text" class="form-control" id="newList" placeholder="List Name" autocomplete="off">
+    </div>
+    <div class="col-2">
+      <button (click)="addList()" id="newListButton" class="btn btn-block">New List</button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let list of lists">
+    <div class="col-4 lists">
+      <button class="listButton" (click)="displayList(list.listName)">{{list.listName}}</button>
+    </div>
+    <div class="col-2 lists">
+      <button class="deleteButton" (click)="deleteList(list.listName)">delete</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-list-item [listName]="selectedListName" [listItems]="listItems"></app-list-item>
+    </div>
+  </div>
 </section>

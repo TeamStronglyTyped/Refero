@@ -5,6 +5,9 @@ import { Groups } from '../models/groups';
 import { Invitations } from '../models/invitations';
 import { GroupsService } from '../groups.service';
 import { UsersService } from '../users.service';
+import { Router } from '@angular/router';
+import { ListService } from '../list.service';
+
 
 
 @Component({
@@ -18,7 +21,8 @@ export class CreateGroupComponent implements OnInit {
   groupName: string;
   groupId: number;
   currentUser: string;
-  constructor(private service: NavValuesService, private groupService: GroupsService, private userService: UsersService) {
+  constructor(private service: NavValuesService, private groupService: GroupsService, 
+    private userService: UsersService, private listService : ListService, private router : Router ) {
     this.service.purgeNav();
     this.service.addNav("/my-lists","Lists");
     this.service.addNav("/my-groups","Groups");
@@ -33,8 +37,8 @@ export class CreateGroupComponent implements OnInit {
   // * if username hasn't already been added to invite list
   addUser( username ) {
     let inviteUserFeedback = ( <HTMLInputElement>document.getElementById( 'invite-user-feedback' ) );
-    if (username !== "") {
-      if (username === this.currentUser) {
+    if ( !this.isInvitedUserEmpty( username ) ) {
+      if ( this.isInvitingSelf( username ) ) {
         inviteUserFeedback.innerText = '*Cannot invite yourself to a group';
         inviteUserFeedback.style.color = 'red';
       } else {
@@ -68,27 +72,37 @@ export class CreateGroupComponent implements OnInit {
   createGroup() {
     let group = new Groups();
     group.groupName = ( <HTMLInputElement>document.getElementById( 'inputGroup' ) ).value;
-    this.groupService.createGroup(group).subscribe( res => {
-      
-      this.groupId = res.groupId;
+    this.groupName = group.groupName;
+    if ( this.isGroupNameEmpty( group.groupName ) ) {
+      // instruct user to add group name
+      console.log( 'no group name' );
+      let groupFeedback = ( <HTMLInputElement> document.getElementById( 'group-feedback' ) );
+      groupFeedback.innerHTML = '*Must select a group name';
+      groupFeedback.style.color = 'red';
+    } else {
+      this.groupService.createGroup(group).subscribe( res => {
+        
+        this.groupId = res.groupId;
 
-      let userGroup = new UsersGroups();
-      userGroup.username = this.currentUser;
-      userGroup.groupId = this.groupId;
-      this.addUserToGroup( userGroup );
-      if ( this.users.length > 0 ) {
-        this.postInvitations();
-      }
-     
-
-    } );
+        let userGroup = new UsersGroups();
+        userGroup.username = this.currentUser;
+        userGroup.groupId = this.groupId;
+        this.addUserToGroup( userGroup );
+        if ( this.users.length > 0 ) {
+          this.postInvitations();
+        }
+    
+      } );
+  }
 
   }
   // * use group service to add current user to users_groups table through spring 
   addUserToGroup( userGroup : UsersGroups ) {
 
     this.groupService.addUserToGroup(userGroup).subscribe( res => {
-
+     this.listService.setGroupName( this.groupName );
+     this.router.navigate( ['/my-lists'] );
+      
     });
   }
 
@@ -111,6 +125,35 @@ export class CreateGroupComponent implements OnInit {
       }
     }
 
+  }
+
+  clearGroupNameFeedback() {
+    let groupFeedback = ( <HTMLInputElement> document.getElementById( 'group-feedback' ) );
+    groupFeedback.innerHTML = '';
+  }
+
+  isInvitedUserEmpty( username ) {
+    if ( username === '' ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isInvitingSelf( username ) {
+    if ( this.currentUser === username ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isGroupNameEmpty( groupName ) {
+    if( groupName === '' ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   

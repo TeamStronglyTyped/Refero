@@ -14,7 +14,8 @@
           </div>
           <div class="row">
             <div class="col-12 mb-3 mt-4">
-              <input type="text" class="form-control invite-input" id="inputGroup" placeholder="Group Name" autocomplete="off">
+              <input type="text" class="form-control invite-input" id="inputGroup" placeholder="Group Name" autocomplete="off"
+              (keydown)="clearGroupNameFeedback()">
             </div>
           </div>
           <div class="row mb-3">
@@ -49,6 +50,11 @@
               <button class="btn px-5 py-2" id="create-group-btn" (click)="createGroup()">
                 Create Group
               </button>
+              <div class="row">
+                <div class="col-12" id="group-feedback">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
