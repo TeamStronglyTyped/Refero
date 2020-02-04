@@ -11,7 +11,7 @@ import { RouteConfigLoadEnd } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  private lists: Lists[] = [];
+  public lists: Lists[] = [];
 
   constructor(private listService: ListService, private userService: UsersService) {
     this.updateLists();
