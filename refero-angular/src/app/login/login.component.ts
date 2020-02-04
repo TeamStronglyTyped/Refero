@@ -11,10 +11,11 @@ import { UsersService } from '../users.service';
 })
 export class LoginComponent implements OnInit {
 
-  @Input() user:Users;
+  @Input() 
+  user:Users;
   errorMessage: string;
 
-  constructor(private service: NavValuesService, private usersService: UsersService, private router:Router) {
+  constructor(private service: NavValuesService,  private usersService: UsersService, private router:Router) {
     this.service.purgeNav();
     this.service.addNav("/login","Login");
     this.service.addNav("/register","Register");
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   tryLogin(){
-    this.usersService.setIdToken("testidtoken");
+    this.usersService.generateIdToken();
     this.usersService.validateUser(this.user).subscribe(res=>{
       if (res.body==null){
         this.errorMessage="Login Credentials Incorrect!";

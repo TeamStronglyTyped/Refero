@@ -20,4 +20,5 @@ public interface UsersService {
 	public boolean validateEmail(String email);
 	public boolean validateBanned(String banned);
 	
+	
 }

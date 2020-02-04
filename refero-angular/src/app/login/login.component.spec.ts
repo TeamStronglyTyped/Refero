@@ -16,7 +16,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
-      imports: [Input, HttpClientTestingModule, RouterTestingModule.withRoutes([]), NgModule  ]
+      imports: [Input, NgModule  ]
     })
     .compileComponents();
   }));
@@ -27,10 +27,18 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  //describe('validateSubmit', () => {
-  //  it('should return false because of short userName', () => {
-  //    expect(component.validateSubmit("fred","fred11!!")).toBe(false);
-  //  });
-  //});
+  /*describe('validateSubmit', () => {
+    it('should return false because of short userName', () => {
+      let username: string ="fred";
+      let password: string ="fred11!!";
+      expect(component.validateSubmit(username, password)).toBe(false);
+    });
+  });*/
+
+  /*describe('validateSubmit', () => {
+    it('should return false because of userName with invalid characters', () => {
+      expect(component.validateSubmit("fr!@#$ed","fred11!!")).toBe(false);
+    });
+  });*/
 
 });
