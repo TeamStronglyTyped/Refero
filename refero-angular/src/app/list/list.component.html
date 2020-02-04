@@ -15,4 +15,9 @@
       <button class="deleteButton" (click)="deleteList(list.listName)">delete</button>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <app-list-item [listName]="selectedListName" [listItems]="listItems"></app-list-item>
+    </div>
+  </div>
 </section>

@@ -16,7 +16,9 @@ public interface ListsService {
     public Integer getGroupIdForUserGroup(String userName, String groupName);
     public List<Lists> getListsInGroupName(String groupName, String owner);
     public List<Lists> getListsInGroupName2(String groupName);
-    public List<ListItems> getListItemsByListName(String listName);
+    public List<String> getListItemsByListName(String listName);
     public void deleteListByName(String listName);
     public void deleteListByNameAndOwner(String listName, String owner);
+    public ListItems postNewListItems(ListItems listItems);
+    public Integer getListIdByNameAndOwner(String listName, String owner);
 }

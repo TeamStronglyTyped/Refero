@@ -1,1 +1,13 @@
-<p>list-item works!</p>
+<main class=".container-fluid" *ngIf="listName">
+  <section class="row" *ngFor="let listItem of listItems">
+    <p>{{listItem.listItem}}</p>
+  </section>
+  <section class="row">
+    <div class="col-4 lists">
+      <input type="text" class="form-control" id="addItemInput" placeholder="Item" autocomplete="off">
+    </div>
+    <div class="col-2 lists">
+      <button class="addItemButton" (click)="addListItem()">Add Item</button>
+    </div>
+  </section>
+</main>

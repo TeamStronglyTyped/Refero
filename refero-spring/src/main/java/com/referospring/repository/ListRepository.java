@@ -23,8 +23,8 @@ public interface ListRepository extends JpaRepository<Lists, Integer> {
     @Query(value = "SELECT * FROM LISTS JOIN GROUPS ON LISTS.GROUP_ID = GROUPS.GROUP_ID WHERE GROUPS.GROUP_NAME = ? AND OWNER = ?", nativeQuery = true)
     public List<Lists> getListsInGroupName(String groupName, String owner);
 
-    @Query(value = "SELECT * FROM LIST_ITEMS JOIN LISTS ON LIST = LIST_ID WHERE LIST_NAME = ?", nativeQuery = true)
-    public List<ListItems> getListItemsByListName(String listName);
+    @Query(value = "SELECT ITEM_ID, LIST, LIST_ITEM, STATUS, CREATOR FROM LIST_ITEMS JOIN LISTS ON LIST = LIST_ID WHERE LIST_NAME = ?", nativeQuery = true)
+    public List<String> getListItemsByListName(String listName);
 
     @Query(value = "SELECT * FROM LISTS JOIN GROUPS ON LISTS.GROUP_ID = GROUPS.GROUP_ID WHERE GROUPS.GROUP_NAME = ?", nativeQuery = true)
     public List<Lists> getListsInGroupName2(String groupName);
@@ -38,6 +38,12 @@ public interface ListRepository extends JpaRepository<Lists, Integer> {
     @Transactional
     @Query(value = "DELETE FROM LISTS WHERE LIST_NAME = ? AND OWNER = ?", nativeQuery = true)
     public void deleteListByNameAndOwner(String listName, String owner);
+
+    @Query(value = "SELECT LIST_ID FROM LISTS WHERE LIST_NAME = ? AND OWNER = ?", nativeQuery = true)
+    public Integer getListIdByNameAndOwner(String listName, String owner);
+
+    @Query(value = "SELECT LIST_ID FROM LISTS WHERE LIST_NAME = ?", nativeQuery = true)
+    public List<Integer> getListIdsByName(String listName);
 
     // @Query(value = "SELECT GROUP_ID FROM GROUPS WHERE GROUP_NAME = ?1", nativeQuery = true)
     // public String getGroupIdFor(String groupName);
