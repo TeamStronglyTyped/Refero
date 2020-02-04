@@ -27,7 +27,7 @@ public class Groups implements Serializable{
 	private String groupName;
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "inGroup")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "group")
 	private List<Lists> listList=new ArrayList<>();
 	
 	@JsonIgnore

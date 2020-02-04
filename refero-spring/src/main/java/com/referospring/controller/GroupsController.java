@@ -35,6 +35,7 @@ public class GroupsController {
 
     @PostMapping(value="/post-new-group")
     public Groups postNewGroup(@RequestBody Groups group) {
+    	System.out.println( group );
         return groupsService.postNewGroup(group);
     }
     
@@ -70,7 +71,7 @@ public class GroupsController {
         return groupsService.getGroupsForUser(username);
     }
     
-    @GetMapping("/get-groupIds-for/{user}")
+    @GetMapping("/get-groupids-for/{user}")
     public List<String> getGroupIdsForUser( @PathVariable("user") String username ) {
     	return groupsService.getGroupIdsForUser( username );
     }

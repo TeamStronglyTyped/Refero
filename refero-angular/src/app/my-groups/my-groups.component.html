@@ -20,11 +20,13 @@
                 </h4>
               </div>
               <div id="username-col" class="col-5 text-center group-col px-1">
-                <div *ngFor="let users of usersGroups">
+                <!-- <div *ngFor="let group of groups"> -->
+                  <div *ngFor="let user of group.users">
                   <p id="user-in-group">
-                    {{ users.userName }}
+                    {{ user }}
                   </p>
-                </div>
+                  </div>
+                <!-- </div> -->
               </div>
             </div>
           </div>

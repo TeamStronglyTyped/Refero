@@ -13,6 +13,8 @@ main {
   flex-direction: row;
   display: flex;
   margin-top: 4vh;
+  height: 80vh;
+  width: 90vw;
 }
 app-all-users {
   margin-left: 6vw;

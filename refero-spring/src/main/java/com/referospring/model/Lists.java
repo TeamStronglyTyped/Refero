@@ -29,8 +29,8 @@ public class Lists implements Serializable{
 	private String listName;
 	
 	@ManyToOne(targetEntity = Groups.class)
-	@JoinColumn(name = "inGroup", nullable = false)
-	private Groups inGroup;
+	@JoinColumn(name = "groupId", nullable = false)
+	private Groups group;
 	
 	@ManyToOne
 	@JoinColumn(name = "owner", nullable = false)
@@ -43,14 +43,14 @@ public class Lists implements Serializable{
 	public Lists() {
 		this.listId = 0;
 		this.listName = "";
-		this.inGroup = null;
+		this.group = null;
 		this.owner = null;
 	}
 
-	public Lists(Integer listId, String listName, Groups inGroup, Users owner) {
+	public Lists(Integer listId, String listName, Groups group, Users owner) {
 		this.listId = listId;
 		this.listName = listName;
-		this.inGroup = inGroup;
+		this.group = group;
 		this.owner = owner;
 	}
 	
@@ -80,11 +80,11 @@ public class Lists implements Serializable{
 	}
 	
 	public Groups getGroup() {
-		return inGroup;
+		return group;
 	}
 
-	public void setGroup(Groups inGroup) {
-		this.inGroup = inGroup;
+	public void setGroup(Groups group) {
+		this.group = group;
 	}
 
 	public Users getOwner() {
@@ -94,7 +94,7 @@ public class Lists implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Lists [listId=" + listId + ", listName=" + listName + ", inGroup=" + inGroup + ", owner=" + owner + "]";
+		return "Lists [listId=" + listId + ", listName=" + listName + ", group=" + group + ", owner=" + owner + "]";
 	}
 	
 }

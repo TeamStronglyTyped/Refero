@@ -5,27 +5,28 @@
           <div class="card card-signin my-5">
             <div class="card-body">
               <h5 class="card-title text-center">Account Details</h5>
-              <form class="form-signin" (keydown.enter)="register()">
-  
-                <div class="form-label-group">                  
+              <form class="form-signin">
+
+                <div class="form-label-group">
                   <input type="password" (input)="validatePassword()" [(ngModel)]="user.passWord" name="inputPassword" class="form-control" placeholder="Password" required title="Input Password.  Requires 1 letter, 2 numbers and 1 symbol">
                 </div>
                 <p id="passwordMessage" class="text-center errorText">{{passwordError}}</p>
-  
-                <div class="form-label-group">                  
+
+                <div class="form-label-group">
                     <input type="password" (input)="validatePasswordConfirm()" [(ngModel)]="passWordConfirm" name="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required title="Confirmed password must match Password">
                 </div>
                 <p id="passwordConfirmMessage" class="text-center errorText">{{passwordConfirmError}}</p>
 
-                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="register()" type="button">Change Password</button>
+                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="changePassword()" type="button">Change Password</button>
 
-                <div class="form-label-group">                  
+                <br>
+                <div class="form-label-group">
                     <input type="email" (input)="validateEmail()" [(ngModel)]="user.email" name="inputEmail" class="form-control" placeholder="E-Mail Address" required title="Input E-Mail Address." autocomplete="off">
                 </div>
                 <p id="emailMessage" class="text-center errorText">{{emailError}}</p>
 
-                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="register()" type="button">Change E-Mail</button>
-                
+                <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="changeEmail()" type="button">Change E-Mail</button>
+
               </form>
             </div>
           </div>
@@ -33,5 +34,5 @@
       </div>
     </div>
   </body>
-  
+
 
