@@ -8,7 +8,7 @@ import { UsersService } from "../users.service";
   styleUrls: ["./banned-users.component.css"]
 })
 export class BannedUsersComponent implements OnInit {
-  private users: Users[];
+  public users: Users[];
   constructor(private userService: UsersService) {}
 
   ngOnInit() {
@@ -29,6 +29,6 @@ export class BannedUsersComponent implements OnInit {
         })
       )
       .subscribe();
-    location.reload();
+    location.reload(false);
   }
 }

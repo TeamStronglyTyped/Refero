@@ -18,7 +18,7 @@
                 <p id="passwordConfirmMessage" class="text-center errorText">{{passwordConfirmError}}</p>
 
                 <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="changePassword()" type="button">Change Password</button>
-                
+
                 <br>
                 <div class="form-label-group">                  
                     <input type="email" (input)="validateEmail()" [(ngModel)]="user.email" name="inputEmail" class="form-control" placeholder="E-Mail Address" required title="Input E-Mail Address." autocomplete="off" (keydown.enter)="changeEmail()">
@@ -26,7 +26,7 @@
                 <p id="emailMessage" class="text-center errorText">{{emailError}}</p>
 
                 <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="changeEmail()" type="button">Change E-Mail</button>
-                
+
               </form>
             </div>
           </div>
@@ -34,5 +34,5 @@
       </div>
     </div>
   </body>
-  
+
 
