@@ -46,4 +46,9 @@ public class ListController {
     	listsService.deletList(id);
     }
 
+    @GetMapping("get-lists-in-group/{groupId}")
+    public List<Lists> getListsInGroup(@PathVariable("groupId") String groupId) {
+        return listsService.getListsInGroup(groupId);
+    }
+    
 }

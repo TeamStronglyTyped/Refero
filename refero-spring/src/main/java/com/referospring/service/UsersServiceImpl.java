@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.referospring.model.Groups;
 import com.referospring.model.Users;
 import com.referospring.repository.UsersRepository;
 
@@ -14,6 +15,9 @@ import com.referospring.repository.UsersRepository;
 public class UsersServiceImpl implements UsersService {
 	@Autowired
 	UsersRepository usersDao;
+
+	@Autowired
+	GroupsService groupsService;
 	
 	public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
 		    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -46,7 +50,11 @@ public class UsersServiceImpl implements UsersService {
 			validateEmail(user.getEmail()) &&
 			validateBanned(user.getBanned())) {
 			
-			return usersDao.save(user);
+			Groups group = new Groups(0, "My Lists");
+			group = groupsService.postNewGroup(group);
+			Users savedUser = usersDao.save(user);
+			groupsService.addUserToGroup(savedUser.getUserName(), group.getGroupId());
+			return savedUser;
 		}else {
 			return new Users();
 		}

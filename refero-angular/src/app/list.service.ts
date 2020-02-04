@@ -9,9 +9,18 @@ import { ListItems } from "./models/listItems";
 })
 export class ListService {
   private url: string;
+  private groupName: string = "";
 
   constructor(private http: HttpClient) {
     this.url = "http://localhost:5050";
+  }
+
+  public getGroupName(): string {
+    return this.groupName;
+  }
+
+  public setGroupName(groupName: string) {
+    this.groupName = groupName;
   }
 
   public getAllLists(): Observable<Lists[]> {
