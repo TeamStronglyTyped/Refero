@@ -76,6 +76,9 @@ export class CreateGroupComponent implements OnInit {
     if ( this.isGroupNameEmpty( group.groupName ) ) {
       // instruct user to add group name
       console.log( 'no group name' );
+      let groupFeedback = ( <HTMLInputElement> document.getElementById( 'group-feedback' ) );
+      groupFeedback.innerHTML = '*Must select a group name';
+      groupFeedback.style.color = 'red';
     } else {
       this.groupService.createGroup(group).subscribe( res => {
         
