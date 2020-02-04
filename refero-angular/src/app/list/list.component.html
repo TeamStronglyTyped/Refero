@@ -4,7 +4,12 @@
       <input type="text" class="form-control" id="newList" placeholder="List Name" autocomplete="off">
     </div>
     <div class="col-2">
-      <button id="newListButton" class="btn btn-block">New List</button>
+      <button (click)="addList()" id="newListButton" class="btn btn-block">New List</button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let list of lists">
+    <div class="col-12">
+      <p>{{list.listName}}</p>
     </div>
   </div>
 </section>

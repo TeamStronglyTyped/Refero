@@ -2,7 +2,7 @@
     <ul class="nav flex-column">
       <div routerLinkActive="active" *ngFor="let route of routes">
             <li class="nav-item side-nav-option">
-              <a class="nav-link flex-center">{{route.name}}</a>
+              <a (click)="setGroup(route.name)" class="nav-link flex-center">{{route.name}}</a>
             </li>
       </div>
     </ul>
