@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CreateGroupComponent } from './create-group.component';
-import { HttpClientModule } from '@angular/common/http'; 
 import { GroupSideNavComponent } from '../group-side-nav/group-side-nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
 

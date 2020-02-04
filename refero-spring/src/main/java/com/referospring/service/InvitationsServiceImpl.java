@@ -17,8 +17,9 @@ public class InvitationsServiceImpl implements InvitationsService {
 
 	@Override
 	public void postNewInvitation( Invitations invitation ) {
-		System.out.println( invitation );
-		invitationsRepository.save( invitation );	
+		if ( isValidInvitation( invitation ) ) {
+			invitationsRepository.save( invitation );	
+		}
 	}
 	
 	@Override
@@ -30,6 +31,19 @@ public class InvitationsServiceImpl implements InvitationsService {
 	public Integer updateInvitationStatus( Invitations invitation ) {
 		System.out.println( invitation );
 		return invitationsRepository.updateInvitationStatus( invitation.getStatus(), invitation.getInvitationId() );
+	}
+
+	@Override
+	public boolean isValidInvitation(Invitations invitation) {
+		if ( invitation.getGroupId().getGroupId() == 0 || 
+			 invitation.getFromUser() == ( null ) || 
+			 invitation.getToUser() == ( null ) || 
+			 invitation.getStatus().equals( "" ) ) {
+			return false;
+		} else {
+			return true;
+		}
+		
 	}
 
 }
