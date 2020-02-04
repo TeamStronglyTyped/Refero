@@ -58,15 +58,19 @@ export class ListService {
 
   public delteList(id: number) {
     this.userService.setIdToken("admin23");
-    return this.http.delete<Lists>(this.url + "/delte-list" + id);
+    return this.http.delete<Lists>(this.url + "/delete-list/" + id);
   }
 
   public getGroupIdForUserGroup(user: string, group: string) {
-    return this.http.get<number>(this.url + "/get-groupid-for-user-group/" + user + "/" + group);
+    return this.http.get<number>(
+      this.url + "/get-groupid-for-user-group/" + user + "/" + group
+    );
   }
 
   public getListsInGroupName() {
-    return this.http.get<Lists[]>(this.url + "/get-lists-in-group-name/" + this.getGroupName());
+    return this.http.get<Lists[]>(
+      this.url + "/get-lists-in-group-name/" + this.getGroupName()
+    );
   }
 
   public validList(list: Lists): boolean {
