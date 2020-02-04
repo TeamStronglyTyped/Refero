@@ -5,6 +5,9 @@ import { Groups } from '../models/groups';
 import { Invitations } from '../models/invitations';
 import { GroupsService } from '../groups.service';
 import { UsersService } from '../users.service';
+import { Router } from '@angular/router';
+import { ListService } from '../list.service';
+
 
 
 @Component({
@@ -18,7 +21,8 @@ export class CreateGroupComponent implements OnInit {
   groupName: string;
   groupId: number;
   currentUser: string;
-  constructor(private service: NavValuesService, private groupService: GroupsService, private userService: UsersService) {
+  constructor(private service: NavValuesService, private groupService: GroupsService, 
+    private userService: UsersService, private listService : ListService, private router : Router ) {
     this.service.purgeNav();
     this.service.addNav("/my-lists","Lists");
     this.service.addNav("/my-groups","Groups");
@@ -68,6 +72,7 @@ export class CreateGroupComponent implements OnInit {
   createGroup() {
     let group = new Groups();
     group.groupName = ( <HTMLInputElement>document.getElementById( 'inputGroup' ) ).value;
+    this.groupName = group.groupName;
     if ( this.isGroupNameEmpty( group.groupName ) ) {
       // instruct user to add group name
       console.log( 'no group name' );
@@ -92,7 +97,9 @@ export class CreateGroupComponent implements OnInit {
   addUserToGroup( userGroup : UsersGroups ) {
 
     this.groupService.addUserToGroup(userGroup).subscribe( res => {
-
+     this.listService.setGroupName( this.groupName );
+     this.router.navigate( ['/my-lists'] );
+      
     });
   }
 
