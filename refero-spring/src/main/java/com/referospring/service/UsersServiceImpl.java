@@ -58,22 +58,22 @@ public class UsersServiceImpl implements UsersService {
 		return addUsers(user);
 	}
 	
-	private boolean validateUsername(String username) {
+	public boolean validateUsername(String username) {
 		String regExp="^[A-Za-z0-9]{6,30}$";
 		return Pattern.matches(regExp, username);
 	}
 	
-	private boolean validatePassword(String password) {
+	public boolean validatePassword(String password) {
 		String regExp="^(?=.*[A-Za-z])(?=.*[0-9]{2,})(?=.*[~!@#$%^&*])[A-Za-z0-9~!@#$%^&*]{8,40}$";
 		return Pattern.matches(regExp, password);
 	}
 	
-	private boolean validateEmail(String email) {
+	public boolean validateEmail(String email) {
 	    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
 	    return matcher.find();
 	}
 	
-	private boolean validateBanned(String banned) {
+	public boolean validateBanned(String banned) {
 		if (banned.equals("T") || banned.equals("F")) {
 			return true;
 		}else {

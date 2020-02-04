@@ -31,19 +31,26 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
   }
 
-  submit(): void {
+  submit():void{
+    if(this.validateSubmit(this.user.userName, this.user.passWord)){
+      this.tryLogin();
+    }
+  }
+
+  validateSubmit(userName: string, passWord: string): boolean {
     const usernameRegex : RegExp = new RegExp(/^[A-Za-z0-9]{6,30}$/);
     const passwordRegex : RegExp = new RegExp(/^(?=.*[A-Za-z])(?=.*[0-9]{2,})(?=.*[~!@#$%^&*])[A-Za-z0-9~!@#$%^&*]{8,40}$/);
-    if (usernameRegex.test(this.user.userName) && passwordRegex.test(this.user.passWord)){
+    if (usernameRegex.test(userName) && passwordRegex.test(passWord)){
       this.errorMessage="";
-      this.tryLogin();
+      return true;
     }else{
       this.errorMessage="Invalid Username or Password."
+      return false;
     }
   }
 
   forgotPassword(): void {
-    this.errorMessage="A temporary password has been e-mailed to you."
+    this.errorMessage="*** This Feature is Under Construction ***"
   }
 
   tryLogin(){

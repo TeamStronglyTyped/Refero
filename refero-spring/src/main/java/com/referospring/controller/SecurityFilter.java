@@ -51,7 +51,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 			return;
 		}
 		
-		if(path.equals("/") || path.equals("/login") || (path.length()>=9 && path.subSequence(0, 9).equals("/register"))) {
+		if(path.equals("/") || path.equals("/login") || path.equals("/logout") || (path.length()>=9 && path.subSequence(0, 9).equals("/register"))) {
 			//System.out.println("/login or /register so pass along without security.");
 			chain.doFilter(request, response);
 			return;
