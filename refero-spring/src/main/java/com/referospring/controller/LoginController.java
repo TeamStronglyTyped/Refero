@@ -64,7 +64,7 @@ public class LoginController {
 				user.setBanned("T");
 			}
 			if (user.getBanned().equals("F")) {
-				String securityToken = sessionService.newToken();
+				String securityToken = sessionService.generateSecurityKey();
 				response.addHeader("token", securityToken);
 				// initialize session here
 				String securityId = request.getHeader("Authorization");

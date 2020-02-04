@@ -8,5 +8,6 @@ public interface SessionService {
 	public void deleteSession(String userName);
 	public void deleteSession(Session session);
 	public Session getSession(String sessionId, String securityKey);
-	public String newToken();
+	public String generateSecurityKey();
+	
 }
