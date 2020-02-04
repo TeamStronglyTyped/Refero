@@ -14,5 +14,6 @@ public interface GroupsService {
     public List<String> getGroupsForUser(String username);
 	public List<String> getGroupIdsForUser(String username);
 	public List<String> getUsersForGroupId(String groupId);
+	public boolean hasGroupName( Groups group ); 
 	
 }

@@ -64,7 +64,7 @@ public class LoginController {
 				user.setBanned("T");
 			}
 			if (user.getBanned().equals("F")) {
-				String securityToken = sessionService.newToken();
+				String securityToken = sessionService.generateSecurityKey();
 				response.addHeader("token", securityToken);
 				// initialize session here
 				String securityId = request.getHeader("Authorization");
@@ -109,4 +109,18 @@ public class LoginController {
 		return service.updateUsers(user);
 	}
 	
+	@PostMapping("/validateAdmin")
+	public Users validateAdmin(@RequestBody Users user) {
+		user=service.getUsersByUserNameAndPassWord(user.getUserName(), user.getPassWord());
+		if(user != null) {
+			if(user.getUserName() != "admin") {
+				System.out.println("Not admin");
+		}else if(user.getPassWord() != "Refero202!") {
+			System.out.println("Not admin");
+		} else {
+			return user;
+		}
+	}
+		return user;
+}
 }

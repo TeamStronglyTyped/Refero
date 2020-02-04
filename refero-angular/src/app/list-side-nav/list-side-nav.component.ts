@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
 import { ListSideNavService } from "../list-side-nav.service";
 import { Subscription } from "rxjs";
+import { ListService } from '../list.service';
 
 @Component({
   selector: "app-list-side-nav",
@@ -10,10 +11,10 @@ import { Subscription } from "rxjs";
 })
 export class ListSideNavComponent implements OnInit {
   private eventSubscription = Subscription.EMPTY;
-  routes: any[] = [{ name: "My Lists" }];
+  routes: any[] = [];
   userGroups: any[];
 
-  constructor(private service: ListSideNavService, private router: Router) {}
+  constructor(private service: ListSideNavService, private router: Router, private listService: ListService) {}
 
   ngOnInit() {
     this.eventSubscription = this.service.getAllGroupsIn().subscribe(data => {
@@ -22,6 +23,10 @@ export class ListSideNavComponent implements OnInit {
         this.routes.push({ name: group });
       });
     });
+  }
+
+  setGroup(groupName: string) {
+    this.listService.setGroupName(groupName);
   }
 
   ngOnDestroy() {

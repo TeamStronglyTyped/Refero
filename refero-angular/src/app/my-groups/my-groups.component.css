@@ -48,4 +48,10 @@
 #my-groups-container {
   padding-left: 4vw;
   margin-left: 11vw;
+  padding-top : 1vh;
+}
+
+.noGroupsToShow {
+  color : #ffe855;
+  padding-top: 3vh;
 }

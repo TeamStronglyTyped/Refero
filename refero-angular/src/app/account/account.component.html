@@ -6,22 +6,22 @@
             <div class="card-body">
               <h5 class="card-title text-center">Account Details</h5>
               <form class="form-signin">
-
-                <div class="form-label-group">
-                  <input type="password" (input)="validatePassword()" [(ngModel)]="user.passWord" name="inputPassword" class="form-control" placeholder="Password" required title="Input Password.  Requires 1 letter, 2 numbers and 1 symbol">
+  
+                <div class="form-label-group">                  
+                  <input type="password" (input)="validatePassword()" [(ngModel)]="user.passWord" name="inputPassword" class="form-control" placeholder="Password" required title="Input Password.  Requires 1 letter, 2 numbers and 1 symbol" (keydown.enter)="changePassword()">
                 </div>
                 <p id="passwordMessage" class="text-center errorText">{{passwordError}}</p>
-
-                <div class="form-label-group">
-                    <input type="password" (input)="validatePasswordConfirm()" [(ngModel)]="passWordConfirm" name="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required title="Confirmed password must match Password">
+  
+                <div class="form-label-group">                  
+                    <input type="password" (input)="validatePasswordConfirm()" [(ngModel)]="passWordConfirm" name="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required title="Confirmed password must match Password" (keydown.enter)="changePassword()">
                 </div>
                 <p id="passwordConfirmMessage" class="text-center errorText">{{passwordConfirmError}}</p>
 
                 <button class="btn btn-success btn-lg btn-primary btn-block text-uppercase" (click)="changePassword()" type="button">Change Password</button>
 
                 <br>
-                <div class="form-label-group">
-                    <input type="email" (input)="validateEmail()" [(ngModel)]="user.email" name="inputEmail" class="form-control" placeholder="E-Mail Address" required title="Input E-Mail Address." autocomplete="off">
+                <div class="form-label-group">                  
+                    <input type="email" (input)="validateEmail()" [(ngModel)]="user.email" name="inputEmail" class="form-control" placeholder="E-Mail Address" required title="Input E-Mail Address." autocomplete="off" (keydown.enter)="changeEmail()">
                 </div>
                 <p id="emailMessage" class="text-center errorText">{{emailError}}</p>
 

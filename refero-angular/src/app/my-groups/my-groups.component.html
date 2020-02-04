@@ -4,7 +4,8 @@
       <div class="row">
         <app-group-side-nav></app-group-side-nav>
         <div class="col-10" align="center" id="my-groups-container">
-          <div class="row">
+          <div class="row" id="my-group-headers">
+            <div id="no-groups-header" class=""></div>
             <div id="group-name-header" class="col-6 text-center pt-2">
               Group Name :
             </div>
@@ -20,17 +21,17 @@
                 </h4>
               </div>
               <div id="username-col" class="col-5 text-center group-col px-1">
-                <!-- <div *ngFor="let group of groups"> -->
                   <div *ngFor="let user of group.users">
                   <p id="user-in-group">
                     {{ user }}
                   </p>
                   </div>
-                <!-- </div> -->
               </div>
             </div>
           </div>
-        </div>
+
+        </div> 
+
       </div>
     </div>
   </div>

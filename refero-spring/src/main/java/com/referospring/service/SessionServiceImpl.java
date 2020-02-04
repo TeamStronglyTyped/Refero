@@ -42,10 +42,18 @@ public class SessionServiceImpl implements SessionService {
 		return sessionDao.findBySessionIdAndSecurityToken(sessionId, securityKey);
 	}
 	
-	public String newToken() {
-		return "testSecirityToken";
-	}
 
-	
+	public String generateSecurityKey() {
+		String possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+	    int lengthOfCode = 30;
+	    String text = "";
+	    
+	    int index=0;
+	    for (int i = 0; i < lengthOfCode; i++) {
+	    	index=(int)(Math.floor(Math.random() * possible.length()));
+	        text += possible.substring(index, index+1);
+	    }
+	    return text;
+	}
 	
 }
