@@ -75,4 +75,14 @@ public class ListsServiceImpl implements ListsService {
         return listRepository.getListItemsByListName(listName);
     }
 
+    @Override
+    public void deleteListByName(String listName) {
+        listRepository.deleteListByName(listName);
+    }
+
+    @Override
+    public void deleteListByNameAndOwner(String listName, String owner) {
+        listRepository.deleteListByNameAndOwner(listName, owner);
+    }
+
 }

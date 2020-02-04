@@ -34,6 +34,15 @@ export class ListComponent implements OnInit {
     }
   }
 
+  deleteList(listName: string) {
+    if (listName != "") {
+      this.listService.delteListByName(listName).subscribe(res => {
+        this.lists = [];
+        this.updateLists();
+      });
+    }
+  }
+
   displayList(listName: string) {
     this.listService.getListItemsByListName(listName).subscribe(res => {
     });

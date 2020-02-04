@@ -61,4 +61,14 @@ public class ListController {
     public List<ListItems> getListItemsByListName(@PathVariable("listName") String listName) {
         return listsService.getListItemsByListName(listName);
     }
+
+    @DeleteMapping("/delete-list-by-name/{listName}")
+    public void deleteListByName(@PathVariable("listName") String listName) {
+        listsService.deleteListByName(listName);
+    }
+
+    @DeleteMapping("/delete-list-by-name-and-owner/{listName}/{owner}")
+    public void deleteListByNameAndOwner(@PathVariable("listName") String listName, @PathVariable("owner") String owner) {
+        listsService.deleteListByNameAndOwner(listName, owner);
+    }
 }
