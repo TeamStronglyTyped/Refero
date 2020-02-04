@@ -48,6 +48,7 @@
 #my-groups-container {
   padding-left: 4vw;
   margin-left: 11vw;
+  padding-top : 1vh;
 }
 
 .noGroupsToShow {

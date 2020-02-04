@@ -50,13 +50,10 @@ export class MyGroupsComponent {
             
           } );
         }
-
         } )
       
       } );
   } )
-
-
 };
 
   getGroupIds() : void {
