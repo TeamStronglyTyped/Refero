@@ -7,16 +7,13 @@ import { Users } from "./models/users";
   providedIn: "root"
 })
 export class UsersService {
+  private url: string;
+  private user: Users;
 
-  private url:string;
-  private user:Users;
-
-  constructor(private http:HttpClient) { 
-    this.url="http://localhost:5050";
-    this.user=new Users;
+  constructor(private http: HttpClient) {
+    this.url = "http://localhost:5050";
+    this.user = new Users();
   }
-
-  
 
   public validateUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.url + "/login", user);
@@ -38,15 +35,25 @@ export class UsersService {
   public bannUser(user: Users) {
     return this.http.put<Users>(this.url + "/bann-user", user);
   }
-  public restoreUser(user: Users){
+  public restoreUser(user: Users) {
     return this.http.put<Users>(this.url + "/restore-user", user);
   }
 
-  public setUser(user: Users){
-    this.user=user;
+  public setUser(user: Users) {
+    this.user = user;
   }
 
-  public getUser(): Users{
+  public getUser(): Users {
     return this.user;
+  }
+
+  public validAdmin(user: Users): boolean {
+    if (user.userName !== "admin") {
+      return false;
+    } else if (user.passWord !== "Refero2020!") {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
