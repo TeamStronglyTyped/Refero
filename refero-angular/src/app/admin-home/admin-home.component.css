@@ -19,4 +19,6 @@ main {
 app-all-users {
   margin-left: 6vw;
   margin-right: 6vw;
+  margin-top: 6vh;
+  height: 79vh;
 }
