@@ -73,12 +73,12 @@ export class AdminLogInComponent implements OnInit {
         this.user.userName = "";
         this.user.passWord = "";
       } else {
-        if (res.banned == null) {
-          res.banned == "T";
+        if (this.user.banned == null) {
+          this.user.banned == "T";
         }
-        if (res.banned == "F") {
+        if (this.user.banned == "F") {
           // user banned is false so login to application
-          this.user = res;
+
           this.errorMessage = "";
           this.usersService.setUser(this.user);
           this.router.navigate(["/my-lists"]);
