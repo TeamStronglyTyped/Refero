@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ListService } from "../list.service";
 import { Lists } from "../models/lists";
 import { UsersService } from "../users.service";
-import { RouteConfigLoadEnd } from '@angular/router';
+import { ListItems } from '../models/listItems';
 
 @Component({
   selector: "app-list",
@@ -12,6 +12,7 @@ import { RouteConfigLoadEnd } from '@angular/router';
 export class ListComponent implements OnInit {
 
   public lists: Lists[] = [];
+  public listItems: ListItems[] = [];
 
   constructor(private listService: ListService, private userService: UsersService) {
     this.updateLists();
@@ -32,6 +33,11 @@ export class ListComponent implements OnInit {
     }
   }
 
+  displayList(listName: string) {
+    this.listService.getListItemsByListName(listName).subscribe(res => {
+    });
+  }
+
   public updateLists() {
     if (this.listService.getGroupName() == "") {
       this.listService.setGroupName("My Lists");
@@ -44,11 +50,9 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.listService.subscription == undefined) {
-      this.listService.subscription = this.listService.invokeUpdateList.subscribe(() => {
-        this.lists = [];
-        this.updateLists();
-      });
-    }
+    this.listService.subscription = this.listService.invokeUpdateList.subscribe(() => {
+      this.lists = [];
+      this.updateLists();
+    });
   }
 }

@@ -2,9 +2,8 @@ package com.referospring.service;
 
 import java.util.List;
 
-import com.referospring.model.Groups;
+import com.referospring.model.ListItems;
 import com.referospring.model.Lists;
-import com.referospring.model.Users;
 import com.referospring.repository.ListRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +63,11 @@ public class ListsServiceImpl implements ListsService {
     @Override
     public List<Lists> getListsInGroupName(String groupName) {
         return listRepository.getListsInGroupName(groupName);
+    }
+
+    @Override
+    public List<ListItems> getListItemsByListName(String listName) {
+        return listRepository.getListItemsByListName(listName);
     }
 
 }

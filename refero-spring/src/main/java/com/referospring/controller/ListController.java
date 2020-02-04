@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.referospring.model.ListItems;
 import com.referospring.model.Lists;
-import com.referospring.service.ListItemsService;
 import com.referospring.service.ListsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +22,9 @@ public class ListController {
     @Autowired
     private ListsService listsService;
 
-    @Autowired
-    private ListItemsService listItemsService;
-
     @GetMapping("/get-all-lists")
     public List<Lists> getAllLists() {
         return listsService.getAllLists();
-    }
-
-    @GetMapping("/get-list-items/{list}")
-    public List<ListItems> getListItems(@PathVariable int listId) {
-        return listItemsService.getListItems(listId);
     }
 
     @PostMapping(value="/post-new-list")
@@ -59,5 +50,10 @@ public class ListController {
     @GetMapping("get-groupid-for-user-group/{userName}/{groupName}")
     public Integer getGroupIdForUserGroup(@PathVariable("userName") String userName, @PathVariable("groupName") String groupName) {
         return listsService.getGroupIdForUserGroup(userName, groupName);
+    }
+
+    @GetMapping("/get-list-items-by-list-name/{listName}")
+    public List<ListItems> getListItemsByListName(@PathVariable("listName") String listName) {
+        return listsService.getListItemsByListName(listName);
     }
 }

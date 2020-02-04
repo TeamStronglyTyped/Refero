@@ -23,17 +23,14 @@ public class ListItems implements Serializable{
 	@JoinColumn(name = "list", nullable = false)
 	private Lists list;
 	
-	@Column(length=100)
+	@Column(length=100, nullable = false)
 	private String listItem;
-	@Column(length=20)
+	@Column(length=20, nullable = false)
 	private String status;
-	private int orderId;
 	
 	@ManyToOne
 	@JoinColumn(name = "creator", nullable = false)
 	private Users creator;
-	
-	private int priority;
 	
 	
 	public ListItems(Lists list, String listItem, String status, int orderId, Users creator, int priority) {
@@ -41,9 +38,7 @@ public class ListItems implements Serializable{
 		this.list= list;
 		this.listItem = listItem;
 		this.status = status;
-		this.orderId = orderId;
 		this.creator = creator;
-		this.priority = priority;
 	}
 
 	public int getItemId() {
@@ -78,14 +73,6 @@ public class ListItems implements Serializable{
 		this.status = status;
 	}
 
-	public int getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-
 	public Users getCreator() {
 		return creator;
 	}
@@ -94,18 +81,10 @@ public class ListItems implements Serializable{
 		this.creator = creator;
 	}
 
-	public int getPriority() {
-		return priority;
-	}
-
-	public void setPriority(int priority) {
-		this.priority = priority;
-	}
-
 	@Override
 	public String toString() {
 		return "ListItems [itemId=" + itemId + ", list=" + list + ", listItem=" + listItem + ", status=" + status
-				+ ", orderId=" + orderId + ", creator=" + creator + ", priority=" + priority + "]";
+				+ ", creator=" + creator + "]";
 	}
 
 }
