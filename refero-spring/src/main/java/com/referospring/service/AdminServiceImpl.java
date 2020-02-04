@@ -12,7 +12,6 @@ import com.referospring.repository.ListRepository;
 public class AdminServiceImpl implements AdminService {
 	@Autowired
 	AdminRepository adminRepository;
-	ListRepository lists;
 
 	@Override
 	public List<Users> getAllUsers() {
