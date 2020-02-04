@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Lists } from "./models/lists";
 import { ListItems } from "./models/listItems";
+import { UsersService } from "./users.service";
 
 @Injectable({
   providedIn: "root"
@@ -11,7 +12,7 @@ export class ListService {
   private url: string;
   private groupName: string = "";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UsersService) {
     this.url = "http://localhost:5050";
   }
 
@@ -24,6 +25,7 @@ export class ListService {
   }
 
   public getAllLists(): Observable<Lists[]> {
+    this.userService.setIdToken("admin23");
     return this.http.get<Lists[]>(this.url + "/get-all-lists");
   }
 
@@ -38,6 +40,7 @@ export class ListService {
   }
 
   public delteList(id: number) {
+    this.userService.setIdToken("admin23");
     return this.http.delete<Lists>(this.url + "/delte-list" + id);
   }
 
