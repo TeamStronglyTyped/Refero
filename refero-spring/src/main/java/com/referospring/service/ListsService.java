@@ -11,4 +11,5 @@ public interface ListsService {
     public void deletList(int id);
     public boolean notNullList(Lists list);
     public boolean validList(Lists list);
+    public List<Lists> getListsInGroup(String groupId);
 }

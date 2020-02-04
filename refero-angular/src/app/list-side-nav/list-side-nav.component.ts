@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
 })
 export class ListSideNavComponent implements OnInit {
   private eventSubscription = Subscription.EMPTY;
-  routes: any[] = [{ name: "My Lists" }];
+  routes: any[] = [];
   userGroups: any[];
 
   constructor(private service: ListSideNavService, private router: Router) {}
