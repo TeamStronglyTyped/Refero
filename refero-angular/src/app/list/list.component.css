@@ -36,3 +36,7 @@
 #newList::placeholder {
   color: #ffe855;
 }
+
+#newListRow {
+  margin-bottom: 2vw;
+}
