@@ -10,7 +10,7 @@ import { ListItems } from "./models/listItems";
 export class ListService {
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = "http://localhost:5050";
+    this.url = "http://3.134.109.60:5050";
   }
   public getAllLists(): Observable<Lists[]> {
     return this.http.get<Lists[]>(this.url + "/get-all-lists");

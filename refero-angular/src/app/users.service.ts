@@ -11,12 +11,12 @@ export class UsersService {
   private url:string;
   private user:Users;
 
-  constructor(private http:HttpClient) { 
-    this.url="http://localhost:5050";
+  constructor(private http:HttpClient) {
+    this.url="http://3.134.109.60:5050";
     this.user=new Users;
   }
 
-  
+
 
   public validateUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.url + "/login", user);

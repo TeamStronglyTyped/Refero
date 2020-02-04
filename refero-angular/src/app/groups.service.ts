@@ -15,7 +15,7 @@ export class GroupsService {
   private url : string;
 
   constructor( private http:HttpClient, private userService: UsersService) {
-    this.url="http://localhost:5050";
+    this.url="http://3.134.109.60:5050";
   }
 
   getGroups () : Groups [] {
