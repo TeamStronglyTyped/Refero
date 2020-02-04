@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { Lists } from "./models/lists";
 import { ListItems } from "./models/listItems";
 
@@ -12,6 +12,9 @@ export class ListService {
   private groupName: string = "";
   private groupId: number = -1;
 
+  invokeUpdateList = new EventEmitter();
+  subscription: Subscription;
+
   constructor(private http: HttpClient) {
     this.url = "http://localhost:5050";
   }
@@ -22,6 +25,11 @@ export class ListService {
 
   public setGroupName(groupName: string) {
     this.groupName = groupName;
+    this.invokeUpdateLists();
+  }
+
+  public invokeUpdateLists() {
+    this.invokeUpdateList.emit();
   }
 
   public getGroupId(): number {
@@ -52,6 +60,10 @@ export class ListService {
 
   public getGroupIdForUserGroup(user: string, group: string) {
     return this.http.get<number>(this.url + "/get-groupid-for-user-group/" + user + "/" + group);
+  }
+
+  public getListsInGroupName() {
+    return this.http.get<Lists[]>(this.url + "/get-lists-in-group-name/" + this.getGroupName());
   }
 
   public validList(list: Lists): boolean {

@@ -13,4 +13,5 @@ public interface ListsService {
     public boolean validList(Lists list);
     public List<Lists> getListsInGroup(String groupId);
     public Integer getGroupIdForUserGroup(String userName, String groupName);
+    public List<Lists> getListsInGroupName(String groupName);
 }

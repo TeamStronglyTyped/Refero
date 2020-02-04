@@ -61,4 +61,9 @@ public class ListsServiceImpl implements ListsService {
         return listRepository.getGroupIdForUserGroup(userName, groupName);
     }
 
+    @Override
+    public List<Lists> getListsInGroupName(String groupName) {
+        return listRepository.getListsInGroupName(groupName);
+    }
+
 }
