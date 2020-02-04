@@ -1,9 +1,38 @@
 .container-fluid {
+  width: 100%;
   background-color: #2d2d2d;
-    padding-left: 5vw;
+  padding-left: 5vw;
   margin-left: 12vw;
+  padding-top: 3vw;
+  margin-right: 0;
+  margin-bottom: 0;
 }
 
-p {
-  color: #ffffff;
+#newList {
+  display: inline;
+}
+
+.form-control:focus {
+  border-color: darkgoldenrod;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px darkgoldenrod;
+}
+
+#newListButton {
+  background-color: #ffe855;
+}
+
+#newListButton:hover {
+  background-color: darkgoldenrod;
+  border-color: yellow;
+  color: black;
+}
+
+#newList {
+  background: #535353;
+  color: #ffe855;
+  border-color: #ffe855;
+}
+
+#newList::placeholder {
+  color: #ffe855;
 }
