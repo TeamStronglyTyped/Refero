@@ -68,9 +68,17 @@ export class ListService {
   }
 
   public getListsInGroupName() {
-    return this.http.get<Lists[]>(
-      this.url + "/get-lists-in-group-name/" + this.getGroupName() + "/" + this.userService.getUser().userName
-    );
+
+    if (this.getGroupName() == 'My Lists') {
+      return this.http.get<Lists[]>(
+        this.url + "/get-lists-in-group-name/" + this.getGroupName() + "/" + this.userService.getUser().userName
+      );
+    }
+    else {
+      return this.http.get<Lists[]>(
+        this.url + "/get-lists-in-group-name2/" + this.getGroupName()
+      );
+    }
   }
 
   public getListItemsByListName(listName: string) {
