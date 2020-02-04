@@ -49,3 +49,8 @@
   padding-left: 4vw;
   margin-left: 11vw;
 }
+
+.noGroupsToShow {
+  color : #ffe855;
+  padding-top: 3vh;
+}
