@@ -18,8 +18,8 @@ public interface ListRepository extends JpaRepository<Lists, Integer> {
     @Query(value = "SELECT GROUPID FROM USERS_GROUPS JOIN GROUPS ON GROUPID = GROUP_ID WHERE USERNAME = ? AND GROUP_NAME = ?", nativeQuery = true)
     public Integer getGroupIdForUserGroup(String userName, String groupName);
 
-    @Query(value = "SELECT * FROM LISTS JOIN GROUPS ON LISTS.GROUP_ID = GROUPS.GROUP_ID WHERE GROUPS.GROUP_NAME = ?", nativeQuery = true)
-    public List<Lists> getListsInGroupName(String groupName);
+    @Query(value = "SELECT * FROM LISTS JOIN GROUPS ON LISTS.GROUP_ID = GROUPS.GROUP_ID WHERE GROUPS.GROUP_NAME = ? AND OWNER = ?", nativeQuery = true)
+    public List<Lists> getListsInGroupName(String groupName, String owner);
 
     @Query(value = "SELECT * FROM LIST_ITEMS JOIN LISTS ON LIST = LIST_ID WHERE LIST_NAME = ?", nativeQuery = true)
     public List<ListItems> getListItemsByListName(String listName);

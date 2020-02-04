@@ -69,7 +69,7 @@ export class ListService {
 
   public getListsInGroupName() {
     return this.http.get<Lists[]>(
-      this.url + "/get-lists-in-group-name/" + this.getGroupName()
+      this.url + "/get-lists-in-group-name/" + this.getGroupName() + "/" + this.userService.getUser().userName
     );
   }
 
