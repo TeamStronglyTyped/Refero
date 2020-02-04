@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
 import { NavValuesService } from '../nav-values.service';
 import { Users } from '../models/users';
+import { ListService } from '../list.service';
 
 @Component({
   selector: 'app-logout',
@@ -14,7 +15,8 @@ export class LogoutComponent implements OnInit {
   private timeLeft: number = 3;
   private interval;
 
-  constructor(private router:Router, private usersService: UsersService, private service: NavValuesService) { 
+  constructor(private router:Router, private usersService: UsersService, private service: NavValuesService, private listService: ListService) {
+    this.listService.setGroupName("");
     this.service.purgeNav();
     this.service.addNav("/my-lists","Lists");
     this.service.addNav("/my-groups","Groups");
@@ -23,7 +25,7 @@ export class LogoutComponent implements OnInit {
     this.service.publish();
     this.startTimer();
   }
-  
+
 
   startTimer() {
     this.interval = setInterval(() => {
@@ -37,7 +39,7 @@ export class LogoutComponent implements OnInit {
           this.usersService.setIdToken("");
           this.router.navigate(['/login']);
         });
-        
+
       }
     },750)
   }

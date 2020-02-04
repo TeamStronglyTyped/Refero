@@ -8,8 +8,11 @@
     </div>
   </div>
   <div class="row" *ngFor="let list of lists">
-    <div class="col-12 lists">
-      <button (click)="displayList(list.listName)">{{list.listName}}</button>
+    <div class="col-4 lists">
+      <button class="listButton" (click)="displayList(list.listName)">{{list.listName}}</button>
+    </div>
+    <div class="col-2 lists">
+      <button class="deleteButton" (click)="deleteList(list.listName)">delete</button>
     </div>
   </div>
 </section>
