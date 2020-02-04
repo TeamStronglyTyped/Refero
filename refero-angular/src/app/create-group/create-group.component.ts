@@ -127,6 +127,11 @@ export class CreateGroupComponent implements OnInit {
 
   }
 
+  clearGroupNameFeedback() {
+    let groupFeedback = ( <HTMLInputElement> document.getElementById( 'group-feedback' ) );
+    groupFeedback.innerHTML = '';
+  }
+
   isInvitedUserEmpty( username ) {
     if ( username === '' ) {
       return true;
