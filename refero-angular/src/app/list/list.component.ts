@@ -27,6 +27,7 @@ export class ListComponent implements OnInit {
       this.listService.getGroupIdForUserGroup(this.userService.getUser().userName, this.listService.getGroupName()).subscribe(res => {
         list.group = res;
         this.listService.addList(list).subscribe(created => {
+          this.lists = [];
           this.updateLists();
         });
       });
