@@ -66,6 +66,11 @@ public class ListsServiceImpl implements ListsService {
     }
 
     @Override
+    public List<Lists> getListsInGroupName2(String groupName) {
+        return listRepository.getListsInGroupName2(groupName);
+    }
+
+    @Override
     public List<ListItems> getListItemsByListName(String listName) {
         return listRepository.getListItemsByListName(listName);
     }

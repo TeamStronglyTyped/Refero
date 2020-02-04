@@ -47,6 +47,11 @@ public class ListController {
         return listsService.getListsInGroupName(groupName, owner);
     }
 
+    @GetMapping("get-lists-in-group-name2/{groupName}")
+    public List<Lists> getListsInGroupName2(@PathVariable("groupName") String groupName) {
+        return listsService.getListsInGroupName2(groupName);
+    }
+
     @GetMapping("get-groupid-for-user-group/{userName}/{groupName}")
     public Integer getGroupIdForUserGroup(@PathVariable("userName") String userName, @PathVariable("groupName") String groupName) {
         return listsService.getGroupIdForUserGroup(userName, groupName);
