@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.referospring.model.Users;
 import com.referospring.repository.AdminRepository;
-import com.referospring.repository.ListRepository;
 
 @Service
 public class AdminServiceImpl implements AdminService {
