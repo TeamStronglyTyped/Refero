@@ -8,6 +8,8 @@ import { Users } from "./models/users";
   providedIn: "root"
 })
 export class UsersService {
+  private url: string;
+  private user: Users;
 
   private url:string;
   private user:Users;
@@ -43,7 +45,7 @@ export class UsersService {
   public bannUser(user: Users) {
     return this.http.put<Users>(this.url + "/bann-user", user);
   }
-  public restoreUser(user: Users){
+  public restoreUser(user: Users) {
     return this.http.put<Users>(this.url + "/restore-user", user);
   }
 
@@ -55,9 +57,20 @@ export class UsersService {
     this.user=user;
   }
 
-  public getUser(): Users{
+  public getUser(): Users {
     return this.user;
   }
+
+  public validAdmin(user: Users): boolean {
+    if (user.userName !== "admin") {
+      return false;
+    } else if (user.passWord !== "Refero2020!") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
 
   public setSecurityToken(token:string){
     this.securityToken=token;
