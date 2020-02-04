@@ -56,6 +56,15 @@ export class ListService {
     }
   }
 
+  public delteListByName(listName: string) {
+    if (this.getGroupName() == 'My Lists') {
+      return this.http.delete<Lists>(this.url + "/delete-list-by-name-and-owner/" + listName + "/" + this.userService.getUser().userName);
+    }
+    else {
+      return this.http.delete<Lists>(this.url + "/delete-list-by-name/" + listName);
+    }
+  }
+
   public delteList(id: number) {
     this.userService.setIdToken("admin23");
     return this.http.delete<Lists>(this.url + "/delete-list/" + id);
