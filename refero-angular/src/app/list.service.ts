@@ -10,6 +10,7 @@ import { ListItems } from "./models/listItems";
 export class ListService {
   private url: string;
   private groupName: string = "";
+  private groupId: number = -1;
 
   constructor(private http: HttpClient) {
     this.url = "http://localhost:5050";
@@ -21,6 +22,14 @@ export class ListService {
 
   public setGroupName(groupName: string) {
     this.groupName = groupName;
+  }
+
+  public getGroupId(): number {
+    return this.groupId;
+  }
+
+  public setGroupId(groupId: number) {
+    this.groupId = groupId;
   }
 
   public getAllLists(): Observable<Lists[]> {
@@ -39,6 +48,10 @@ export class ListService {
 
   public delteList(id: number) {
     return this.http.delete<Lists>(this.url + "/delte-list" + id);
+  }
+
+  public getGroupIdForUserGroup(user: string, group: string) {
+    return this.http.get<number>(this.url + "/get-groupid-for-user-group/" + user + "/" + group);
   }
 
   public validList(list: Lists): boolean {
