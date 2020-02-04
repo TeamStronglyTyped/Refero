@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit   } from '@angular/core';
+import { ListService } from '../list.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  @Input() group: String;
+  constructor(private listService: ListService) {
+    if (listService.getGroupName() == "") {
+      listService.setGroupName("My Lists");
+    }
+  }
 
-  constructor() { }
+
 
   ngOnInit() {
   }

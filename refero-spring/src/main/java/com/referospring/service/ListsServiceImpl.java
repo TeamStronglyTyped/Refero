@@ -50,4 +50,9 @@ public class ListsServiceImpl implements ListsService {
         return true;
     }
 
+    @Override
+    public List<Lists> getListsInGroup(String groupId) {
+        return listRepository.getListsInGroup(groupId);
+    }
+
 }

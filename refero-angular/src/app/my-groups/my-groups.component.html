@@ -3,6 +3,7 @@
     <div class="col-12">
       <div class="row">
         <app-group-side-nav></app-group-side-nav>
+        <div *ngIf="inAgroup; else notInAgroup"> 
         <div class="col-10" align="center" id="my-groups-container">
           <div class="row">
             <div id="group-name-header" class="col-6 text-center pt-2">
@@ -20,17 +21,25 @@
                 </h4>
               </div>
               <div id="username-col" class="col-5 text-center group-col px-1">
-                <!-- <div *ngFor="let group of groups"> -->
                   <div *ngFor="let user of group.users">
                   <p id="user-in-group">
                     {{ user }}
                   </p>
                   </div>
-                <!-- </div> -->
               </div>
             </div>
           </div>
         </div>
+        </div> 
+        <ng-template #notInAgroup>
+          <div class="row">
+            <div class="col-10 display-4" id="my-groups-container">
+              <div class="noGroupsToShow">
+                You are not a member of a group.
+              </div>
+            </div>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>
