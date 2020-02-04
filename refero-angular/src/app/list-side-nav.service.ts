@@ -12,7 +12,7 @@ export class ListSideNavService {
   url: string;
 
   constructor(private http: HttpClient, private userService: UsersService) {
-    this.url = "http://localhost:5050";
+    this.url = "http://3.134.109.60:5050";
   }
 
   public getAllGroupsIn(): Observable<String[]> {
