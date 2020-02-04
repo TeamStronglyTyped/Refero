@@ -14,7 +14,7 @@ export class UsersService {
   private securityToken: string = "";
 
   constructor(private http: HttpClient) {
-    this.url = "http://localhost:5050";
+    this.url = "http://3.134.109.60:5050";
     this.user = new Users();
   }
 
