@@ -11,10 +11,21 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 @Component
 public class LoggingAspect {
-		
+	
+	@Pointcut("execution(* com.referospring.service.UserServiceImpl.*(..))")
+	public void someBO(){}
+	
+	
+	/*@After("someBO()")
+	public void beforeAdvice(JoinPoint jp) {
+		System.out.println("Before execution of "+jp.getSignature());
+	}*/
+	/*	
 	@Before("execution(* com.referospring.service.*.*(..))")
 	public void before( JoinPoint joinPoint ) {
+		System.out.println("****************************************************************************************************");
 		System.out.println( "service " + joinPoint );
+		System.out.println("****************************************************************************************************");
 	}
-
+*/
 }
