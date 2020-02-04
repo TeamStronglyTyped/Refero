@@ -18,12 +18,13 @@ import { UsersService } from "./users.service";
 import { NgModule } from "@angular/core";
 import { GroupSideNavComponent } from "./group-side-nav/group-side-nav.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AccountComponent } from "./account/account.component";
 import { LogoutComponent } from "./logout/logout.component";
 import { ListSideNavComponent } from "./list-side-nav/list-side-nav.component";
 import { NavValuesService } from "./nav-values.service";
 import { AdminLogInComponent } from "./admin-log-in/admin-log-in.component";
+import { ValidationInterceptService } from "../app/validation-intercept.service";
 
 @NgModule({
   declarations: [
@@ -56,9 +57,13 @@ import { AdminLogInComponent } from "./admin-log-in/admin-log-in.component";
     ReactiveFormsModule
   ],
   providers: [
-    UsersService, 
+    UsersService,
     NavValuesService,
-    {provide: HTTP_INTERCEPTORS, useClass: ValidationInterceptService, multi: true}
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ValidationInterceptService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
