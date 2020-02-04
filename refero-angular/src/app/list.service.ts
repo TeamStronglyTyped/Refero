@@ -66,6 +66,10 @@ export class ListService {
     return this.http.get<Lists[]>(this.url + "/get-lists-in-group-name/" + this.getGroupName());
   }
 
+  public getListItemsByListName(listName: string) {
+    return this.http.get<ListItems[]>(this.url + "/get-list-items-by-list-name/" + listName);
+  }
+
   public validList(list: Lists): boolean {
     if (!list.listName || !list.group || !list.owner) {
       return false;
