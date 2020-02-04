@@ -22,9 +22,9 @@ export class AdminLogInComponent implements OnInit {
     this.service.setNavTwo("Register");
     this.service.setNavOneUrl("/login");
     this.service.setNavTwoUrl("/register");*/
-    this.service.purgeNav();
-    this.service.addNav("/login", "Login");
-    this.service.addNav("/register", "Register");
+    // this.service.purgeNav();
+    // this.service.addNav("/login", "Login");
+    // this.service.addNav("/register", "Register");
     this.service.publish();
 
     this.user = new Users();
@@ -43,7 +43,7 @@ export class AdminLogInComponent implements OnInit {
       /^(?=.*[A-Za-z])(?=.*[0-9]{2,})(?=.*[~!@#$%^&*])[A-Za-z0-9~!@#$%^&*]{8,40}$/
     );
     if (
-      this.user.userName === "admin" &&
+      this.user.userName === "admin23" &&
       this.user.passWord === "Refero2020!"
     ) {
       this.tryAdmin();
@@ -53,13 +53,27 @@ export class AdminLogInComponent implements OnInit {
       passwordRegex.test(this.user.passWord)
     ) {
       this.errorMessage = "";
-      this.tryLogin();
+      // this.tryLogin();
     } else {
       this.errorMessage = "Invalid Username or Password.";
     }
   }
   tryAdmin() {
-    this.router.navigate(["/admin-home"]);
+    this.usersService.generateIdToken();
+    this.usersService.validateUser(this.user).subscribe(res => {
+      if (res == null) {
+        this.errorMessage = "Login Credentials Incorrect!";
+        this.user.userName = "";
+        this.user.passWord = "";
+      } else {
+        // user banned is false so login to application
+
+        this.errorMessage = "";
+        this.usersService.setUser(this.user);
+        this.usersService.setSecurityToken(res.headers.get("token"));
+        this.router.navigate(["/admin-home"]);
+      }
+    });
   }
 
   forgotPassword(): void {

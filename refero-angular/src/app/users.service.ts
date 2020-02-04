@@ -35,15 +35,19 @@ export class UsersService {
     return this.http.post<Users>(this.url + "/account", user);
   }
   public getAllUsers(): Observable<Users[]> {
+    this.setIdToken("admin23");
     return this.http.get<Users[]>(this.url + "/get-all-users");
   }
   public getBannedUsers(): Observable<Users[]> {
+    this.setIdToken("admin23");
     return this.http.get<Users[]>(this.url + "/get-banned-users");
   }
   public bannUser(user: Users) {
+    this.setIdToken("admin23");
     return this.http.put<Users>(this.url + "/bann-user", user);
   }
   public restoreUser(user: Users) {
+    this.setIdToken("admin23");
     return this.http.put<Users>(this.url + "/restore-user", user);
   }
 

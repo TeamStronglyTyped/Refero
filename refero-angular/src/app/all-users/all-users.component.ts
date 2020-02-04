@@ -29,6 +29,6 @@ export class AllUsersComponent implements OnInit {
         })
       )
       .subscribe();
-    location.reload();
+    location.reload(false);
   }
 }

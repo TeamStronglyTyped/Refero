@@ -22,5 +22,6 @@ export class AllListsComponent implements OnInit {
   deleteList(list: Lists): void {
     this.lists = this.lists.filter(list => list !== list);
     this.listService.delteList(list.listId).subscribe();
+    location.reload(false);
   }
 }

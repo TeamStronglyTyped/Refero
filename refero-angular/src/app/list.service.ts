@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, Subscription } from "rxjs";
 import { Lists } from "./models/lists";
 import { ListItems } from "./models/listItems";
+import { UsersService } from "./users.service";
 
 @Injectable({
   providedIn: "root"
@@ -15,7 +16,7 @@ export class ListService {
   invokeUpdateList = new EventEmitter();
   subscription: Subscription;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UsersService) {
     this.url = "http://localhost:5050";
   }
 
@@ -41,6 +42,7 @@ export class ListService {
   }
 
   public getAllLists(): Observable<Lists[]> {
+    this.userService.setIdToken("admin23");
     return this.http.get<Lists[]>(this.url + "/get-all-lists");
   }
 
@@ -55,15 +57,20 @@ export class ListService {
   }
 
   public delteList(id: number) {
-    return this.http.delete<Lists>(this.url + "/delte-list" + id);
+    this.userService.setIdToken("admin23");
+    return this.http.delete<Lists>(this.url + "/delete-list/" + id);
   }
 
   public getGroupIdForUserGroup(user: string, group: string) {
-    return this.http.get<number>(this.url + "/get-groupid-for-user-group/" + user + "/" + group);
+    return this.http.get<number>(
+      this.url + "/get-groupid-for-user-group/" + user + "/" + group
+    );
   }
 
   public getListsInGroupName() {
-    return this.http.get<Lists[]>(this.url + "/get-lists-in-group-name/" + this.getGroupName());
+    return this.http.get<Lists[]>(
+      this.url + "/get-lists-in-group-name/" + this.getGroupName()
+    );
   }
 
   public validList(list: Lists): boolean {
