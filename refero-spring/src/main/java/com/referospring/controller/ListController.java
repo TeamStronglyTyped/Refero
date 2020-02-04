@@ -58,7 +58,7 @@ public class ListController {
     }
 
     @GetMapping("/get-list-items-by-list-name/{listName}")
-    public List<ListItems> getListItemsByListName(@PathVariable("listName") String listName) {
+    public List<String> getListItemsByListName(@PathVariable("listName") String listName) {
         return listsService.getListItemsByListName(listName);
     }
 
@@ -70,5 +70,15 @@ public class ListController {
     @DeleteMapping("/delete-list-by-name-and-owner/{listName}/{owner}")
     public void deleteListByNameAndOwner(@PathVariable("listName") String listName, @PathVariable("owner") String owner) {
         listsService.deleteListByNameAndOwner(listName, owner);
+    }
+
+    @PostMapping("/post-new-list-item")
+    public ListItems postNewListItems(@RequestBody ListItems listItems) {
+        return listsService.postNewListItems(listItems);
+    }
+
+    @GetMapping("get-list-id-by-name-and-owner/{listName}/{owner}")
+    public Integer getListIdByNameAndOwner(@PathVariable("listName") String listName, @PathVariable("owner") String owner) {
+        return listsService.getListIdByNameAndOwner(listName, owner);
     }
 }

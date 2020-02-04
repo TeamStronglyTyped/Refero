@@ -13,6 +13,9 @@ export class ListService {
   private groupName: string = "";
   private groupId: number = -1;
 
+  invokeUpdateListItems = new EventEmitter();
+  itemSubscription: Subscription;
+
   invokeUpdateList = new EventEmitter();
   subscription: Subscription;
 
@@ -31,6 +34,10 @@ export class ListService {
 
   public invokeUpdateLists() {
     this.invokeUpdateList.emit();
+  }
+
+  public updateListItems() {
+    this.invokeUpdateListItems.emit();
   }
 
   public getGroupId(): number {
@@ -91,7 +98,16 @@ export class ListService {
   }
 
   public getListItemsByListName(listName: string) {
-    return this.http.get<ListItems[]>(this.url + "/get-list-items-by-list-name/" + listName);
+    return this.http.get<string[]>(this.url + "/get-list-items-by-list-name/" + listName);
+  }
+
+  public getListIdByNameAndOwner(listName: string) {
+    return this.http.get<number>(this.url + "/get-list-id-by-name-and-owner/" + listName + "/" + this.userService.getUser().userName);
+  }
+
+  public postNewListItem(listItem: ListItems) {
+    listItem.creator = this.userService.getUser().userName;
+    return this.http.post<ListItems>(this.url + "/post-new-list-item", listItem);
   }
 
   public validList(list: Lists): boolean {

@@ -47,6 +47,10 @@ public class Lists implements Serializable{
 		this.owner = null;
 	}
 
+	public Lists(Integer listId) {
+		this.listId = listId;
+	}
+
 	public Lists(Integer listId, String listName, Groups group, Users owner) {
 		this.listId = listId;
 		this.listName = listName;

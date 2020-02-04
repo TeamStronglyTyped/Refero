@@ -33,8 +33,14 @@ public class ListItems implements Serializable{
 	private Users creator;
 	
 	
+	public ListItems() {
+		this.list= new Lists();
+		this.listItem = "";
+		this.status = "";
+		this.creator = new Users();
+	}
+
 	public ListItems(Lists list, String listItem, String status, int orderId, Users creator, int priority) {
-		super();
 		this.list= list;
 		this.listItem = listItem;
 		this.status = status;
